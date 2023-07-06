@@ -5,16 +5,29 @@ import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 ---
 
+<style>
+	body {
+		background-image: radial-gradient(
+			circle farthest-corner at 10% 20%,
+			rgba(177, 216, 234, 1) 0%,
+			rgba(142, 202, 230, 1) 90%
+		);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+</style>
+
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 
-	<body class="max-w-3xl mx-auto p-4 antialiased grid gap-8 text-[#444444]">
-		<Header />
-		<main>
+	<!-- bg-[#f0f3f3b2] -->
+	<body class="bg-[#F3F3F3]">
+		<main class="mx-auto max-w-7xl antialiased grid gap-8 mt-4 text-[#444444]">
+			<Header />
 			<slot />
+			<!-- <Footer /> -->
 		</main>
-		<Footer />
 	</body>
 </html>
