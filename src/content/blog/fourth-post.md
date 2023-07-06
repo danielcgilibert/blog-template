@@ -2,7 +2,7 @@
 title: 'fourt post'
 description: 'sadsad'
 pubDate: 'Jul 22 2022'
-heroImage: '/placeholder-hero.jpg'
+heroImage: '/placeholder-social.jpg'
 asd: 2
 ---
 
