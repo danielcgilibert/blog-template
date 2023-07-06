@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
-import FormattedDate from '../components/FormattedDate.astro'
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -9,25 +8,26 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseLayout>
-	<section class="flex flex-col gap-12 px-6">
+	<section
+		class="grid p-2 rounded-lg grid-cols-4 [&>*:first-child]:row-span-3 [&>*:first-child]:col-span-2 gap-12"
+	>
 		{
-			posts.map(post => (
-				<article class="grid grid-cols-[auto_70%] h-40    gap-5 px-2 ">
+			posts.slice(0, 7).map(post => (
+				<article class="grid grid-cols-1 gap-1 grid-rows-[1fr_auto] rounded-md shadow bg-white pb-12">
 					<div>
-						<img
-							src={post.data.heroImage}
-							class="rounded min-h-full object-cover aspect-auto"
-						/>
+						<a href={`/blog/${post.slug}/`}>
+							<img
+								src={post.data.heroImage}
+								class="rounded min-h-full object-cover aspect-auto"
+							/>
+						</a>
 					</div>
-					<div class="flex flex-col justify-between gap-5">
-						<div class="flex flex-col gap-1">
-							<h1 class="text-2xl text-black font-bold">{post.data.title}</h1>
-							<FormattedDate date={post.data.pubDate} />
-							<p>{post.data.description}</p>
-						</div>
 
-						<a href={`/blog/${post.slug}/`} class="ml-auto">
-							Read More ➡️
+					<div class="flex min-h-full p-4">
+						<a href={`/blog/${post.slug}/`}>
+							<div class="flex  gap-1 justify-between ">
+								<h1 class="text-lg text-black font-bold">{post.data.title}</h1>
+							</div>
 						</a>
 					</div>
 				</article>
