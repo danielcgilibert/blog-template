@@ -9,28 +9,40 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
 
 <BaseLayout>
-	<article class="prose lg:prose-xl">
-		{
-			heroImage && (
-				<img
-					class="rounded-md"
-					width={720}
-					height={360}
-					src={heroImage}
-					alt=""
-				/>
-			)
-		}
-		<h1 class="">{title}</h1>
-		<FormattedDate date={pubDate} />
-		{
-			updatedDate && (
-				<div class="last-updated-on">
-					Last updated on <FormattedDate date={updatedDate} />
-				</div>
-			)
-		}
-		<hr />
-		<slot />
+	<article
+		class="relative min-w-full bg-white shadow mx-auto py-4 px-64 rounded-md"
+	>
+		<div class="prose lg:prose-xl">
+			{
+				heroImage && (
+					<img
+						class="rounded-md"
+						width={720}
+						height={360}
+						src={heroImage}
+						alt=""
+					/>
+				)
+			}
+			<h1 class="">{title}</h1>
+			<FormattedDate date={pubDate} />
+			{
+				updatedDate && (
+					<div class="last-updated-on">
+						Last updated on <FormattedDate date={updatedDate} />
+					</div>
+				)
+			}
+			<hr />
+			<slot />
+		</div>
+		<div class="fixed top-24 right-24 bg-white shadow px-12 rounded-md py-12">
+			<ul class="flex flex-col gap-5">
+				<a>Link1</a>
+				<a>Link1</a>
+				<a>Link1</a>
+				<a>Link1</a>
+			</ul>
+		</div>
 	</article>
 </BaseLayout>
