@@ -1,37 +1,21 @@
 ---
+import Banner from '../components/Banner.astro'
+import ListCategories from '../components/ListCategories.astro'
+import ListPosts from '../components/ListPosts.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCategories } from '../libs/helpers'
 import { getCollection } from 'astro:content'
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-)
+const posts = (await getCollection('blog'))
+	.slice(0, 6)
+	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+
+const categories = getCategories(posts)
 ---
 
 <BaseLayout>
-	<section
-		class="grid p-2 rounded-lg grid-cols-4 [&>*:first-child]:row-span-3 [&>*:first-child]:col-span-2 gap-12"
-	>
-		{
-			posts.slice(0, 7).map(post => (
-				<article class="grid grid-cols-1 gap-1 grid-rows-[1fr_auto] rounded-md shadow bg-white pb-12">
-					<div>
-						<a href={`/blog/${post.slug}/`}>
-							<img
-								src={post.data.heroImage}
-								class="rounded min-h-full object-cover aspect-auto"
-							/>
-						</a>
-					</div>
-
-					<div class="flex min-h-full p-4">
-						<a href={`/blog/${post.slug}/`}>
-							<div class="flex  gap-1 justify-between ">
-								<h1 class="text-lg text-black font-bold">{post.data.title}</h1>
-							</div>
-						</a>
-					</div>
-				</article>
-			))
-		}
-	</section>
+	<Banner />
+	<h1 class="text-4xl text-black font-semibold">Latest articles</h1>
+	<ListCategories categories={categories} />
+	<ListPosts posts={posts} />
 </BaseLayout>
