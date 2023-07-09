@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
 import BlogPost from '../../layouts/BlogPost.astro'
-import { Code } from 'astro/components'
+import Heading from '../../components/mdx/Heading.astro'
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog')
@@ -13,9 +13,10 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>
 
 const post = Astro.props
-const { Content } = await post.render()
+
+const { Content, headings } = await post.render()
 ---
 
-<BlogPost {...post.data}>
-	<Content />
+<BlogPost data={post.data} headings={headings}>
+	<Content components={{ pre: Heading }} />
 </BlogPost>
