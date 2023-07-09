@@ -1,0 +1,57 @@
+---
+import FormattedDate from './FormattedDate.astro'
+import ArrowRight from './icons/ArrowRight.astro'
+
+const {
+  data: { title, description, pubDate, heroImage, category },
+  slug,
+} = Astro.props
+---
+
+<article class="grid grid-rows-[auto_auto] rounded-lg shadow">
+
+  
+  <a
+    href={`/blog/${slug}/`}
+    class={`rounded-2xl h-40 rounded-b-none w-full  aspect-auto`}
+    style={{
+      background: `url(${heroImage})`,
+      backgroundSize: `cover`,
+      backgroundPosition: `center`,
+    }}
+  >
+  </a>
+
+  <div class="flex flex-col justify-between py-6 px-6 gap-4">
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-col">
+        <FormattedDate date={pubDate} />
+        <a
+          class="text-xl text-black font-semibold hover:underline"
+          href={`/blog/${slug}/`}
+        >
+          {title}
+        </a>
+      </div>
+
+      <p
+        class="md:text-sm overflow-hidden line-clamp-3 text-black text-opacity-70 leading-relaxed"
+      >
+        {description}
+      </p>
+    </div>
+
+    <footer
+      class="border-t-2 border-gray-200 pt-5 flex justify-between items-center"
+    >
+      <a
+        href=`/category/${category}`
+        class="text-sm bg-[#212529] text-white rounded-full px-4 py-1 flex justify-center items-center"
+        >{category}
+      </a>
+      <a href={`/blog/${slug}/`} class="flex justify-center items-center">
+        <ArrowRight />
+      </a>
+    </footer>
+  </div>
+</article>
