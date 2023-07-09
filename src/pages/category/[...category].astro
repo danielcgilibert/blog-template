@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ListPosts from '../../components/ListPosts.astro'
+const { category } = Astro.params
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  return posts.map(post => ({
+    params: { category: post.data.category },
+    props: post,
+  }))
+}
+
+const posts = (await getCollection('blog'))
+  .filter(post => post.data.category === category)
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+---
+
+<BaseLayout>
+  <ListPosts posts={posts} />
+</BaseLayout>

@@ -1,0 +1,10 @@
+---
+const { name } = Astro.props
+---
+
+<a
+  href=`/category/${name}`
+  class="hover:bg-white hover:text-black transition-colors delay-75 text-sm px-4 py-1 rounded-full"
+>
+  {name}
+</a>
