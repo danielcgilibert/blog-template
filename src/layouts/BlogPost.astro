@@ -2,47 +2,81 @@
 import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '../components/FormattedDate.astro'
 import BaseLayout from './BaseLayout.astro'
+import Tag from '../components/Tag.astro'
+import type { MarkdownHeading } from 'astro'
+import { cn } from '../libs/cn'
+import ListIcon from '../components/icons/ListIcon.astro'
+import ShareIcon from '../components/icons/ShareIcon.astro'
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = {
+	data: CollectionEntry<'blog'>['data']
+	headings: MarkdownHeading[]
+}
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { data, headings } = Astro.props
+const { title, description, pubDate, updatedDate, heroImage, tags } = data
 ---
 
 <BaseLayout>
-	<article
-		class="relative min-w-full bg-white shadow mx-auto py-4 px-64 rounded-md"
-	>
-		<div class="prose lg:prose-xl">
-			{
-				heroImage && (
-					<img
-						class="rounded-md"
-						width={720}
-						height={360}
-						src={heroImage}
-						alt=""
-					/>
-				)
-			}
-			<h1 class="">{title}</h1>
-			<FormattedDate date={pubDate} />
-			{
-				updatedDate && (
-					<div class="last-updated-on">
-						Last updated on <FormattedDate date={updatedDate} />
-					</div>
-				)
-			}
-			<hr />
-			<slot />
-		</div>
-		<div class="fixed top-24 right-24 bg-white shadow px-12 rounded-md py-12">
-			<ul class="flex flex-col gap-5">
-				<a>Link1</a>
-				<a>Link1</a>
-				<a>Link1</a>
-				<a>Link1</a>
+	<article class='md:py-4 max-w-xs md:max-w-none'>
+		<div class="hidden md:fixed top-[30%] right-24 rounded-md">
+			<ul class="flex flex-col justify-start items-start gap-2 w-full">
+				{
+					headings.map(({ text, depth, slug }) => (
+						<a href={`#${slug}`} class="w-44">
+							<li
+								class={cn(
+									'text-sm text-white  px-2 py-1 rounded-md   bg-[#212529] hover:bg-white hover:text-black hover:shadow-md w-fit'
+								)}>
+								{text}
+							</li>
+						</a>
+					))
+				}
 			</ul>
+		</div>
+
+		<header class="mb-3 flex flex-col justify-center items-center gap-6">
+			<div class="flex flex-col gap-2">
+				<p class="text-center text-black text-sm text-opacity-50">
+					Published <FormattedDate date={pubDate} />
+				</p>
+				<h1 class="text-center text-2xl md:text-5xl font-semibold text-black">
+					{title}
+				</h1>
+			</div>
+
+			<div class="flex flex-wrap gap-2 md:gap-5">
+				{tags.map(tag => <Tag>{tag}</Tag>)}
+			</div>
+		</header>
+
+		{
+			heroImage && (
+				<img
+					class="rounded-md my-8  md:min-w-full md:h-96 object-cover"
+					src={heroImage}
+					alt=""
+				/>
+			)
+		}
+
+		{
+			updatedDate && (
+				<div class="last-updated-on">
+					Last updated on <FormattedDate date={updatedDate} />
+				</div>
+			)
+		}
+
+		<hr />
+
+		<div class="mt-8 md:px-8">
+			<!-- <div class="sticky">
+				<ListIcon />
+				<ShareIcon />
+			</div> -->
+			<div class="prose lg:prose-xl"><slot /></div>
 		</div>
 	</article>
 </BaseLayout>
