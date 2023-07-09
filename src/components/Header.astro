@@ -1,17 +1,45 @@
 ---
 import HeaderLink from './HeaderLink.astro'
+import GithbuIcon from './icons/TwitterIcon.astro'
+import TwitterIcon from './icons/GithbuIcon.astro'
+import SunIcon from './icons/SunIcon.astro'
+
+const SOCIALNETWORKS = [
+  {
+    name: 'Github',
+    url: 'https://github.com/danielcgilibert',
+    icon: GithbuIcon,
+  },
+  {
+    name: 'Twitter',
+    url: 'https://github.com/danielcgilibert',
+		icon: TwitterIcon,
+  },
+	
+]
+
 ---
 
 <header
-	class="flex justify-between items-center w-full rounded-md bg-white shadow mx-auto px-12 h-12"
+	class="flex justify-between items-center px-2 h-12 font-semibold text-[#212529]"
 >
 	<a href="/">BLOG</a>
-	<nav class="flex gap-3">
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">
-			Twitter
-		</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">
-			GitHub
-		</HeaderLink>
+	<nav class="nav-menu flex justify-center items-center md:flex md:gap-6 gap-4">
+		{SOCIALNETWORKS.map(network => (
+			<HeaderLink
+				class="text-black"
+				href={network.url}
+				target="_blank"
+			>
+				<span>{<network.icon />} </span>
+			</HeaderLink>
+		))}
+		
+
+		<div
+			class="md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2"
+		>
+			<SunIcon />
+		</div>
 	</nav>
 </header>
