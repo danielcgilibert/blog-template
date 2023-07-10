@@ -8,7 +8,9 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('/banner.webp')",
       },
-
+      colors: {
+        white: '#f8f9fa'
+      },
       fontFamily: {
         sans: ['Manrope', ...defaultTheme.fontFamily.sans],
       },
