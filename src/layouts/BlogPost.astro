@@ -15,9 +15,10 @@ type Props = {
 
 const { data, headings } = Astro.props
 const { title, description, pubDate, updatedDate, heroImage, tags } = data
+
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} image={heroImage}  >
 	<article class='md:py-4 max-w-xs md:max-w-none'>
 		<div class="hidden md:fixed top-[30%] right-24 rounded-md">
 			<ul class="flex flex-col justify-start items-start gap-2 w-full">
