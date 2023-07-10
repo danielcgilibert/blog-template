@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('banner.webp')",
+        'hero-pattern': "url('/banner.webp')",
       },
 
       fontFamily: {
