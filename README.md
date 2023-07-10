@@ -22,7 +22,8 @@
 - ✅ RSS Feed support
 - ✅ Markdown & MDX support
 - ✅ Syntax highlighting
-
+- ✅ Image optimization
+  
 ## 🛣️ Roadmap
 
 - ❌ Table of contents
