@@ -1,5 +1,6 @@
 @font-face {
-  font-family: manrope;
-  src: url(../assets/fonts/Manrope-SemiBold.ttf);
-  src: url(../assets/fonts/Manrope-Medium.ttf);
+  font-family: Manrope;
+  src: url(../assets/fonts/Manrope-Medium.woff2);
+  src: url(../assets/fonts/Manrope-Regular.woff2);
+  src: url(../assets/fonts/Manrope-Medium.woff2);
 }
