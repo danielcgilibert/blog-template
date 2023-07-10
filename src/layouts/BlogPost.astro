@@ -78,7 +78,9 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 		<hr />
 
 		<div class="mt-8 md:px-8">
-			<div class="prose lg:prose-xl dark:prose-invert"><slot /></div>
+			<div class="grid grid-cols-4 max-w-6xl prose lg:prose-xl dark:prose-invert">
+        <slot />
+      </div>
 		</div>
 	</article>
 </BaseLayout>
