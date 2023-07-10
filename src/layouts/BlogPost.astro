@@ -7,6 +7,7 @@ import type { MarkdownHeading } from 'astro'
 import { cn } from '../libs/cn'
 import ListIcon from '../components/icons/ListIcon.astro'
 import ShareIcon from '../components/icons/ShareIcon.astro'
+import { Image } from '@astrojs/image/components'
 
 type Props = {
 	data: CollectionEntry<'blog'>['data']
@@ -54,10 +55,16 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 
 		{
 			heroImage && (
-				<img
-					class="rounded-md my-8  md:min-w-full md:h-96 object-cover"
+				<Image
 					src={heroImage}
-					alt=""
+      width={1000}
+      height={600}
+      aspectRatio={16 / 9}
+			quality={80}
+      format="webp"
+      position="center"
+      class="rounded-md my-8"
+      alt={`img of ${title}`}
 				/>
 			)
 		}

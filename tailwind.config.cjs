@@ -10,7 +10,7 @@ module.exports = {
       },
 
       fontFamily: {
-        sans: ['Rubik', ...defaultTheme.fontFamily.sans],
+        sans: ['Manrope', ...defaultTheme.fontFamily.sans],
       },
     },
   },
