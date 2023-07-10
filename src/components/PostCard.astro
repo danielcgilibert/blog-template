@@ -1,7 +1,7 @@
 ---
 import FormattedDate from './FormattedDate.astro'
 import ArrowRight from './icons/ArrowRight.astro'
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 
 const {
   data: { title, description, pubDate, heroImage, category },
@@ -15,9 +15,7 @@ const {
       src={heroImage}
       width={550}
       height={300}
-      aspectRatio={3 / 4}
       format="webp"
-      position="center"
       class="rounded-2xl rounded-b-none"
       alt={`img of ${title}`}
     />

@@ -3,7 +3,7 @@ import { CATEGORIES } from '../data/categories'
 
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		description: z.string(),
 		// Transform string to Date object
@@ -15,7 +15,7 @@ const blog = defineCollection({
 			.string()
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
-		heroImage: z.string().optional(),
+		heroImage: image().optional(),
 		category: z.enum(CATEGORIES),
 		tags: z.array(z.string()),
 		draft: z.boolean().default(false)
