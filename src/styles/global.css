@@ -4,3 +4,19 @@
   src: url(../assets/fonts/Manrope-Regular.woff2);
   src: url(../assets/fonts/Manrope-Medium.woff2);
 }
+
+.moon-logo {
+  transform: translateY(0%) rotateZ(0deg);
+}
+
+.sun-logo {
+  transform: translateY(0) rotateZ(0deg);
+}
+
+.animate-sun {
+  transform: translateY(20%) rotateZ(100deg);
+}
+
+.animate-moon {
+  transform: translateY(20%) rotateZ(50deg);
+}

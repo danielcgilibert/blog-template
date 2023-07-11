@@ -10,14 +10,14 @@ const {
 } = Astro.props
 ---
 
-<article class="grid grid-rows-[auto_auto] rounded-lg shadow">
+<article class="grid grid-rows-[40%_auto] rounded-lg shadow">
   <a href={`/blog/${slug}/`}
     ><Image
       src={heroImage}
-      width={550}
+      width={500}
       height={300}
       format="webp"
-      class="rounded-2xl rounded-b-none"
+      class="rounded-2xl rounded-b-none h-full"
       alt={`img of ${title}`}
     />
   </a>
