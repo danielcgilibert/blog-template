@@ -18,11 +18,15 @@ const post = Astro.props
 const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
-<BlogPost data={post.data} headings={headings} readTime={remarkPluginFrontmatter.minutesRead}>
-  <div class="col-span-3">
-	  <Content components={{ pre: Code }} />
-  </div>
-  <div class="relative">
-    {headings && headings.length > 0 && <TableOfContents {headings} />}
-  </div>
+<BlogPost
+	data={post.data}
+	headings={headings}
+	readTime={remarkPluginFrontmatter.minutesRead}
+>
+	<div class="col-span-4 md:col-span-3">
+		<Content components={{ pre: Code }} />
+	</div>
+	<div class="md:relative md:block hidden">
+		{headings && headings.length > 0 && <TableOfContents {headings} />}
+	</div>
 </BlogPost>

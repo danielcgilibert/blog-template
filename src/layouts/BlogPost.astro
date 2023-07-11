@@ -4,40 +4,22 @@ import FormattedDate from '../components/FormattedDate.astro'
 import BaseLayout from './BaseLayout.astro'
 import Tag from '../components/Tag.astro'
 import type { MarkdownHeading } from 'astro'
-import { cn } from '../libs/cn'
-import ListIcon from '../components/icons/ListIcon.astro'
-import ShareIcon from '../components/icons/ShareIcon.astro'
 import { Image } from 'astro:assets'
 
 type Props = {
 	data: CollectionEntry<'blog'>['data'],
 	headings: MarkdownHeading[],
+	readTime: string
 }
 
-const { data, headings, readTime } = Astro.props
+const { data, readTime } = Astro.props
 const { title, description, pubDate, updatedDate, heroImage, tags } = data
+
 
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}  >
 	<article class='md:py-4 max-w-xs md:max-w-none'>
-		<div class="hidden md:fixed top-[30%] right-24 rounded-md">
-			<ul class="flex flex-col justify-start items-start gap-2 w-full">
-				{
-					headings.map(({ text, depth, slug }) => (
-						<a href={`#${slug}`} class="w-44">
-							<li
-								class={cn(
-									'text-sm text-white px-2 py-1 rounded-md bg-stone-900 hover:bg-white hover:text-black hover:shadow-md w-fit'
-								)}>
-								{text}
-							</li>
-						</a>
-					))
-				}
-			</ul>
-		</div>
-
 		<header class="mb-3 flex flex-col justify-center items-center gap-6">
 			<div class="flex flex-col gap-2">
         <div class="flex items-center justify-center gap-x-1">
@@ -61,10 +43,10 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 				<Image
 					src={heroImage}
       width={1000}
-      height={600}
-			quality={80}
+      height={500}
+			quality={90}
       format="webp"
-      class="rounded-md my-8"
+      class="rounded-md w-full max-h-[500px] my-8"
       alt={`img of ${title}`}
 				/>
 			)
