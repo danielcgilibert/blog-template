@@ -7,14 +7,14 @@ import type { MarkdownHeading } from 'astro'
 import { cn } from '../libs/cn'
 import ListIcon from '../components/icons/ListIcon.astro'
 import ShareIcon from '../components/icons/ShareIcon.astro'
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 
 type Props = {
-	data: CollectionEntry<'blog'>['data']
-	headings: MarkdownHeading[]
+	data: CollectionEntry<'blog'>['data'],
+	headings: MarkdownHeading[],
 }
 
-const { data, headings } = Astro.props
+const { data, headings, readTime } = Astro.props
 const { title, description, pubDate, updatedDate, heroImage, tags } = data
 
 ---
@@ -28,7 +28,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 						<a href={`#${slug}`} class="w-44">
 							<li
 								class={cn(
-									'text-sm text-white  px-2 py-1 rounded-md   bg-[#212529] hover:bg-white hover:text-black hover:shadow-md w-fit'
+									'text-sm text-white px-2 py-1 rounded-md bg-stone-900 hover:bg-white hover:text-black hover:shadow-md w-fit'
 								)}>
 								{text}
 							</li>
@@ -40,10 +40,13 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 
 		<header class="mb-3 flex flex-col justify-center items-center gap-6">
 			<div class="flex flex-col gap-2">
-				<p class="text-center text-black text-sm text-opacity-50">
+        <div class="flex items-center justify-center gap-x-1">
+				<p class="text-center text-sm text-opacity-50">
 					Published <FormattedDate date={pubDate} />
 				</p>
-				<h1 class="text-center text-2xl md:text-5xl font-semibold text-black">
+        <p class="text-center text-sm text-opacity-50 font-bold">- {readTime}</p>
+        </div>
+				<h1 class="text-center text-2xl md:text-5xl font-semibold">
 					{title}
 				</h1>
 			</div>
@@ -59,10 +62,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 					src={heroImage}
       width={1000}
       height={600}
-      aspectRatio={16 / 9}
 			quality={80}
       format="webp"
-      position="center"
       class="rounded-md my-8"
       alt={`img of ${title}`}
 				/>
@@ -80,11 +81,9 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 		<hr />
 
 		<div class="mt-8 md:px-8">
-			<!-- <div class="sticky">
-				<ListIcon />
-				<ShareIcon />
-			</div> -->
-			<div class="prose lg:prose-xl"><slot /></div>
+			<div class="grid grid-cols-4 max-w-6xl prose lg:prose-xl dark:prose-invert">
+        <slot />
+      </div>
 		</div>
 	</article>
 </BaseLayout>

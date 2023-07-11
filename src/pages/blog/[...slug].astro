@@ -2,6 +2,7 @@
 import { CollectionEntry, getCollection } from 'astro:content'
 import BlogPost from '../../layouts/BlogPost.astro'
 import Code from '../../components/mdx/Code.astro'
+import TableOfContents from '../../components/TableOfContents.astro'
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog')
@@ -14,9 +15,14 @@ type Props = CollectionEntry<'blog'>
 
 const post = Astro.props
 
-const { Content, headings } = await post.render()
+const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
-<BlogPost data={post.data} headings={headings}>
-	<Content components={{ pre: Code }} />
+<BlogPost data={post.data} headings={headings} readTime={remarkPluginFrontmatter.minutesRead}>
+  <div class="col-span-3">
+	  <Content components={{ pre: Code }} />
+  </div>
+  <div class="relative">
+    {headings && headings.length > 0 && <TableOfContents {headings} />}
+  </div>
 </BlogPost>

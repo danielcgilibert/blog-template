@@ -21,13 +21,13 @@ const SOCIALNETWORKS = [
 ---
 
 <header
-	class="flex justify-between items-center px-2 h-12 font-semibold text-[#212529]"
+	class="flex justify-between items-center px-2 h-12 font-semibold"
 >
 	<a href="/">BLOG</a>
 	<nav class="nav-menu flex justify-center items-center md:flex md:gap-6 gap-4">
 		{SOCIALNETWORKS.map(network => (
 			<HeaderLink
-				class="text-black"
+				class=""
 				href={network.url}
 				target="_blank"
 				aria-label={network.name}
