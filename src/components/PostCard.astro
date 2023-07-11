@@ -5,6 +5,7 @@ import { Image } from 'astro:assets'
 
 const {
   data: { title, description, pubDate, heroImage, category },
+  readTime,
   slug,
 } = Astro.props
 ---
@@ -24,7 +25,10 @@ const {
   <div class="flex flex-col justify-between py-6 px-6 gap-4">
     <div class="flex flex-col gap-3">
       <div class="flex flex-col">
-        <FormattedDate date={pubDate} />
+        <div class="flex items-center justify-center gap-x-1">
+          <FormattedDate date={pubDate} />
+          <span class="text-sm font-bold">- {readTime}</span>
+        </div>
         <a
           class="text-xl font-semibold hover:underline"
           href={`/blog/${slug}/`}

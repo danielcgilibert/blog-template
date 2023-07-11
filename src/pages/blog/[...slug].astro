@@ -15,10 +15,10 @@ type Props = CollectionEntry<'blog'>
 
 const post = Astro.props
 
-const { Content, headings } = await post.render()
+const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
-<BlogPost data={post.data} headings={headings}>
+<BlogPost data={post.data} headings={headings} readTime={remarkPluginFrontmatter.minutesRead}>
   <div class="col-span-3">
 	  <Content components={{ pre: Code }} />
   </div>
