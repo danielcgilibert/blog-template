@@ -23,12 +23,12 @@
 - ✅ Markdown & MDX support
 - ✅ Syntax highlighting
 - ✅ Image optimization
-  
+- ✅ Table of contents
+- ✅ Dark mode
+- ✅ Reading Time
+
 ## 🛣️ Roadmap
 
-- ❌ Table of contents
-- ❌ Dark mode
-- ❌ Reading Time
 - ❌ Copy code block
 
 ## 🚀 Getting Started
@@ -82,6 +82,7 @@ pnpm dev
 ├── package.json
 └── tsconfig.json
 ```
+
 ## 👋 Contributors
 
 <a href="https://github.com/danielcgilibert/blog-template/graphs/contributors">
