@@ -16,10 +16,12 @@ const {
   <a href={`/blog/${slug}/`}
     ><Image
       src={heroImage}
-      width={500}
+      width={400}
       height={200}
+      quality={50}
       format="webp"
-      class="rounded-2xl rounded-b-none h-full"
+      loading="eager"
+      class="rounded-2xl rounded-b-none h-full min-w-full object-cover"
       alt={`img of ${title}`}
     />
   </a>
