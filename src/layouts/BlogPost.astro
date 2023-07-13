@@ -19,7 +19,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}  >
-	<article class='md:py-4 max-w-xs md:max-w-none'>
+	<article class='md:py-4 max-w-xs md:max-w-none '>
 		<header class="mb-3 flex flex-col justify-center items-center gap-6">
 			<div class="flex flex-col gap-2">
         <div class="flex items-center justify-center gap-x-1">
@@ -44,7 +44,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 					src={heroImage}
       width={1000}
       height={500}
-			quality={90}
+			quality={100}
       format="webp"
       class="rounded-md w-full max-h-[500px] my-8"
       alt={`img of ${title}`}
@@ -63,9 +63,10 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 		<hr />
 
 		<div class="mt-8 md:px-8">
-			<div class="grid grid-cols-4 max-w-6xl prose lg:prose-xl dark:prose-invert">
+			<div class="grid grid-cols-4 relative max-w-6xl prose lg:prose-xl dark:prose-invert">
         <slot />
       </div>
+			
 		</div>
 	</article>
 </BaseLayout>

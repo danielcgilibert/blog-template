@@ -26,7 +26,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 	<div class="col-span-4 md:col-span-3">
 		<Content components={{ pre: Code }} />
 	</div>
-	<div class="md:relative md:block hidden">
+	<div class="sticky top-0 self-start">
 		{headings && headings.length > 0 && <TableOfContents {headings} />}
 	</div>
 </BlogPost>

@@ -3,9 +3,16 @@ import TableOfContentsHeading from '../components/TabletOfContentsHeading.astro'
 
 const { headings } = Astro.props
 
+type TableOfContent = {
+  depth: number
+  text: string
+  slug: string
+  subheadings: TableOfContent[]
+}
+
 const toc = buildToc(headings)
-function buildToc(headings) {
-  let toc = []
+function buildToc(headings: TableOfContent[]) {
+  let toc: TableOfContent[] = []
   let parentHeadings = new Map()
   headings.forEach(h => {
     let heading = { ...h, subheadings: [] }
