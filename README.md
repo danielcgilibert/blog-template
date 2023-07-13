@@ -1,7 +1,6 @@
 <div align="center">
 
-<img src="public/project.png" alt="Screenshot" />
-
+<img src="public/t.jpg" alt="Screenshot" />
 
 </div>
 
