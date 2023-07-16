@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import PostCard from './PostCard.astro'
+
 type Props = {
   posts: CollectionEntry<'blog'>[]
 }
@@ -9,10 +10,16 @@ const { posts } = Astro.props
 ---
 
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {posts.map(async(post) => {
-    const { remarkPluginFrontmatter } = await post.render()
-      return(
-        <PostCard data={post.data} slug={post.slug} readTime={remarkPluginFrontmatter.minutesRead} />
+  {
+    posts.map(async post => {
+      const { remarkPluginFrontmatter } = await post.render()
+      return (
+        <PostCard
+          data={post.data}
+          slug={post.slug}
+          readTime={remarkPluginFrontmatter.minutesRead}
+        />
       )
-  })}
+    })
+  }
 </section>

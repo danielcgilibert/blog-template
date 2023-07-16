@@ -1,25 +1,58 @@
 ---
 import FormattedDate from './FormattedDate.astro'
 import ArrowRight from './icons/ArrowRight.astro'
-import { Image } from 'astro:assets'
+import { Image, getImage } from 'astro:assets'
+import fs from 'node:fs/promises'
+import { getPlaiceholder } from 'plaiceholder'
 
 const {
   data: { title, description, pubDate, heroImage, category },
   readTime,
   slug,
 } = Astro.props
+
+const getImageWithPlaiceholder = async (file: any): Promise<any> => {
+  const { src, attributes } = await getImage({ src: file })
+
+  const original = file.src?.split('/images/')[1].split('?')[0]
+
+  const imgPath = '../assets/images/' + original
+
+  const url = new URL(imgPath, import.meta.url)
+
+  const buffer = await fs.readFile(url.pathname)
+
+  const {
+    metadata: { height, width },
+    base64,
+  } = await getPlaiceholder(buffer)
+
+  return { base: base64, img: { ...attributes, src, height, width } }
+}
+
+const image = await getImageWithPlaiceholder(heroImage)
+
+console.log(image)
 ---
 
 <article
-  class="grid grid-rows-[40%_auto] rounded-lg shadow dark:bg-[#20202044] hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md"
+  class="grid grid-rows-[200px_auto] min-h-full rounded-lg shadow dark:bg-[#20202044] hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md"
 >
-  <a href={`/blog/${slug}/`}
-    ><Image
-      src={heroImage}
-      width={400}
-      height={200}
+  <a
+    href={`/blog/${slug}/`}
+    class="relative overflow-hidden rounded-2xl rounded-b-none"
+  >
+    <img
+      aria-hidden
+      alt="blur"
+      src={image.base}
+      class="blur-img absolute w-full h-full transform scale-150 filter blur-3xl -mx-8 overflow-hidden min-w-full -z-10"
+    />
+    <Image
+      {...image.img}
+      quality={100}
       format="webp"
-      class="rounded-2xl rounded-b-none h-full min-w-full object-cover"
+      class="main-img rounded-2xl rounded-b-none h-full min-w-full object-cover blur-3xl transition-all duration-700 ease-in"
       alt={`img of ${title}`}
     />
   </a>
@@ -64,3 +97,11 @@ const {
     </footer>
   </div>
 </article>
+
+<script>
+  const images = document.querySelectorAll('.main-img')
+
+  images.forEach(img => {
+    img.classList.toggle('blur-3xl')
+  })
+</script>
