@@ -38,19 +38,26 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 			</div>
 		</header>
 
-		{
+
+
+		<div class="relative">
+
+			{
 			heroImage && (
 				<Image
 					src={heroImage}
-      width={1000}
-      height={500}
-			quality={100}
-      format="webp"
-      class="rounded-md w-full max-h-[500px] my-8"
-      alt={`img of ${title}`}
+      		width={1000}
+      		height={500}
+      		format="webp"
+      		class="rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in"
+      		alt={`img of ${title}`}
 				/>
 			)
 		}
+		<div class="placeholder absolute inset-0 rounded-md backdrop-blur-3xl blur-3xl bg-gradient-to-r from-indigo-500 to-orange-600 transition-opacity duration-700 ease-out " />
+
+		</div>
+		
 
 		{
 			updatedDate && (
@@ -70,3 +77,14 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = data
 		</div>
 	</article>
 </BaseLayout>
+
+
+<script is:inline>
+const img = document.querySelector('img')
+const placeholder = document.querySelector('.placeholder')
+
+img?.addEventListener('load', () => {
+	img.classList.add('opacity-100')
+	placeholder.classList.add('opacity-0')
+})
+</script>
