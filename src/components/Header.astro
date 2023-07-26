@@ -14,81 +14,73 @@ const SOCIALNETWORKS = [
   {
     name: 'Twitter',
     url: 'https://github.com/danielcgilibert/blog-template',
-		icon: TwitterIcon,
+    icon: TwitterIcon,
   },
-	
 ]
-
 ---
 
-<header
-	class="flex justify-between items-center px-2 h-12 font-semibold"
->
-	<a href="/">BLOG</a>
-	<nav class="nav-menu flex justify-center items-center md:flex md:gap-6 gap-4">
-		{SOCIALNETWORKS.map(network => (
-			<HeaderLink
-				class=""
-				href={network.url}
-				target="_blank"
-				aria-label={network.name}
-				
-			>
-				<span>{<network.icon />} </span>
-			</HeaderLink>
-		))}
-		
+<header class='flex justify-between items-center px-2 h-12 font-semibold'>
+  <a href='/'>BLOG</a>
+  <nav class='nav-menu flex justify-center items-center md:flex md:gap-6 gap-4'>
+    {
+      SOCIALNETWORKS.map((network) => (
+        <HeaderLink
+          class=''
+          href={network.url}
+          target='_blank'
+          aria-label={network.name}>
+          <span>{<network.icon />} </span>
+        </HeaderLink>
+      ))
+    }
 
-		<div
-			class="md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2"
-		>
-		<span class="theme relative">
-			<span class="sun-logo w-fit h-fit  transition-all duration-500 ease-out opacity-0 ">
-				<SunIcon />
-			</span>
-			<span class="moon-logo  w-fit h-fit absolute inset-0 opacity-0 transition-all duration-500 ease-out ">
-				<MoonIcon />
-			</span>
-		</span>
-		</div>
-	</nav>
+    <div
+      class='md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2'
+    >
+      <span class='theme relative'>
+        <span
+          class='sun-logo w-fit h-fit transition-all duration-500 ease-out opacity-0'
+        >
+          <SunIcon />
+        </span>
+        <span
+          class='moon-logo w-fit h-fit absolute inset-0 opacity-0 transition-all duration-500 ease-out'
+        >
+          <MoonIcon />
+        </span>
+      </span>
+    </div>
+  </nav>
 </header>
 
-
-
 <script>
-	const iconTheme = document.querySelector('.theme')
-	const sunIcon = document.querySelector('.sun-logo')
-	const moonIcon = document.querySelector('.moon-logo')
-	const theme = localStorage.getItem('theme')
+  const iconTheme = document.querySelector('.theme')
+  const sunIcon = document.querySelector('.sun-logo')
+  const moonIcon = document.querySelector('.moon-logo')
+  const theme = localStorage.getItem('theme')
 
-	if(theme === 'dark'){
-		moonIcon!.classList.toggle('opacity-0')
-	}else{
-		sunIcon!.classList.toggle('opacity-0')
-		moonIcon!.classList.add("animate-moon")
-	}	
+  if (theme === 'dark') {
+    moonIcon!.classList.toggle('opacity-0')
+  } else {
+    sunIcon!.classList.toggle('opacity-0')
+    moonIcon!.classList.add('animate-moon')
+  }
 
+  if (iconTheme !== null) {
+    iconTheme.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark')
+      sunIcon!.classList.toggle('animate-sun')
+      moonIcon!.classList.toggle('animate-moon')
 
-
-	if(iconTheme !== null) {
-	iconTheme.addEventListener('click', () => {
-
-		document.documentElement.classList.toggle('dark')
-		sunIcon!.classList.toggle("animate-sun");
-		moonIcon!.classList.toggle("animate-moon");
-
-
-		if(document.documentElement.classList.contains('dark')) {
-			localStorage.setItem('theme', 'dark')
-			moonIcon!.classList.toggle('opacity-0')
-			sunIcon!.classList.toggle('opacity-0')
-
-
-		} else {
-			localStorage.setItem('theme', 'light')
-			sunIcon!.classList.toggle('opacity-0')
-			moonIcon!.classList.toggle('opacity-0')
-		}
-	})}
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark')
+        moonIcon!.classList.toggle('opacity-0')
+        sunIcon!.classList.toggle('opacity-0')
+      } else {
+        localStorage.setItem('theme', 'light')
+        sunIcon!.classList.toggle('opacity-0')
+        moonIcon!.classList.toggle('opacity-0')
+      }
+    })
+  }
 </script>

@@ -14,13 +14,13 @@ export interface Props {
 ---
 
 <li>
-  <a href={'#' + heading.slug} class="">
+  <a href={'#' + heading.slug} class=''>
     {heading.text}
   </a>
   {
     heading.subheadings.length > 0 && (
       <ul>
-        {heading.subheadings.map(subheading => (
+        {heading.subheadings.map((subheading) => (
           <Astro.self heading={subheading} />
         ))}
       </ul>

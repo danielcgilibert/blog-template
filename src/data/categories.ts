@@ -1,1 +1,7 @@
-export const CATEGORIES = ['javascript', 'css', 'astro', 'typescript', 'react'] as const
+export const CATEGORIES = [
+  'javascript',
+  'css',
+  'astro',
+  'typescript',
+  'react',
+] as const

@@ -11,28 +11,28 @@ const {
 ---
 
 <article
-  class="grid grid-rows-[40%_auto] rounded-lg shadow dark:bg-[#20202044] hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md"
+  class='grid grid-rows-[40%_auto] rounded-lg shadow dark:bg-[#20202044] hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md'
 >
   <a href={`/blog/${slug}/`}
     ><Image
       src={heroImage}
       width={400}
       height={200}
-      format="webp"
-      class="rounded-2xl rounded-b-none h-full min-w-full object-cover"
+      format='webp'
+      class='rounded-2xl rounded-b-none h-full min-w-full object-cover'
       alt={`img of ${title}`}
     />
   </a>
 
-  <div class="flex flex-col justify-between py-6 px-6 gap-4">
-    <div class="flex flex-col gap-3">
-      <div class="flex flex-col gap-2">
-        <div class="flex items-center justify-between gap-x-1">
+  <div class='flex flex-col justify-between py-6 px-6 gap-4'>
+    <div class='flex flex-col gap-3'>
+      <div class='flex flex-col gap-2'>
+        <div class='flex items-center justify-between gap-x-1'>
           <FormattedDate date={pubDate} />
-          <span class="text-sm font-bold"> {readTime}</span>
+          <span class='text-sm font-bold'> {readTime}</span>
         </div>
         <a
-          class="text-xl font-semibold hover:underline"
+          class='text-xl font-semibold hover:underline'
           href={`/blog/${slug}/`}
         >
           {title}
@@ -40,23 +40,23 @@ const {
       </div>
 
       <p
-        class="md:text-sm overflow-hidden line-clamp-3 text-opacity-70 leading-loose"
+        class='md:text-sm overflow-hidden line-clamp-3 text-opacity-70 leading-loose'
       >
         {description}
       </p>
     </div>
 
     <footer
-      class="border-t-2 border-gray-200 pt-5 flex justify-between items-center"
+      class='border-t-2 border-gray-200 pt-5 flex justify-between items-center'
     >
       <a
         href=`/category/${category}`
-        class="text-sm bg-[#212529] text-white dark:bg-black rounded-full px-4 py-2 flex justify-center items-center"
+        class='text-sm bg-[#212529] text-white dark:bg-black rounded-full px-4 py-2 flex justify-center items-center'
         >{category}
       </a>
       <a
         href={`/blog/${slug}/`}
-        class="flex justify-center items-center hover:translate-x-1 transition-transform duration-150 ease-in-out"
+        class='flex justify-center items-center hover:translate-x-1 transition-transform duration-150 ease-in-out'
         aria-label={`go to ${title}`}
       >
         <ArrowRight />

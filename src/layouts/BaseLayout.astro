@@ -6,37 +6,38 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 const { title, description, image } = Astro.props
 ---
 
-<html lang="en" class="scroll-smooth">
-	<head>
-		<BaseHead
-			title={title || SITE_TITLE}
-			description={description || SITE_DESCRIPTION}
-			image={image}
-		/>
-		<script is:inline>
-			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) &&
-					window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-				document.documentElement.classList.add('dark')
-				localStorage.setItem('theme', 'dark')
-			} else {
-				document.documentElement.classList.remove('dark')
-				localStorage.setItem('theme', 'light')
-			}
-		</script>
-	</head>
+<html lang='en' class='scroll-smooth'>
+  <head>
+    <BaseHead
+      title={title || SITE_TITLE}
+      description={description || SITE_DESCRIPTION}
+      image={image}
+    />
 
-	<body
-		class="bg-white text-stone-950 dark:bg-neutral-950 dark:text-white transition-colors duration-500 ease-in-out"
-	>
-		<main
-			class="mx-auto max-w-xs md:px-0 antialiased md:max-w-4xl grid gap-8 mt-4"
-		>
-			<Header />
-			<slot />
-			<Footer />
-		</main>
-	</body>
+    <script is:inline>
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
+      }
+    </script>
+  </head>
+
+  <body
+    class='bg-white text-stone-950 dark:bg-neutral-950 dark:text-white transition-colors duration-500 ease-in-out'
+  >
+    <main
+      class='mx-auto max-w-xs md:px-0 antialiased md:max-w-4xl grid gap-8 mt-4'
+    >
+      <Header />
+      <slot />
+      <Footer />
+    </main>
+  </body>
 </html>
