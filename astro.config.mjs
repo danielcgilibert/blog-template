@@ -9,6 +9,7 @@ export default defineConfig({
   site: 'https://blog-template-gray.vercel.app/', // Write here your website url
   experimental: {
     assets: true,
+    // viewTransitions: false,
   },
   markdown: {
     remarkPlugins: [remarkReadingTime],
