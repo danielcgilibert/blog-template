@@ -15,16 +15,12 @@ const { title, description, image } = Astro.props
     />
 
     <script is:inline>
-      if (
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark')
-        localStorage.setItem('theme', 'dark')
-      } else {
+      if (localStorage.theme === 'light' || !('theme' in localStorage)) {
         document.documentElement.classList.remove('dark')
         localStorage.setItem('theme', 'light')
+      } else {
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
       }
     </script>
   </head>
@@ -33,7 +29,7 @@ const { title, description, image } = Astro.props
     class='bg-white text-stone-950 dark:bg-neutral-950 dark:text-white transition-colors duration-500 ease-in-out'
   >
     <main
-      class='mx-auto max-w-xs md:px-0 antialiased md:max-w-4xl grid gap-8 mt-4'
+      class='mx-auto max-w-xs md:px-0 antialiased md:max-w-5xl grid gap-8 mt-4'
     >
       <Header />
       <slot />

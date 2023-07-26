@@ -7,15 +7,15 @@ import { getCategories } from '../libs/helpers'
 import { getCollection } from 'astro:content'
 
 const posts = (await getCollection('blog'))
-	.slice(0, 6)
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .slice(0, 6)
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 
 const categories = getCategories(posts)
 ---
 
 <BaseLayout>
-	<Banner />
-	<h1 class="text-4xl font-semibold">Latest articles</h1>
-	<ListCategories categories={categories} />
-	<ListPosts posts={posts} />
+  <Banner />
+  <h1 class='text-4xl font-semibold'>Latest articles</h1>
+  <ListCategories categories={categories} />
+  <ListPosts posts={posts} />
 </BaseLayout>

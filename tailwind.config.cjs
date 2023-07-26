@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         sans: ['Manrope', ...defaultTheme.fontFamily.sans],
       },
+      gridTemplateColumns: {
+        list: 'repeat(auto-fill, minmax(300px, max-content))',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

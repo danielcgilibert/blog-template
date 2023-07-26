@@ -2,21 +2,35 @@
 import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import ListPosts from '../../components/ListPosts.astro'
+import ArrowLeft from '../../components/icons/ArrowLeft.astro'
 const { category } = Astro.params
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: { category: post.data.category },
     props: post,
   }))
 }
 
 const posts = (await getCollection('blog'))
-  .filter(post => post.data.category === category)
+  .filter((post) => post.data.category === category)
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
 <BaseLayout>
+  <div class='flex justify-between gap-4 items-center mb-2'>
+    <a
+      href='/'
+      aria-label='back to home'
+      class='w-fit hover:-translate-x-1 transition-transform duration-150 ease-in-out'
+    >
+      <ArrowLeft width='32' height='32' />
+    </a>
+    <h1 class='font-semibold text-3xl first-letter:uppercase'>
+      {category}
+    </h1>
+  </div>
+
   <ListPosts posts={posts} />
 </BaseLayout>

@@ -11,7 +11,7 @@ const {
 ---
 
 <article
-  class='grid grid-rows-[40%_auto] rounded-lg shadow dark:bg-[#20202044] hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md'
+  class='grid grid-rows-[40%_auto] rounded-lg shadow dark:bg-[#20202044] group hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md'
 >
   <a href={`/blog/${slug}/`}
     ><Image
@@ -19,7 +19,7 @@ const {
       width={400}
       height={200}
       format='webp'
-      class='rounded-2xl rounded-b-none h-full min-w-full object-cover'
+      class='rounded-2xl rounded-b-none h-full min-w-full object-cover group-hover:saturate-150 transition-all duration-500'
       alt={`img of ${title}`}
     />
   </a>
@@ -51,12 +51,12 @@ const {
     >
       <a
         href=`/category/${category}`
-        class='text-sm bg-[#212529] text-white dark:bg-black rounded-full px-4 py-2 flex justify-center items-center'
+        class='text-sm bg-[#212529] hover:bg-opacity-80 text-white dark:bg-black rounded-full px-4 py-2 flex justify-center items-center'
         >{category}
       </a>
       <a
         href={`/blog/${slug}/`}
-        class='flex justify-center items-center hover:translate-x-1 transition-transform duration-150 ease-in-out'
+        class='flex justify-center items-center dark:bg-white rounded-full dark:text-black hover:translate-x-1 transition-transform duration-150 ease-in-out'
         aria-label={`go to ${title}`}
       >
         <ArrowRight />
