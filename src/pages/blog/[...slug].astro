@@ -5,11 +5,11 @@ import Code from '../../components/mdx/Code.astro'
 import TableOfContents from '../../components/TableOfContents.astro'
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog')
-	return posts.map(post => ({
-		params: { slug: post.slug },
-		props: post,
-	}))
+  const posts = await getCollection('blog')
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }))
 }
 type Props = CollectionEntry<'blog'>
 
@@ -19,14 +19,14 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
 <BlogPost
-	data={post.data}
-	headings={headings}
-	readTime={remarkPluginFrontmatter.minutesRead}
+  data={post.data}
+  headings={headings}
+  readTime={remarkPluginFrontmatter.minutesRead}
 >
-	<div class="col-span-4 md:col-span-3">
-		<Content components={{ pre: Code }} />
-	</div>
-	<div class="sticky top-0 self-start">
-		{headings && headings.length > 0 && <TableOfContents {headings} />}
-	</div>
+  <div class='col-span-4 md:col-span-3'>
+    <Content components={{ pre: Code }} />
+  </div>
+  <div class='sticky top-0 self-start hidden md:block'>
+    {headings && headings.length > 0 && <TableOfContents {headings} />}
+  </div>
 </BlogPost>
