@@ -3,12 +3,13 @@ import type { CollectionEntry } from 'astro:content'
 import PostCard from './PostCard.astro'
 type Props = {
   posts: CollectionEntry<'blog'>[]
+  colSpan?: number
 }
 
-const { posts } = Astro.props
+const { posts, colSpan = 2 } = Astro.props
 ---
 
-<section class='grid grid-cols-list gap-8'>
+<section class={`relative grid grid-cols-1 md:grid-cols-3  gap-8 mt-3`}>
   {
     posts.map(async (post) => {
       const { remarkPluginFrontmatter } = await post.render()

@@ -16,7 +16,7 @@ module.exports = {
         sans: ['Manrope', ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
-        list: 'repeat(auto-fill, minmax(300px, max-content))',
+        list: 'repeat(auto-fill, minmax(400px, max-content))',
       },
     },
   },

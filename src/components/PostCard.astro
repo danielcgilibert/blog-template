@@ -2,6 +2,7 @@
 import FormattedDate from './FormattedDate.astro'
 import ArrowRight from './icons/ArrowRight.astro'
 import { Image } from 'astro:assets'
+import ArrowUp from './icons/ArrowUp.astro'
 
 const {
   data: { title, description, pubDate, heroImage, category },
@@ -10,29 +11,38 @@ const {
 } = Astro.props
 ---
 
-<article
-  class='grid grid-rows-[40%_auto] rounded-lg shadow dark:bg-[#20202044] group hover:-translate-y-[2px] transition-transform duration-150 ease-in-out hover:shadow-md'
->
-  <a href={`/blog/${slug}/`}
+<article class='grid md:first:col-span-2 grid-rows-[300px_auto]'>
+  <a class='relative' href={`/blog/${slug}/`}
     ><Image
       src={heroImage}
-      width={400}
+      width={600}
       height={200}
       format='webp'
-      class='rounded-2xl rounded-b-none h-full min-w-full object-cover group-hover:saturate-150 transition-all duration-500'
+      loading='eager'
+      class='h-full min-w-full object-cover hover:scale-[1.02] transition-transform duration-150'
       alt={`img of ${title}`}
     />
+
+    <div class='z-30 absolute bottom-0 w-full h-20'>
+      <div class='-z-10 absolute bottom-0 glass w-full min-h-full'></div>
+      <div
+        class='flex items-center justify-between gap-x-1 text-white px-6 py-4'
+      >
+        <div class='flex flex-col gap-1 items-center justify-center'>
+          <FormattedDate date={pubDate} />
+          <span class='text-sm'> {readTime}</span>
+        </div>
+
+        <span class='pb-4'>{category}</span>
+      </div>
+    </div>
   </a>
 
-  <div class='flex flex-col justify-between py-6 px-6 gap-4'>
+  <div class='flex justify-between flex-col py-6 gap-4 pl-1'>
     <div class='flex flex-col gap-3'>
       <div class='flex flex-col gap-2'>
-        <div class='flex items-center justify-between gap-x-1'>
-          <FormattedDate date={pubDate} />
-          <span class='text-sm font-bold'> {readTime}</span>
-        </div>
         <a
-          class='text-xl font-semibold hover:underline'
+          class='text-2xl font-semibold tracking-wider hover:underline'
           href={`/blog/${slug}/`}
         >
           {title}
@@ -40,26 +50,21 @@ const {
       </div>
 
       <p
-        class='md:text-sm overflow-hidden line-clamp-3 text-opacity-70 leading-loose'
+        class='overflow-hidden line-clamp-3 text-gray-500 dark:text-white mb-8 font-light md:pr-[15%]'
       >
         {description}
       </p>
     </div>
 
-    <footer
-      class='border-t-2 border-gray-200 pt-5 flex justify-between items-center'
-    >
-      <a
-        href=`/category/${category}`
-        class='text-sm bg-[#212529] hover:bg-opacity-80 text-white dark:bg-black rounded-full px-4 py-2 flex justify-center items-center'
-        >{category}
-      </a>
+    <footer class='flex justify-between items-center'>
       <a
         href={`/blog/${slug}/`}
-        class='flex justify-center items-center dark:bg-white rounded-full dark:text-black hover:translate-x-1 transition-transform duration-150 ease-in-out'
+        class='flex justify-center items-center dark:text-white rounded-full hover:translate-x-1 transition-transform duration-150 ease-in-out font-semibold gap-1'
         aria-label={`go to ${title}`}
       >
-        <ArrowRight />
+        Read Post <span class='mt-[1px]'
+          ><ArrowUp width='18' height='18' /></span
+        >
       </a>
     </footer>
   </div>

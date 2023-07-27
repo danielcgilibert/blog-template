@@ -26,14 +26,17 @@ const { title, description, image } = Astro.props
   </head>
 
   <body
-    class='bg-white text-stone-950 dark:bg-neutral-950 dark:text-white transition-colors duration-500 ease-in-out'
+    class='relative bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white transition-colors duration-500 ease-in-out'
+    9
   >
     <main
-      class='mx-auto max-w-xs md:px-0 antialiased md:max-w-5xl grid gap-8 mt-4'
+      class='mx-auto max-w-xs md:px-0 antialiased md:max-w-5xl grid gap-12 mt-4'
     >
       <Header />
       <slot />
       <Footer />
     </main>
+
+    <div class='gradient'></div>
   </body>
 </html>

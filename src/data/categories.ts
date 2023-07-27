@@ -1,7 +1,7 @@
 export const CATEGORIES = [
-  'javascript',
-  'css',
-  'astro',
-  'typescript',
-  'react',
+  'Category 1',
+  'Category 2',
+  'Category 3',
+  'Category 4',
+  'Category 5',
 ] as const
