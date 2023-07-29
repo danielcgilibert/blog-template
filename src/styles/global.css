@@ -22,88 +22,9 @@
   transform: translateY(20%) rotateZ(50deg);
 }
 
-:root {
-  --background-color: #543fd7;
-  --text-color: #121416d8;
-  --link-color: #543fd7;
-}
-
-html[data-theme='light'] {
-  --background-color: #543fd7;
-  --text-color: #121416d8;
-  --link-color: #543fd7;
-}
-
-html[data-theme='dark'] {
-  --background-color: #212a2e;
-  --text-color: #f7f8f8;
-  --link-color: #828fff;
-}
-
 .glass {
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-    transform: translate(0%, 0%);
-  }
-  50% {
-    transform: rotate(180deg);
-    transform: translate(-30%, 50%);
-  }
-  100% {
-    transform: rotate(360deg);
-    transform: translate(-50%, 50%);
-  }
-}
-
-.gradient {
-  --size: 500px;
-  --speed: 10s;
-  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
-
-  width: var(--size);
-  height: var(--size);
-  filter: blur(calc(var(--size) / 1.5));
-  background: rgb(113, 64, 163);
-  background: linear-gradient(
-    120deg,
-    rgba(113, 64, 163, 0.2979166666666667) 55%,
-    rgba(55, 37, 73, 1) 100%
-  );
-
-  animation: rotate var(--speed) var(--easing) alternate infinite;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-
-  position: absolute;
-  inset: 5%;
-
-  overflow: hidden;
-  z-index: -999999;
-}
-
-@media (min-width: 720px) {
-  .gradient {
-    --size: 800px;
-    inset: 25% 0 0 50%;
-    top: 0;
-    left: 0;
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 }
