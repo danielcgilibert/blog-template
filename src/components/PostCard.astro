@@ -19,7 +19,7 @@ const {
       height={200}
       format='webp'
       loading='eager'
-      class='h-full min-w-full object-cover hover:scale-[1.02] transition-transform duration-150'
+      class='h-full min-w-full object-cover hover:scale-[1.01] transition-transform duration-150 card'
       alt={`img of ${title}`}
     />
 
@@ -69,3 +69,17 @@ const {
     </footer>
   </div>
 </article>
+
+<script>
+  import { animate } from 'motion'
+
+  animate(
+    '.card',
+    {
+      clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)'],
+    },
+    { duration: 2, easing: 'ease' }
+  )
+</script>
+
+<!-- 'polygon(0px 0px, 100% 0px, 100% 100%, 0% 100%)' -->

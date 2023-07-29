@@ -6,6 +6,7 @@ import ArrowLeft from '../../components/icons/ArrowLeft.astro'
 import ListCategories from '../../components/ListCategories.astro'
 import { getCategories } from '../../libs/helpers'
 import { CATEGORIES } from '../../data/categories'
+import Shape from '../../components/icons/Shape.astro'
 const { category } = Astro.params
 
 export async function getStaticPaths() {
@@ -25,9 +26,12 @@ const posts = (await getCollection('blog'))
 ---
 
 <BaseLayout>
-  <h1 class='text-5xl font-semibold tracking-wide first-letter:uppercase'>
-    {category}
-  </h1>
+  <div class='flex justify-start items-center gap-2'>
+    <Shape />
+    <h1 class='text-5xl font-semibold tracking-wide first-letter:uppercase'>
+      {category}
+    </h1>
+  </div>
 
   <ListCategories activeCategory={category} />
   <ListPosts posts={posts} />

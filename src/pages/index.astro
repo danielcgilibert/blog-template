@@ -5,7 +5,6 @@ import ListPosts from '../components/ListPosts.astro'
 import Shape from '../components/icons/Shape.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
-
 const posts = (await getCollection('blog'))
   .slice(0, 5)
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
@@ -14,7 +13,7 @@ const posts = (await getCollection('blog'))
 <BaseLayout>
   <!-- <Banner /> -->
 
-  <div class='flex justify-start items-center gap-2'>
+  <div class='flex justify-start items-center gap-2 box'>
     <Shape />
     <h1 class='text-5xl font-semibold tracking-wide'>Blog Title</h1>
   </div>
@@ -26,3 +25,18 @@ const posts = (await getCollection('blog'))
     <ListPosts posts={posts} />
   </div>
 </BaseLayout>
+
+<script>
+  import { animate } from 'motion'
+
+  animate(
+    '.box',
+    { y: [80, 0], opacity: [0, 1] },
+    {
+      duration: 2.5,
+      opacity: { duration: 3 },
+
+      offset: [0, 0.55, 0.75],
+    }
+  )
+</script>
