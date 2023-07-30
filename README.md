@@ -1,3 +1,7 @@
+<h1 align="center">
+ Astro Theme OpenBLOG
+</h1>
+
 <div align="center">
 
 <img src="public/project.png" alt="Screenshot" />
@@ -9,6 +13,11 @@
 
 
 </div>
+
+## 💻 Demo 
+
+Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
+
 
 ## ⚙️ Stack
 
@@ -30,7 +39,7 @@
 - ✅ Table of contents
 - ✅ Dark mode
 - ✅ Reading Time
-
+- ✅ [Pagefind](https://pagefind.app/) static search library integration
 ## 🛣️ Roadmap
 
 - ❌ Copy code block
