@@ -14,6 +14,11 @@
 
 </div>
 
+## 💻 Demo 
+
+Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
+
+
 ## ⚙️ Stack
 
 - [**ASTRO** + **Typescript**](https://astro.build/) - Astro is the all-in-one web framework designed for speed.
