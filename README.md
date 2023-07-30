@@ -1,3 +1,7 @@
+<h1 align="center">
+ Astro Theme OpenBLOG
+</h1>
+
 <div align="center">
 
 <img src="public/project.png" alt="Screenshot" />
@@ -30,7 +34,7 @@
 - ✅ Table of contents
 - ✅ Dark mode
 - ✅ Reading Time
-
+- ✅ [Pagefind](https://pagefind.app/) static search library integration
 ## 🛣️ Roadmap
 
 - ❌ Copy code block
