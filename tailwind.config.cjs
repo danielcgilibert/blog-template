@@ -6,9 +6,6 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'hero-pattern': "url('/banner.webp')",
-      },
       colors: {
         white: '#f8f9fa',
       },

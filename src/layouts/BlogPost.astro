@@ -16,7 +16,7 @@ const { data, readTime } = Astro.props
 const { title, description, pubDate, updatedDate, heroImage, tags } = data
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
+<BaseLayout title={title} description={description} image={heroImage?.src}>
   <article class='md:py-4 max-w-xs md:max-w-none'>
     <header class='mb-3 flex flex-col justify-center items-center gap-6'>
       <div class='flex flex-col gap-2'>

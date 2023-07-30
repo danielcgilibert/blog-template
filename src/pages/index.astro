@@ -9,7 +9,7 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
-<BaseLayout>
+<BaseLayout title='Home'>
   <div class='flex justify-start items-center gap-2 box'>
     <Shape />
     <h1 class='text-5xl font-semibold tracking-wide'>Blog Title</h1>

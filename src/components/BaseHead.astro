@@ -1,17 +1,29 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
+import { siteConfig } from '../site.config'
 import '../styles/global.css'
 
 export interface Props {
   title: string
-  description: string
-  image?: string
+  description?: string
+  ogImage?: string | undefined
+  articleDate?: string | undefined
 }
 
+const {
+  title,
+  description = siteConfig.description,
+  ogImage,
+  articleDate,
+} = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL(ogImage ? ogImage : '/banner.png', Astro.url)
+  .href
 
-const { title, description, image = 'placeholder-social.jpg' } = Astro.props
+const titleSeparator = '•'
+
+const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 ---
 
 <!-- Global Metadata -->
@@ -24,21 +36,29 @@ const { title, description, image = 'placeholder-social.jpg' } = Astro.props
 <link rel='canonical' href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name='title' content={title} />
+<title>{siteTitle}</title>
+<meta name='title' content={siteTitle} />
 <meta name='description' content={description} />
-<meta name='view-transition' content='same-origin' />
+<meta name='author' content={siteConfig.author} />
 
 <!-- Open Graph / Facebook -->
-<meta property='og:type' content='website' />
+<meta property='og:type' content={articleDate ? 'article' : 'website'} />
 <meta property='og:url' content={Astro.url} />
 <meta property='og:title' content={title} />
 <meta property='og:description' content={description} />
-<meta property='og:image' content={new URL(image, Astro.url)} />
+<meta property='og:image' content={socialImageURL} />
 
 <!-- Twitter -->
 <meta property='twitter:card' content='summary_large_image' />
 <meta property='twitter:url' content={Astro.url} />
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
-<meta property='twitter:image' content={new URL(image, Astro.url)} />
+<meta property='twitter:image' content={socialImageURL} />
+
+<!-- RSS auto-discovery -->
+<link
+  rel='alternate'
+  type='application/rss+xml'
+  title={siteConfig.title}
+  href='/rss.xml'
+/>

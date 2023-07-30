@@ -2,10 +2,7 @@
 import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import ListPosts from '../../components/ListPosts.astro'
-import ArrowLeft from '../../components/icons/ArrowLeft.astro'
 import ListCategories from '../../components/ListCategories.astro'
-import { getCategories } from '../../libs/helpers'
-import { CATEGORIES } from '../../data/categories'
 import Shape from '../../components/icons/Shape.astro'
 const { category } = Astro.params
 
@@ -25,7 +22,7 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
-<BaseLayout>
+<BaseLayout title={category}>
   <div class='flex justify-start items-center gap-2'>
     <Shape />
     <h1 class='text-5xl font-semibold tracking-wide first-letter:uppercase'>
