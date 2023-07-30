@@ -6,23 +6,26 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "postbuild": "pagefind --source dist"
   },
   "dependencies": {
-    "@astrojs/mdx": "0.19.7",
     "@astrojs/rss": "2.4.3",
-    "@astrojs/sitemap": "2.0.1",
-    "@astrojs/tailwind": "4.0.0",
-    "astro": "2.9.3",
-    "motion": "^10.16.2"
+    "astro": "2.9.3"
   },
   "devDependencies": {
+    "@astrojs/mdx": "0.19.7",
+    "motion": "^10.16.2",
+    "@astrojs/sitemap": "2.0.1",
+    "@astrojs/tailwind": "4.0.0",
+    "@pagefind/default-ui": "^0.12.0",
     "@tailwindcss/typography": "0.5.9",
     "clsx": "2.0.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "tailwind-merge": "1.14.0",
     "tailwindcss": "3.3.3",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "pagefind": "^0.12.0"
   }
 }
