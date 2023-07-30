@@ -1,5 +1,4 @@
 ---
-import Banner from '../components/Banner.astro'
 import ListCategories from '../components/ListCategories.astro'
 import ListPosts from '../components/ListPosts.astro'
 import Shape from '../components/icons/Shape.astro'
@@ -11,8 +10,6 @@ const posts = (await getCollection('blog'))
 ---
 
 <BaseLayout>
-  <!-- <Banner /> -->
-
   <div class='flex justify-start items-center gap-2 box'>
     <Shape />
     <h1 class='text-5xl font-semibold tracking-wide'>Blog Title</h1>
