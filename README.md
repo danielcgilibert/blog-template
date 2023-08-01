@@ -1,6 +1,4 @@
-<h1 align="center">
- Astro Theme OpenBLOG
-</h1>
+
 
 <div align="center">
 
@@ -12,6 +10,11 @@
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danielcgilibert/blog-template)
 
 </div>
+
+<h1 align="center">
+  ⭐️ Leave a star if you like this project! ⭐️
+</h1>
+
 
 ## 💻 Demo
 
