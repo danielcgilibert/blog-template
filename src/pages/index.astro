@@ -1,8 +1,8 @@
 ---
-import ListCategories from '../components/ListCategories.astro'
-import ListPosts from '../components/ListPosts.astro'
-import Shape from '../components/icons/Shape.astro'
-import BaseLayout from '../layouts/BaseLayout.astro'
+import ListCategories from '@/components/ListCategories'
+import ListPosts from '@/components/ListPosts'
+import Shape from '@/components/icons/Shape'
+import BaseLayout from '@/layouts/BaseLayout'
 import { getCollection } from 'astro:content'
 const posts = (await getCollection('blog'))
   .slice(0, 5)

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
-import { getCategories } from '../libs/helpers'
-import Category from './Category.astro'
+import { getCategories } from '@/utils'
+import Category from '@/components/Category'
 const posts = await getCollection('blog')
 const categories = getCategories(posts)
 
