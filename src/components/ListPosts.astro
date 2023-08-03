@@ -4,15 +4,16 @@ import PostCard from '@/components/PostCard'
 import { cn } from '@/utils'
 type Props = {
   posts: CollectionEntry<'blog'>[]
-  colSpan?: number
+  FirstBig?: boolean
 }
 
-const { posts, colSpan = 1 } = Astro.props
+const { posts, FirstBig = false } = Astro.props
 ---
 
 <section
   class={cn(
-    `relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:[&>*:first-child]:col-span-${colSpan}   gap-8 mt-3`
+    `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 mt-3`,
+    FirstBig && `md:[&>*:first-child]:col-span-2`
   )}
 >
   {
