@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 <img src="public/project.png" alt="Screenshot" />
@@ -15,18 +13,16 @@
   ⭐️ Leave a star if you like this project! ⭐️
 </h2>
 
-
 ## 🔤 Readme Translations
-
 
 - [**English**](https://github.com/danielcgilibert/blog-template/blob/main/README.md)
 - [**Español**](https://github.com/danielcgilibert/blog-template/blob/main/README.es.md)
 
-
-
 ## 💻 Demo
 
 Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
+<br/>
+<img src="public/demo.gif" alt="Screenshot" />
 
 ## ⚙️ Stack
 
