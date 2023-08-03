@@ -2,6 +2,7 @@
 import BaseHead from '@/components/BaseHead'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ProviderTheme from '@/components/ProviderTheme'
 const { title, description, image, articleDate } = Astro.props
 ---
 
@@ -14,15 +15,7 @@ const { title, description, image, articleDate } = Astro.props
       articleDate={articleDate}
     />
 
-    <script is:inline>
-      if (localStorage.theme === 'light' || !('theme' in localStorage)) {
-        document.documentElement.classList.remove('dark')
-        localStorage.setItem('theme', 'light')
-      } else {
-        document.documentElement.classList.add('dark')
-        localStorage.setItem('theme', 'dark')
-      }
-    </script>
+    <ProviderTheme />
   </head>
 
   <body
