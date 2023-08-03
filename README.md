@@ -11,9 +11,17 @@
 
 </div>
 
-<h1 align="center">
+<h2 align="center">
   ⭐️ Leave a star if you like this project! ⭐️
-</h1>
+</h2>
+
+
+## 🔤 Readme Translations
+
+
+- [**English**](https://github.com/danielcgilibert/blog-template/blob/main/README.md)
+- [**Español**](https://github.com/danielcgilibert/blog-template/blob/main/README.es.md)
+
 
 
 ## 💻 Demo
