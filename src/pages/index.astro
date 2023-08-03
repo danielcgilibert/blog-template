@@ -19,7 +19,7 @@ const posts = (await getCollection('blog'))
 
   <div>
     <h2 class='text-lg font-medium tracking-wide text-end'>Latest Post</h2>
-    <ListPosts posts={posts} />
+    <ListPosts colSpan={2} posts={posts} />
   </div>
 </BaseLayout>
 
