@@ -4,6 +4,7 @@ interface SiteConfig {
   description: string
   lang: string
   ogLocale: string
+  shareMessage: string
 }
 
 export const siteConfig: SiteConfig = {
@@ -12,4 +13,5 @@ export const siteConfig: SiteConfig = {
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   lang: 'en-GB',
   ogLocale: 'en_GB',
+  shareMessage: 'Share this post',
 }

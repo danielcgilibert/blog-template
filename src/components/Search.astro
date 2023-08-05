@@ -15,7 +15,7 @@ import SearchIcon from '@/components/icons/SearchIcon'
   </button>
   <dialog
     aria-label='search'
-    class='h-full max-h-full w-full max-w-full border border-zinc-400 bg-white dark:bg-[#0a0910ec] shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md'
+    class='h-full max-h-full w-full max-w-full border border-zinc-400 bg-white dark:bg-[#0a0910ec] shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md opacity-0'
   >
     <div class='dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6'>
       <button
@@ -40,22 +40,6 @@ import SearchIcon from '@/components/icons/SearchIcon'
     </div>
   </dialog>
 </site-search>
-
-<script>
-  import { animate } from 'motion'
-
-  animate(
-    'dialog',
-    {
-      clipPath: [
-        'polygon(0 0, 100% 0, 100% -200%, -200% -200%)',
-        'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-      ],
-      opacity: [0, 1],
-    },
-    { duration: 1, easing: 'ease' }
-  )
-</script>
 
 <script>
   class SiteSearch extends HTMLElement {
@@ -135,3 +119,16 @@ import SearchIcon from '@/components/icons/SearchIcon'
     --pagefind-ui-tag: #152028;
   }
 </style>
+
+<script>
+  import { animate } from 'motion'
+
+  animate(
+    'dialog',
+    {
+      scale: [0.2, 1],
+      opacity: [0, 1],
+    },
+    { duration: 0.6, easing: 'ease-in' }
+  )
+</script>

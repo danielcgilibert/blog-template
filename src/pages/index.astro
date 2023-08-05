@@ -4,13 +4,15 @@ import ListPosts from '@/components/ListPosts'
 import Shape from '@/components/icons/Shape'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getCollection } from 'astro:content'
+
+const MAX_POSTS = 5 // max number of posts to show on the home page
 const posts = (await getCollection('blog'))
-  .slice(0, 5)
+  .slice(0, MAX_POSTS)
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
 <BaseLayout title='Home'>
-  <div class='flex justify-start items-center gap-2 box'>
+  <div class='flex justify-start items-center gap-2 title'>
     <Shape />
     <h1 class='text-5xl font-semibold tracking-wide'>Blog Title</h1>
   </div>
@@ -26,14 +28,16 @@ const posts = (await getCollection('blog'))
 <script>
   import { animate } from 'motion'
 
-  animate(
-    '.box',
-    { y: [80, 0], opacity: [0, 1] },
-    {
-      duration: 2.5,
-      opacity: { duration: 3 },
+  if (history.length === 1) {
+    animate(
+      '.title',
+      { y: [80, 0], opacity: [0, 1] },
+      {
+        duration: 2.5,
+        opacity: { duration: 3 },
 
-      offset: [0, 0.55, 0.75],
-    }
-  )
+        offset: [0, 0.55, 0.75],
+      }
+    )
+  }
 </script>

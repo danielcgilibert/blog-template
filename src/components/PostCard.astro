@@ -10,7 +10,7 @@ const {
 } = Astro.props
 ---
 
-<article class='grid  grid-rows-[300px_auto]'>
+<article class='grid grid-rows-[300px_auto]'>
   <a class='relative' href={`/post/${slug}/`}
     ><Image
       src={heroImage}
@@ -18,7 +18,7 @@ const {
       height={200}
       format='webp'
       loading='eager'
-      class='h-full min-w-full object-cover hover:scale-[1.01] transition-transform duration-150 card opacity-0'
+      class='h-full min-w-full object-cover hover:scale-[1.01] transition-transform duration-150 card'
       alt={`img of ${title}`}
     />
 
@@ -73,12 +73,15 @@ const {
 <script>
   import { animate } from 'motion'
 
-  animate(
-    '.card',
-    {
-      opacity: [0, 1],
-      clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)'],
-    },
-    { duration: 2, easing: 'ease' }
-  )
+  // animate on first load
+  if (history.length === 1) {
+    animate(
+      '.card',
+      {
+        opacity: [0, 1],
+        clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)'],
+      },
+      { duration: 2, easing: 'ease' }
+    )
+  }
 </script>

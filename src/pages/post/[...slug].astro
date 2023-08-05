@@ -24,10 +24,5 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
   headings={headings}
   readTime={remarkPluginFrontmatter.minutesRead}
 >
-  <div class='col-span-4 md:col-span-3'>
-    <Content components={{ pre: Code }} />
-  </div>
-  <div class='sticky top-0 self-start hidden md:block'>
-    {headings && headings.length > 0 && <TableOfContents {headings} />}
-  </div>
+  <Content components={{ pre: Code }} />
 </BlogPost>

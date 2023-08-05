@@ -1,9 +1,16 @@
 @font-face {
   font-family: Manrope;
-  src: url(../assets/fonts/Manrope-Light.woff2);
-  src: url(../assets/fonts/Manrope-SemiBold.woff2);
-  src: url(../assets/fonts/Manrope-Regular.woff2);
-  src: url(../assets/fonts/Manrope-Medium.woff2);
+  font-weight: 400;
+  /* Safari, Android, iOS */
+  src: url('../assets/fonts/Manrope-Light.ttf') format('truetype'),
+    url('../assets/fonts/Manrope-SemiBold.ttf') format('truetype'),
+    url('../assets/fonts/Manrope-Regular.ttf') format('truetype'),
+    url('../assets/fonts/Manrope-Medium.ttf') format('truetype');
+
+  src: url(../assets/fonts/Manrope-Light.woff2) format('woff2'),
+    url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2'),
+    url(../assets/fonts/Manrope-Regular.woff2) format('woff2'),
+    url(../assets/fonts/Manrope-Medium.woff2) format('woff2');
 }
 
 .moon-logo {

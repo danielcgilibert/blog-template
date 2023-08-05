@@ -13,13 +13,16 @@ export interface Props {
 }
 ---
 
-<li>
-  <a href={'#' + heading.slug} class=''>
+<li class='flex flex-col'>
+  <a
+    href={'#' + heading.slug}
+    class='bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-500 hover:bg-slate-100 shadow py-1 px-4 dark:text-white w-fit rounded-full mb-2 first-letter:uppercase'
+  >
     {heading.text}
   </a>
   {
     heading.subheadings.length > 0 && (
-      <ul>
+      <ul class='ml-3'>
         {heading.subheadings.map((subheading) => (
           <Astro.self heading={subheading} />
         ))}

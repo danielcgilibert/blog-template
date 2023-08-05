@@ -7,6 +7,8 @@ category: 'Category 1'
 tags: ['JavaScript', 'css', 'HTML5', 'GitHub']
 ---
 
+# Title
+
 **If you know HTML, you already know enough to write your first Astro component.**
 
 Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX](#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
@@ -15,11 +17,10 @@ Astro component syntax is a superset of HTML. The syntax was [designed to feel f
 
 You can define local JavaScript variables inside of the frontmatter component script between the two code fences (`---`) of an Astro component. You can then inject these variables into the component's HTML template using JSX-like expressions!
 
-:::note[dynamic vs reactive]
+note[dynamic vs reactive]
 Using this approach, you can include **dynamic** values that are calculated in the frontmatter. But once included, these values are not **reactive** and will never change. Astro components are templates that only run once, during the rendering step.
 
 See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
-:::
 
 ### Variables
 
@@ -47,7 +48,7 @@ const name = "Astro";
 <MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
 ```
 
-:::caution
+caution
 HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
 For example, you can't assign an event handler to an HTML element in an Astro component:
 
@@ -77,7 +78,7 @@ Instead, use a client-side script to add the event handler, like you would in va
 </script>
 ```
 
-:::
+## ressions
 
 ### Dynamic HTML
 
@@ -174,6 +175,4 @@ In Astro, you can use standard HTML comments or JavaScript-style comments.
 {/* JS comment syntax is also valid */}
 ```
 
-:::caution
 HTML-style comments will be included in browser DOM, while JS ones will be skipped. To leave TODO messages or other development-only explanations, you may wish to use JavaScript-style comments instead.
-:::
