@@ -28,7 +28,7 @@ const posts = (await getCollection('blog'))
 <script>
   import { animate } from 'motion'
 
-  if (history.length === 1) {
+  if (history.length <= 2) {
     animate(
       '.title',
       { y: [80, 0], opacity: [0, 1] },

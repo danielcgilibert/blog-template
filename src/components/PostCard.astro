@@ -74,7 +74,7 @@ const {
   import { animate } from 'motion'
 
   // animate on first load
-  if (history.length === 1) {
+  if (history.length <= 2) {
     animate(
       '.card',
       {
