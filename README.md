@@ -45,6 +45,8 @@ Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 - ✅ Dark mode
 - ✅ Reading Time
 - ✅ [Pagefind](https://pagefind.app/) static search library integration
+- ✅ Related posts
+- ✅ Share posts (Linkedin, twitter)
 
 ## 🛣️ Roadmap
 

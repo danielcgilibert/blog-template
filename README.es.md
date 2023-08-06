@@ -38,6 +38,8 @@
 - ✅ Modo oscuro
 - ✅ Tiempo de lectura
 - ✅ [Pagefind](https://pagefind.app/) static search library integration
+- ✅ Posts relacionados
+- ✅ Compartir posts (Linkedin, twitter)
 
 ## 🛣️ Roadmap
 
