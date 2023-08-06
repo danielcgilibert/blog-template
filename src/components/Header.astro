@@ -6,50 +6,42 @@ import SunIcon from '@/components/icons/SunIcon'
 import MoonIcon from '@/components/icons/MoonIcon'
 import PageFindSearch from '@/components/Search'
 
+// ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
-  {
-    name: 'Github',
-    url: 'https://github.com/danielcgilibert/blog-template',
-    icon: GithbuIcon,
-  },
-  {
-    name: 'Twitter',
-    url: 'https://github.com/danielcgilibert/blog-template',
-    icon: TwitterIcon,
-  },
+	{
+		name: 'Github',
+		url: 'https://github.com/danielcgilibert/blog-template',
+		icon: GithbuIcon
+	},
+	{
+		name: 'Twitter',
+		url: 'https://github.com/danielcgilibert/blog-template',
+		icon: TwitterIcon
+	}
 ]
 ---
 
 <header class='flex justify-between items-center h-12 font-semibold'>
-  <a class='text-lg' href='/'>Home</a>
-  <nav class='nav-menu flex justify-center items-center md:flex gap-4'>
-    {
-      SOCIALNETWORKS.map((network) => (
-        <HeaderLink
-          class=''
-          href={network.url}
-          target='_blank'
-          aria-label={network.name}>
-          <span>{<network.icon />} </span>
-        </HeaderLink>
-      ))
-    }
-    <PageFindSearch />
-    <div
-      class='md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2'
-    >
-      <span class='theme relative'>
-        <span
-          class='sun-logo w-fit h-fit transition-transform duration-500 opacity-0'
-        >
-          <SunIcon />
-        </span>
-        <span
-          class='moon-logo w-fit h-fit absolute inset-0 opacity-0 transition-transform duration-500'
-        >
-          <MoonIcon />
-        </span>
-      </span>
-    </div>
-  </nav>
+	<a class='text-lg' href='/'>Home</a>
+	<nav class='nav-menu flex justify-center items-center md:flex gap-4'>
+		{
+			SOCIALNETWORKS.map((network) => (
+				<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
+					<span>{<network.icon />} </span>
+				</HeaderLink>
+			))
+		}
+		<PageFindSearch />
+		<div class='md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2'>
+			<span class='theme relative'>
+				<span class='sun-logo w-fit h-fit transition-transform duration-500 opacity-0'>
+					<SunIcon />
+				</span>
+				<span
+					class='moon-logo w-fit h-fit absolute inset-0 opacity-0 transition-transform duration-500'>
+					<MoonIcon />
+				</span>
+			</span>
+		</div>
+	</nav>
 </header>

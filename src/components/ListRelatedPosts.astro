@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import { cn } from '@/utils'
+import { Image } from 'astro:assets'
+
+type Props = {
+	posts: CollectionEntry<'blog'>[]
+}
+
+const { posts } = Astro.props
+---
+
+<section class={cn(`flex flex-col md:flex-row sm:justify-between gap-8  `)}>
+	{
+		posts.length > 0 ? (
+			posts.map((post) => {
+				return (
+					<div class='flex  gap-2'>
+						<div class='min-h-full'>
+							<Image
+								src={post.data.heroImage}
+								width={200}
+								height={200}
+								format='webp'
+								class='w-16 h-16 object-cover rounded-full  '
+								alt={`img of ${post.data.title}`}
+							/>
+						</div>
+						<header class='flex justify-center items-center'>
+							<a class='font-medium  hover:underline' href={`/post/${post.slug}/`}>
+								{post.data.title}
+							</a>
+						</header>
+					</div>
+				)
+			})
+		) : (
+			<span class='text-gray-500'>There are no related posts yet. 😢</span>
+		)
+	}
+</section>

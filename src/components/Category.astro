@@ -6,19 +6,15 @@ const currentPath = Astro.url.pathname
 const unsluglifyNameCategory = sluglify(name.toLowerCase())
 
 const isActive =
-  activeCategory?.toLocaleLowerCase() === unsluglifyNameCategory ||
-  (currentPath === '/' && name === 'View All')
+	activeCategory?.toLocaleLowerCase() === unsluglifyNameCategory ||
+	(currentPath === '/' && name === 'View All')
 ---
 
 <a
-  href={name === 'View All'
-    ? '/'
-    : sluglify(`/category/${unsluglifyNameCategory}`)}
-  class={cn(
-    `text-gray-500  tracking-wide pb-2.5 first-letter:uppercase font-medium hover:text-gray-800 hover:border-black hover:border-opacity-30 hover:border-b-2 hover:z-10 transition-colors dark:hover:text-gray-300 dark:hover:border-white dark:hover:border-opacity-30`,
-    isActive &&
-      `border-black border-b-2 text-black z-10  dark:border-white dark:text-white`
-  )}
->
-  {name}
+	href={name === 'View All' ? '/' : sluglify(`/category/${unsluglifyNameCategory}`)}
+	class={cn(
+		`text-gray-500  tracking-wide pb-2.5 first-letter:uppercase font-medium hover:text-gray-800 hover:border-black hover:border-opacity-30 hover:border-b-2 hover:z-10 transition-colors dark:hover:text-gray-300 dark:hover:border-white dark:hover:border-opacity-30`,
+		isActive && `border-black border-b-2 text-black z-10  dark:border-white dark:text-white`
+	)}>
+	{name}
 </a>

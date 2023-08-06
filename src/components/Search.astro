@@ -6,129 +6,119 @@ import SearchIcon from '@/components/icons/SearchIcon'
 ---
 
 <site-search id='search' class='ms-auto'>
-  <button
-    data-open-modal
-    disabled
-    class='flex items-center justify-center rounded-md'
-  >
-    <SearchIcon />
-  </button>
-  <dialog
-    aria-label='search'
-    class='h-full max-h-full w-full max-w-full border border-zinc-400 bg-white dark:bg-[#0a0910ec] shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md opacity-0'
-  >
-    <div class='dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6'>
-      <button
-        data-close-modal
-        class='ms-auto cursor-pointer rounded-full bg-black text-white px-4 py-2 dark:bg-white dark:text-black'
-        >Close</button
-      >
-      {
-        import.meta.env.DEV ? (
-          <div class='mx-auto text-center dark:text-white'>
-            <p>
-              Search is only available in production builds. <br />
-              Try building and previewing the site to test it out locally.
-            </p>
-          </div>
-        ) : (
-          <div class='search-container dark:text-white'>
-            <div id='pagefind__search' />
-          </div>
-        )
-      }
-    </div>
-  </dialog>
+	<button data-open-modal disabled class='flex items-center justify-center rounded-md'>
+		<SearchIcon />
+	</button>
+	<dialog
+		aria-label='search'
+		class='h-full max-h-full w-full max-w-full border border-zinc-400 bg-white dark:bg-[#0a0910ec] shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md opacity-0'>
+		<div class='dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6'>
+			<button
+				data-close-modal
+				class='ms-auto cursor-pointer rounded-full bg-black text-white px-4 py-2 dark:bg-white dark:text-black'
+				>Close</button
+			>
+			{
+				import.meta.env.DEV ? (
+					<div class='mx-auto text-center dark:text-white'>
+						<p>
+							Search is only available in production builds. <br />
+							Try building and previewing the site to test it out locally.
+						</p>
+					</div>
+				) : (
+					<div class='search-container dark:text-white'>
+						<div id='pagefind__search' />
+					</div>
+				)
+			}
+		</div>
+	</dialog>
 </site-search>
 
 <script>
-  class SiteSearch extends HTMLElement {
-    constructor() {
-      super()
-      const openBtn = this.querySelector<HTMLButtonElement>(
-        'button[data-open-modal]'
-      )!
-      const closeBtn = this.querySelector<HTMLButtonElement>(
-        'button[data-close-modal]'
-      )!
-      const dialog = this.querySelector('dialog')!
-      const dialogFrame = this.querySelector('.dialog-frame')!
+	class SiteSearch extends HTMLElement {
+		constructor() {
+			super()
+			const openBtn = this.querySelector<HTMLButtonElement>('button[data-open-modal]')!
+			const closeBtn = this.querySelector<HTMLButtonElement>('button[data-close-modal]')!
+			const dialog = this.querySelector('dialog')!
+			const dialogFrame = this.querySelector('.dialog-frame')!
 
-      const onWindowClick = (event: MouseEvent) => {
-        // make sure the click is outside the of the dialog
-        if (
-          document.body.contains(event.target as Node) &&
-          !dialogFrame.contains(event.target as Node)
-        )
-          closeModal()
-      }
+			const onWindowClick = (event: MouseEvent) => {
+				// make sure the click is outside the of the dialog
+				if (
+					document.body.contains(event.target as Node) &&
+					!dialogFrame.contains(event.target as Node)
+				)
+					closeModal()
+			}
 
-      const openModal = (event?: MouseEvent) => {
-        dialog.showModal()
-        document.body.classList.add('overflow-hidden')
-        this.querySelector('input')?.focus()
-        event?.stopPropagation()
-        window.addEventListener('click', onWindowClick)
-      }
+			const openModal = (event?: MouseEvent) => {
+				dialog.showModal()
+				document.body.classList.add('overflow-hidden')
+				this.querySelector('input')?.focus()
+				event?.stopPropagation()
+				window.addEventListener('click', onWindowClick)
+			}
 
-      const closeModal = () => {
-        dialog.close()
-        document.body.classList.remove('overflow-hidden')
-        window.removeEventListener('click', onWindowClick)
-      }
+			const closeModal = () => {
+				dialog.close()
+				document.body.classList.remove('overflow-hidden')
+				window.removeEventListener('click', onWindowClick)
+			}
 
-      openBtn.addEventListener('click', openModal)
-      openBtn.disabled = false
-      closeBtn.addEventListener('click', closeModal)
+			openBtn.addEventListener('click', openModal)
+			openBtn.disabled = false
+			closeBtn.addEventListener('click', closeModal)
 
-      // Listen for `/` keyboard shortcut
-      window.addEventListener('keydown', (e) => {
-        if (e.key === '/' && !dialog.open) {
-          openModal()
-          e.preventDefault()
-        }
-      })
+			// Listen for `/` keyboard shortcut
+			window.addEventListener('keydown', (e) => {
+				if (e.key === '/' && !dialog.open) {
+					openModal()
+					e.preventDefault()
+				}
+			})
 
-      window.addEventListener('DOMContentLoaded', () => {
-        if (import.meta.env.DEV) return
-        const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
-        onIdle(async () => {
-          // @ts-ignore
-          const { PagefindUI } = await import('@pagefind/default-ui')
-          new PagefindUI({
-            element: '#pagefind__search',
-            baseUrl: import.meta.env.BASE_URL,
-            bundlePath:
-              import.meta.env.BASE_URL.replace(/\/$/, '') + '/_pagefind/',
-            showImages: false,
-          })
-        })
-      })
-    }
-  }
+			window.addEventListener('DOMContentLoaded', () => {
+				if (import.meta.env.DEV) return
+				const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
+				onIdle(async () => {
+					// @ts-ignore
+					const { PagefindUI } = await import('@pagefind/default-ui')
+					new PagefindUI({
+						element: '#pagefind__search',
+						baseUrl: import.meta.env.BASE_URL,
+						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, '') + '/_pagefind/',
+						showImages: false
+					})
+				})
+			})
+		}
+	}
 
-  customElements.define('site-search', SiteSearch)
+	customElements.define('site-search', SiteSearch)
 </script>
 
 <style is:global>
-  .dark {
-    --pagefind-ui-primary: #eeeeee;
-    --pagefind-ui-text: #eeeeee;
-    --pagefind-ui-background: #152028;
-    --pagefind-ui-border: #152028;
-    --pagefind-ui-tag: #152028;
-  }
+	.dark {
+		--pagefind-ui-primary: #eeeeee;
+		--pagefind-ui-text: #eeeeee;
+		--pagefind-ui-background: #152028;
+		--pagefind-ui-border: #152028;
+		--pagefind-ui-tag: #152028;
+	}
 </style>
 
 <script>
-  import { animate } from 'motion'
+	import { animate } from 'motion'
 
-  animate(
-    'dialog',
-    {
-      scale: [0.2, 1],
-      opacity: [0, 1],
-    },
-    { duration: 0.6, easing: 'ease-in' }
-  )
+	animate(
+		'dialog',
+		{
+			scale: [0.2, 1],
+			opacity: [0, 1]
+		},
+		{ duration: 0.6, easing: 'ease-in' }
+	)
 </script>

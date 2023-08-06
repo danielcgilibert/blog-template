@@ -2,31 +2,30 @@
 const { heading } = Astro.props
 
 type Heading = {
-  depth: number
-  text: string
-  slug: string
-  subheadings: Heading[]
+	depth: number
+	text: string
+	slug: string
+	subheadings: Heading[]
 }
 
 export interface Props {
-  heading: Heading
+	heading: Heading
 }
 ---
 
 <li class='flex flex-col'>
-  <a
-    href={'#' + heading.slug}
-    class='bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-500 hover:bg-slate-100 shadow py-1 px-4 dark:text-white w-fit rounded-full mb-2 first-letter:uppercase'
-  >
-    {heading.text}
-  </a>
-  {
-    heading.subheadings.length > 0 && (
-      <ul class='ml-3'>
-        {heading.subheadings.map((subheading) => (
-          <Astro.self heading={subheading} />
-        ))}
-      </ul>
-    )
-  }
+	<a
+		href={'#' + heading.slug}
+		class='bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-500 hover:bg-slate-100 shadow py-1 px-4 dark:text-white w-fit rounded-full mb-2 first-letter:uppercase'>
+		{heading.text}
+	</a>
+	{
+		heading.subheadings.length > 0 && (
+			<ul class='ml-3'>
+				{heading.subheadings.map((subheading) => (
+					<Astro.self heading={subheading} />
+				))}
+			</ul>
+		)
+	}
 </li>

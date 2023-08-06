@@ -28,10 +28,12 @@ Local variables can be added into the HTML using the curly braces syntax:
 
 ```astro
 ---
-const name = "Astro";
+const name = 'Astro'
 ---
+
 <div>
-  <h1>Hello {name}!</h1>  <!-- Outputs <h1>Hello Astro!</h1> -->
+	<h1>Hello {name}!</h1>
+	<!-- Outputs <h1>Hello Astro!</h1> -->
 </div>
 ```
 
@@ -41,8 +43,9 @@ Local variables can be used in curly braces to pass attribute values to both HTM
 
 ```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
 ---
-const name = "Astro";
+const name = 'Astro'
 ---
+
 <h1 class={name}>Attribute expressions are supported</h1>
 
 <MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
@@ -55,10 +58,11 @@ For example, you can't assign an event handler to an HTML element in an Astro co
 ```astro
 ---
 // dont-do-this.astro
-function handleClick () {
-    console.log("button clicked!");
+function handleClick() {
+	console.log('button clicked!')
 }
 ---
+
 <!-- ❌ This doesn't work! ❌ -->
 <button onClick={handleClick}>Nothing will happen when you click me!</button>
 ```
@@ -69,11 +73,12 @@ Instead, use a client-side script to add the event handler, like you would in va
 ---
 // do-this-instead.astro
 ---
-<button id="button">Click Me</button>
+
+<button id='button'>Click Me</button>
 <script>
-  function handleClick () {
-    console.log("button clicked!");
-  }
-  document.getElementById("button").addEventListener("click", handleClick);
+	function handleClick() {
+		console.log('button clicked!')
+	}
+	document.getElementById('button').addEventListener('click', handleClick)
 </script>
 ```

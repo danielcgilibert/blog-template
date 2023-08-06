@@ -4,84 +4,87 @@ import FormattedDate from '@/components/FormattedDate'
 import ArrowUp from '@/components/icons/ArrowUp'
 
 const {
-  data: { title, description, pubDate, heroImage, category },
-  readTime,
-  slug,
+	data: { title, description, pubDate, heroImage, category },
+	readTime,
+	slug
 } = Astro.props
 ---
 
 <article class='grid grid-rows-[300px_auto]'>
-  <a class='relative' href={`/post/${slug}/`}
-    ><Image
-      src={heroImage}
-      width={600}
-      height={200}
-      format='webp'
-      loading='eager'
-      class='h-full min-w-full object-cover hover:scale-[1.01] transition-transform duration-150 card'
-      alt={`img of ${title}`}
-    />
+	<a class='relative' href={`/post/${slug}/`}
+		><Image
+			src={heroImage}
+			width={600}
+			height={200}
+			format='webp'
+			loading='eager'
+			class='h-full min-w-full object-cover hover:scale-[1.01] transition-transform duration-150 opacity-0'
+			alt={`img of ${title}`}
+		/>
 
-    <div class='z-30 absolute bottom-0 w-full h-20'>
-      <div class='-z-10 absolute bottom-0 glass w-full min-h-full'></div>
-      <div
-        class='flex items-center justify-between gap-x-1 text-white px-6 py-4'
-      >
-        <div class='flex flex-col gap-1 items-center justify-center'>
-          <FormattedDate date={pubDate} />
-          <span class='text-sm'> {readTime}</span>
-        </div>
+		<div class='z-30 absolute bottom-0 w-full h-20'>
+			<div class='-z-10 absolute bottom-0 glass w-full min-h-full'></div>
+			<div class='flex items-center justify-between gap-x-1 text-white px-6 py-4'>
+				<div class='flex flex-col gap-1 items-center justify-center'>
+					<FormattedDate date={pubDate} />
+					<span class='text-sm'> {readTime}</span>
+				</div>
 
-        <span class='pb-4'>{category}</span>
-      </div>
-    </div>
-  </a>
+				<span class='pb-4'>{category}</span>
+			</div>
+		</div>
+	</a>
 
-  <div class='flex justify-between flex-col py-6 gap-4 pl-1'>
-    <div class='flex flex-col gap-3'>
-      <div class='flex flex-col gap-2'>
-        <a
-          class='text-2xl font-semibold hover:underline'
-          href={`/post/${slug}/`}
-        >
-          {title}
-        </a>
-      </div>
+	<div class='flex justify-between flex-col py-6 gap-4 pl-1'>
+		<div class='flex flex-col gap-3'>
+			<div class='flex flex-col gap-2'>
+				<a class='text-2xl font-semibold hover:underline' href={`/post/${slug}/`}>
+					{title}
+				</a>
+			</div>
 
-      <p
-        class='overflow-hidden line-clamp-3 text-gray-500 dark:text-white mb-8 font-light md:pr-[15%]'
-      >
-        {description}
-      </p>
-    </div>
+			<p
+				class='overflow-hidden line-clamp-3 text-gray-500 dark:text-white mb-8 font-light md:pr-[15%]'>
+				{description}
+			</p>
+		</div>
 
-    <footer class='flex justify-between items-center'>
-      <a
-        href={`/post/${slug}/`}
-        class='flex justify-center items-center dark:text-white rounded-full hover:translate-x-1 transition-transform duration-150 ease-in-out font-semibold gap-1 group'
-        aria-label={`go to ${title}`}
-      >
-        Read Post <span
-          class='mt-[1px] group-hover:rotate-45 transition-transform duration-250 ease-in-out'
-          ><ArrowUp width='18' height='18' /></span
-        >
-      </a>
-    </footer>
-  </div>
+		<footer class='flex justify-between items-center'>
+			<a
+				href={`/post/${slug}/`}
+				class='flex justify-center items-center dark:text-white rounded-full hover:translate-x-1 transition-transform duration-150 ease-in-out font-semibold gap-1 group'
+				aria-label={`go to ${title}`}>
+				Read Post <span
+					class='mt-[1px] group-hover:rotate-45 transition-transform duration-250 ease-in-out'
+					><ArrowUp width='18' height='18' /></span
+				>
+			</a>
+		</footer>
+	</div>
 </article>
 
 <script>
-  import { animate } from 'motion'
+	import { animate } from 'motion'
 
-  // animate on first load
-  if (history.length <= 2) {
-    animate(
-      '.card',
-      {
-        opacity: [0, 1],
-        clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)'],
-      },
-      { duration: 2, easing: 'ease' }
-    )
-  }
+	const images = document.querySelectorAll('img')
+
+	document.addEventListener('DOMContentLoaded', function () {
+		if (history.length === 1) {
+			// if first load
+			animate(
+				'img',
+				{
+					opacity: [0, 1],
+					clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)']
+				},
+				{ duration: 2, easing: 'ease' }
+			)
+		} else {
+			images.forEach((img) => {
+				// if not first load
+				// I set the image's opacity to 0 to avoid flickering on the first load.
+				img.classList.remove('opacity-0')
+			})
+		}
+	})
 </script>

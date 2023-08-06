@@ -2,31 +2,31 @@
 import type { CollectionEntry } from 'astro:content'
 import PostCard from '@/components/PostCard'
 import { cn } from '@/utils'
+
 type Props = {
-  posts: CollectionEntry<'blog'>[]
-  FirstBig?: boolean
+	posts: CollectionEntry<'blog'>[]
+	FirstBig?: boolean
 }
 
 const { posts, FirstBig = false } = Astro.props
 ---
 
 <section
-  class={cn(
-    `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 mt-3`,
-    FirstBig && `md:[&>*:first-child]:col-span-2`
-  )}
->
-  {
-    posts.map(async (post) => {
-      const { remarkPluginFrontmatter } = await post.render()
+	class={cn(
+		`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 mt-3`,
+		FirstBig && `md:[&>*:first-child]:col-span-2`
+	)}>
+	{
+		posts.map(async (post) => {
+			const { remarkPluginFrontmatter } = await post.render()
 
-      return (
-        <PostCard
-          data={post.data}
-          slug={post.slug}
-          readTime={remarkPluginFrontmatter.minutesRead}
-        />
-      )
-    })
-  }
+			return (
+				<PostCard
+					data={post.data}
+					slug={post.slug}
+					readTime={remarkPluginFrontmatter.minutesRead}
+				/>
+			)
+		})
+	}
 </section>

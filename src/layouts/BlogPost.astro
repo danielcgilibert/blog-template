@@ -5,13 +5,11 @@ import BaseLayout from '@/layouts/BaseLayout'
 import Tag from '@/components/Tag'
 import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
-import Share from '@/components/Share'
-import TableOfContents from '@/components/TableOfContents'
 
 type Props = {
-  data: CollectionEntry<'blog'>['data']
-  headings: MarkdownHeading[]
-  readTime: string
+	data: CollectionEntry<'blog'>['data']
+	headings: MarkdownHeading[]
+	readTime: string
 }
 
 const { data, readTime, headings } = Astro.props
@@ -21,87 +19,72 @@ const articleDate = pubDate.toISOString()
 ---
 
 <BaseLayout
-  title={title}
-  description={description}
-  image={heroImage?.src}
-  articleDate={articleDate}
->
-  <article class='md:py-4 max-w-xs sm:max-w-none md:max-w-none'>
-    <header class='mb-3 flex flex-col justify-center items-center gap-6'>
-      <div class='flex flex-col gap-2'>
-        <div class='flex items-center justify-center gap-x-1'>
-          <p class='text-center text-sm text-opacity-50'>
-            Published <FormattedDate date={pubDate} />
-          </p>
-          <p class='text-center text-sm text-opacity-50 font-bold'>
-            - {readTime}
-          </p>
-        </div>
-        <h1 class='text-center text-2xl md:text-5xl font-semibold'>
-          {title}
-        </h1>
-      </div>
+	title={title}
+	description={description}
+	image={heroImage?.src}
+	articleDate={articleDate}>
+	<article class='md:py-4 max-w-xs sm:max-w-none md:max-w-none'>
+		<header class='mb-3 flex flex-col justify-center items-center gap-6'>
+			<div class='flex flex-col gap-2'>
+				<div class='flex items-center justify-center gap-x-1'>
+					<p class='text-center text-sm text-opacity-50'>
+						Published <FormattedDate date={pubDate} />
+					</p>
+					<p class='text-center text-sm text-opacity-50 font-bold'>
+						- {readTime}
+					</p>
+				</div>
+				<h1 class='text-center text-2xl md:text-5xl font-semibold'>
+					{title}
+				</h1>
+			</div>
 
-      <div class='flex flex-wrap gap-2 md:gap-5'>
-        {tags.map((tag) => <Tag>{tag}</Tag>)}
-      </div>
-    </header>
+			<div class='flex flex-wrap gap-2 md:gap-5'>
+				{tags.map((tag) => <Tag>{tag}</Tag>)}
+			</div>
+		</header>
 
-    <div class='relative'>
-      {
-        heroImage && (
-          <Image
-            src={heroImage}
-            width={1000}
-            height={500}
-            quality={100}
-            format='jpg'
-            class='rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
-            alt={`img of ${title}`}
-          />
-        )
-      }
-      <div
-        class='placeholder absolute inset-0 rounded-md backdrop-blur-3xl blur-3xl bg-gradient-to-r from-indigo-500 to-orange-600 transition-opacity duration-700 ease-out'
-      >
-      </div>
-    </div>
+		<div class='relative'>
+			{
+				heroImage && (
+					<Image
+						src={heroImage}
+						width={1000}
+						height={500}
+						quality={100}
+						format='jpg'
+						class='rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
+						alt={`img of ${title}`}
+					/>
+				)
+			}
+			<div
+				class='placeholder absolute inset-0 rounded-md backdrop-blur-3xl blur-3xl bg-gradient-to-r from-indigo-500 to-orange-600 transition-opacity duration-700 ease-out'>
+			</div>
+		</div>
 
-    {
-      updatedDate && (
-        <div class='last-updated-on'>
-          Last updated on <FormattedDate date={updatedDate} />
-        </div>
-      )
-    }
+		{
+			updatedDate && (
+				<div class='last-updated-on'>
+					Last updated on <FormattedDate date={updatedDate} />
+				</div>
+			)
+		}
 
-    <hr />
+		<hr />
 
-    <div
-      class='grid grid-cols-1 px-2 sm:px-12 md:pl-2 md:grid-cols-[20%_auto] gap-16 mt-8 md:pr-12'
-    >
-      <div class='md:flex flex-col gap-8 hidden'>
-        <Share />
-        <div class='sticky top-24 self-start hidden md:block'>
-          {headings && headings.length > 0 && <TableOfContents {headings} />}
-        </div>
-        <div></div>
-      </div>
-      <div
-        class='gap-8 relative max-w-full prose md:prose-lg dark:prose-invert w-full'
-      >
-        <slot />
-      </div>
-    </div>
-  </article>
+		<div>
+			<slot />
+		</div>
+	</article>
 </BaseLayout>
 
 <script is:inline>
-const img = document.querySelector('img')
-const placeholder = document.querySelector('.placeholder')
+	const img = document.querySelector('img')
+	const placeholder = document.querySelector('.placeholder')
 
-img?.addEventListener('load', () => {
-  img.classList.add('opacity-100')
-  placeholder.classList.add('opacity-0')
-})
+	img?.addEventListener('load', () => {
+		img.classList.add('opacity-100')
+		placeholder.classList.add('opacity-0')
+	})
 </script>

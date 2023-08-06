@@ -1,16 +1,37 @@
-@font-face {
-  font-family: Manrope;
-  font-weight: 400;
-  /* Safari, Android, iOS */
-  src: url('../assets/fonts/Manrope-Light.ttf') format('truetype'),
-    url('../assets/fonts/Manrope-SemiBold.ttf') format('truetype'),
-    url('../assets/fonts/Manrope-Regular.ttf') format('truetype'),
-    url('../assets/fonts/Manrope-Medium.ttf') format('truetype');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  src: url(../assets/fonts/Manrope-Light.woff2) format('woff2'),
-    url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2'),
-    url(../assets/fonts/Manrope-Regular.woff2) format('woff2'),
-    url(../assets/fonts/Manrope-Medium.woff2) format('woff2');
+@layer base {
+  @font-face {
+    font-family: Manrope;
+    src: url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: Manrope;
+    src: url(../assets/fonts/Manrope-Medium.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: Manrope;
+    src: url(../assets/fonts/Manrope-Light.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: Manrope;
+    src: url(../assets/fonts/Manrope-Regular.woff2) format('woff2');
+  }
+
+  /* prose styles here */
+  .prose h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-zinc-800 dark:text-zinc-100   !important;
+  }
 }
 
 .moon-logo {

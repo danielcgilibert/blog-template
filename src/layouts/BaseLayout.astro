@@ -7,26 +7,19 @@ const { title, description, image, articleDate } = Astro.props
 ---
 
 <html lang='en' class='scroll-smooth'>
-  <head>
-    <BaseHead
-      title={title}
-      description={description}
-      ogImage={image}
-      articleDate={articleDate}
-    />
+	<head>
+		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
 
-    <ProviderTheme />
-  </head>
+		<ProviderTheme />
+	</head>
 
-  <body
-    class='relative bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white transition-colors duration-500 ease-in-out'
-  >
-    <main
-      class='mx-auto max-w-xs sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-5xl grid gap-12 mt-4'
-    >
-      <Header />
-      <slot />
-      <Footer />
-    </main>
-  </body>
+	<body
+		class='relative bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white transition-colors duration-500 ease-in-out'>
+		<main
+			class='mx-auto max-w-xs sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-5xl grid gap-12 mt-4'>
+			<Header />
+			<slot />
+			<Footer />
+		</main>
+	</body>
 </html>
