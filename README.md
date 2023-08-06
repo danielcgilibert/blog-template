@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/project.png" alt="Screenshot" />
+<img src="public/project.jpg" alt="Screenshot" />
 
 <hr/>
 
