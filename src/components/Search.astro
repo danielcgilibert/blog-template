@@ -37,6 +37,7 @@ import SearchIcon from '@/components/icons/SearchIcon'
 </site-search>
 
 <script>
+	import { animate } from 'motion'
 	class SiteSearch extends HTMLElement {
 		constructor() {
 			super()
@@ -56,6 +57,18 @@ import SearchIcon from '@/components/icons/SearchIcon'
 
 			const openModal = (event?: MouseEvent) => {
 				dialog.showModal()
+
+				animate(
+					'dialog',
+					{
+						clipPath: [
+							'polygon(0 0, 100% 0, 100% -200%, -200% -200%)',
+							'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'
+						],
+						opacity: [0, 1]
+					},
+					{ duration: 0.2 }
+				)
 				document.body.classList.add('overflow-hidden')
 				this.querySelector('input')?.focus()
 				event?.stopPropagation()
@@ -109,16 +122,3 @@ import SearchIcon from '@/components/icons/SearchIcon'
 		--pagefind-ui-tag: #152028;
 	}
 </style>
-
-<script>
-	import { animate } from 'motion'
-
-	animate(
-		'dialog',
-		{
-			scale: [0.2, 1],
-			opacity: [0, 1]
-		},
-		{ duration: 0.6, easing: 'ease-in' }
-	)
-</script>
