@@ -13,8 +13,9 @@ const isActive =
 <a
 	href={name === 'View All' ? '/' : sluglify(`/category/${unsluglifyNameCategory}`)}
 	class={cn(
-		`text-gray-500  tracking-wide pb-2.5 first-letter:uppercase font-medium hover:text-gray-800 hover:border-black hover:border-opacity-30 hover:border-b-2 hover:z-10 transition-colors dark:hover:text-gray-300 dark:hover:border-white dark:hover:border-opacity-30`,
-		isActive && `border-black border-b-2 text-black z-10  dark:border-white dark:text-white`
+		`text-gray-600 dark:text-gray-300  tracking-wide pb-2.5 first-letter:uppercase font-medium hover:text-gray-800 border-b-2 border-opacity-0 dark:border-opacity-0 border-black dark:border-white dark:hover:border-white hover:border-opacity-100 transition-colors duration-150 ease-linear`,
+		isActive &&
+			`border-black border-b-2 text-black z-10  dark:border-white dark:text-white dark:border-opacity-100 border-opacity-100`
 	)}>
 	{name}
 </a>
