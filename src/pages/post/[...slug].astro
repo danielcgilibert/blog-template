@@ -37,14 +37,14 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 		<!-- aside  -->
 		<aside class='md:flex flex-col gap-8 hidden'>
 			<Share />
-			<div class='sticky top-24 self-start hidden md:block'>
+			<div class='sticky top-24 self-start hidden md:block transition-all duration-200'>
 				{headings && headings.length > 0 && <TableOfContents {headings} />}
 			</div>
 		</aside>
 
 		<!-- main -->
 		<div class='max-w-full w-full'>
-			<div class='prose md:prose-lg dark:prose-invert mb-12'>
+			<div class='markdown prose dark:prose-invert mb-12'>
 				<Content components={{ pre: Code }} />
 			</div>
 

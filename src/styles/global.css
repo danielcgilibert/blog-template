@@ -3,56 +3,60 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: Manrope;
-    src: url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2');
-  }
+	body {
+		transition: background-color 0.5s ease;
+	}
 
-  @font-face {
-    font-family: Manrope;
-    src: url(../assets/fonts/Manrope-Medium.woff2) format('woff2');
-  }
+	@font-face {
+		font-family: Manrope;
+		src: url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2');
+	}
 
-  @font-face {
-    font-family: Manrope;
-    src: url(../assets/fonts/Manrope-Light.woff2) format('woff2');
-  }
+	@font-face {
+		font-family: Manrope;
+		src: url(../assets/fonts/Manrope-Medium.woff2) format('woff2');
+	}
 
-  @font-face {
-    font-family: Manrope;
-    src: url(../assets/fonts/Manrope-Regular.woff2) format('woff2');
-  }
+	@font-face {
+		font-family: Manrope;
+		src: url(../assets/fonts/Manrope-Light.woff2) format('woff2');
+	}
 
-  /* prose styles here */
-  .prose h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply text-zinc-800 dark:text-zinc-100   !important;
-  }
+	@font-face {
+		font-family: Manrope;
+		src: url(../assets/fonts/Manrope-Regular.woff2) format('woff2');
+	}
+
+	/* prose styles here */
+	.prose h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-zinc-800 dark:text-zinc-100   !important;
+	}
 }
 
 .moon-logo {
-  transform: translateY(0%) rotateZ(0deg);
+	transform: translateY(0%) rotateZ(0deg);
 }
 
 .sun-logo {
-  transform: translateY(0) rotateZ(0deg);
+	transform: translateY(0) rotateZ(0deg);
 }
 
 .animate-sun {
-  transform: translateY(20%) rotateZ(100deg);
+	transform: translateY(20%) rotateZ(100deg);
 }
 
 .animate-moon {
-  transform: translateY(20%) rotateZ(50deg);
+	transform: translateY(20%) rotateZ(50deg);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+	background: rgba(255, 255, 255, 0.04);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
 }
