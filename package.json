@@ -1,14 +1,36 @@
 {
 	"name": "blog-template",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "1.1.0",
+	"description": "A template for creating a blog with Astro",
+	"author": "danielcgilibert",
+	"license": "GPL-3.0-only",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/danielcgilibert/blog-template"
+	},
+	"keywords": [
+		"astro",
+		"astrojs",
+		"astro-template",
+		"astro-blog",
+		"astro-b"
+	],
+	"bugs": {
+		"url": "https://github.com/danielcgilibert/blog-template/issues"
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
+		"sync": "astro sync",
 		"preview": "astro preview",
 		"postbuild": "pagefind --source dist",
-		"lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
+		"format:check": "prettier --plugin-search-dir=. --check .",
+		"format": "prettier --plugin-search-dir=. --write .",
+		"lint": "eslint .",
+		"pre-commit": "lint-staged",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@astrojs/rss": "2.4.3",
@@ -25,6 +47,8 @@
 		"eslint": "^8.46.0",
 		"eslint-plugin-astro": "^0.28.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"husky": "^8.0.0",
+		"lint-staged": "^13.2.3",
 		"mdast-util-to-string": "^4.0.0",
 		"motion": "^10.16.2",
 		"pagefind": "^0.12.0",
@@ -36,5 +60,10 @@
 		"tailwind-merge": "1.14.0",
 		"tailwindcss": "3.3.3",
 		"typescript": "^5.1.6"
+	},
+	"lint-staged": {
+		"*.{astro,js,jsx,ts,tsx,md,mdx,json}": [
+			"prettier --write --plugin-search-dir=."
+		]
 	}
 }
