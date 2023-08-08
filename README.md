@@ -3,15 +3,22 @@
 <img src="public/project.jpg" alt="Screenshot" />
 
 <hr/>
+<h3 align="center">
+  ⭐️ Leave a star if you like this project! ⭐️
+</h3>
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanielcgilibert%2Fblog-template)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danielcgilibert/blog-template)
 
 </div>
 
-<h2 align="center">
-  ⭐️ Leave a star if you like this project! ⭐️
-</h2>
+## ✅ Lighthouse Score
+
+<p align="center">
+  <a href="https://pagespeed.web.dev/analysis/https-blog-template-gray-vercel-app/7ovjfewos9?form_factor=mobile">
+    <img width="510" alt="openblog Lighthouse Score" src="public/openblog-lighthouse-score.svg">
+  <a>
+</p>
 
 ## 🔤 Readme Translations
 
@@ -29,8 +36,12 @@ Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 - [**ASTRO** + **Typescript**](https://astro.build/) - Astro is the all-in-one web framework designed for speed.
 - [**Tailwind CSS** + **Tailwind-Merge** + **clsx**](https://tailwindcss.com/) - Tailwind CSS is a utility-first CSS framework.
 - [**Tabler Icons**](https://tabler-icons.io/i/) - A open source SVG icons.
+- [**Eslint**](https://eslint.org/) - ESLint is an open source project that helps you find and fix problems.
+- [**Prettier**](https://prettier.io/) - Code formatter.
+- [**Search Library**](https://pagefind.app/) - Static search library integration.
+- [**Motion**](https://motion.dev/) - Motion One is the smallest fully-featured animation library for the web.
 
-## ✅ Features:
+## 💪 Features:
 
 - ✅ Minimal styling
 - ✅ Mobile responsive
@@ -51,8 +62,16 @@ Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 ## 🛣️ Roadmap
 
 - ❌ Copy code block
+- ❌ Draft mode
+- ❌ Add post author
+- ❌ Add customization with colors
+- ❌ Add Pagination
+- ❌ Add filters for reading time, date...
+- ❌ Improve design of the navigation bar and footer
+- ❌ More sharing options
+- ❌ Internationalization (i18n)
 
-## 🚀 Getting Started
+## 👨🏻‍💻 Running Locally
 
 **Recommended extensions for VSCode:**
 
@@ -68,41 +87,29 @@ git@github.com:danielcgilibert/blog-template.git
 2. Install dependencies:
 
 ```bash
-npm install
-# or
-yarn install
-# or
 pnpm install
 ```
 
 3. Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
 ```
 
-## 🗂️ Project Structure
+## 🧞 Commands
 
-```
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   ├── data/
-│   ├── utils/
-│   ├── styles/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+All commands are run from the root of the project, from a terminal:
+
+| Command                 | Action                                                                                                                           |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm install`          | Installs dependencies                                                                                                            |
+| `pnpm run dev`          | Starts local dev server at `localhost:3000`                                                                                      |
+| `pnpm run build`        | Build your production site to `./dist/`                                                                                          |
+| `pnpm run preview`      | Preview your build locally, before deploying                                                                                     |
+| `pnpm run format:check` | Check code format with Prettier                                                                                                  |
+| `pnpm run format`       | Format codes with Prettier                                                                                                       |
+| `pnpm run sync`         | Generates TypeScript types for all Astro modules. [Learn more](https://docs.astro.build/en/reference/cli-reference/#astro-sync). |
+| `pnpm run lint`         | Lint with ESLint                                                                                                                 |
 
 ## 👋 Contributors
 
