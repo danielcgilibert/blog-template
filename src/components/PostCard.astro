@@ -10,7 +10,7 @@ const {
 } = Astro.props
 ---
 
-<article class='grid grid-rows-[300px_auto]'>
+<article class='grid grid-rows-[300px_auto] group'>
 	<a class='relative' href={`/post/${slug}/`}
 		><Image
 			src={heroImage}
@@ -18,7 +18,7 @@ const {
 			height={200}
 			format='webp'
 			loading='eager'
-			class='h-full min-w-full object-cover hover:scale-[1.01] transition-transform duration-150 opacity-0'
+			class='h-full min-w-full object-cover opacity-0 hover:scale-[101%] transition-all duration-200 rounded-[2px]'
 			alt={`img of ${title}`}
 		/>
 
@@ -38,13 +38,13 @@ const {
 	<div class='flex justify-between flex-col py-6 gap-4 pl-1'>
 		<div class='flex flex-col gap-3'>
 			<div class='flex flex-col gap-2'>
-				<a class='text-2xl font-semibold hover:underline' href={`/post/${slug}/`}>
+				<a class='text-2xl font-semibold' href={`/post/${slug}/`}>
 					{title}
 				</a>
 			</div>
 
 			<p
-				class='overflow-hidden line-clamp-3 text-gray-500 dark:text-white mb-8 font-light md:pr-[15%]'>
+				class='overflow-hidden line-clamp-3 text-gray-700 dark:text-white mb-5 font-[400] md:pr-[15%]'>
 				{description}
 			</p>
 		</div>
@@ -60,6 +60,9 @@ const {
 				>
 			</a>
 		</footer>
+		<div
+			class='scale-x-0 group-hover:scale-x-100 transition-transform duration-500 border-black dark:border-white border-b-2'>
+		</div>
 	</div>
 </article>
 
