@@ -1,4 +1,5 @@
 ---
+import { cn } from '@/utils'
 const { heading } = Astro.props
 
 type Heading = {
@@ -16,7 +17,9 @@ export interface Props {
 <li class='flex flex-col'>
 	<a
 		href={'#' + heading.slug}
-		class='bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-500 hover:bg-slate-100 shadow py-1 px-4 dark:text-white w-fit rounded-full mb-2 first-letter:uppercase'>
+		class={cn(
+			`bg-slate-200 dark:bg-slate-800 dark:hover:bg-indigo-400 hover:bg-indigo-300 hover:text-white shadow py-1 px-4 dark:text-white rounded-full mb-2 first-letter:uppercase w-fit line-clamp-2`
+		)}>
 		{heading.text}
 	</a>
 	{
