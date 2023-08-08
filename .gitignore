@@ -6,9 +6,7 @@ dist/
 # dependencies
 node_modules/
 
-yarl.lock
-package-lock.json
-pnpm-lock.yaml
+
 
 
 # logs
