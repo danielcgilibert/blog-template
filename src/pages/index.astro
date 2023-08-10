@@ -27,9 +27,9 @@ const posts = (await getCollection('blog'))
 
 <script>
 	import { animate } from 'motion'
+	const showAnimations = localStorage.getItem('animations') === 'true'
 
-	if (history.length === 1) {
-		// only animate on first load
+	if (showAnimations) {
 		animate(
 			'.title',
 			{ y: [80, 0], opacity: [0, 1] },

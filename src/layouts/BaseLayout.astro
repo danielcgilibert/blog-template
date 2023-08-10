@@ -3,6 +3,7 @@ import BaseHead from '@/components/BaseHead'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProviderTheme from '@/components/ProviderTheme'
+import ProviderAnimations from '@/components/ProviderAnimations'
 const { title, description, image, articleDate } = Astro.props
 ---
 
@@ -11,6 +12,7 @@ const { title, description, image, articleDate } = Astro.props
 		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
 
 		<ProviderTheme />
+		<ProviderAnimations />
 	</head>
 
 	<body class='relative bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white'>

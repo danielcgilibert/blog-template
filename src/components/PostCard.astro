@@ -60,9 +60,6 @@ const {
 				>
 			</a>
 		</footer>
-		<!-- <div
-			class='scale-x-0 group-hover:scale-x-100 transition-transform duration-500 border-black dark:border-white border-b-2'>
-		</div> -->
 	</div>
 </article>
 
@@ -72,8 +69,9 @@ const {
 	const images = document.querySelectorAll('img')
 
 	document.addEventListener('DOMContentLoaded', function () {
-		if (history.length === 1) {
-			// if first load
+		const showAnimations = localStorage.getItem('animations') === 'true'
+
+		if (showAnimations) {
 			animate(
 				'img',
 				{
@@ -84,8 +82,6 @@ const {
 			)
 		} else {
 			images.forEach((img) => {
-				// if not first load
-				// I set the image's opacity to 0 to avoid flickering on the first load.
 				img.classList.remove('opacity-0')
 			})
 		}
