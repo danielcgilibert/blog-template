@@ -3,6 +3,7 @@ import BaseHead from '@/components/BaseHead'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProviderTheme from '@/components/ProviderTheme'
+import TwSizeIndicator from '@/components/TwSizeIndicator'
 const { title, description, image, articleDate } = Astro.props
 ---
 
@@ -15,10 +16,11 @@ const { title, description, image, articleDate } = Astro.props
 
 	<body class='relative bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white'>
 		<main
-			class='mx-auto max-w-xs sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-5xl grid gap-12 mt-4'>
+			class='mx-auto max-w-xs sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-5xl grid gap-12 md:mt-4'>
 			<Header />
 			<slot />
 			<Footer />
 		</main>
+		<TwSizeIndicator />
 	</body>
 </html>

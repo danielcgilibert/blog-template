@@ -3,6 +3,7 @@ import HeaderLink from '@/components/HeaderLink'
 import GithbuIcon from '@/components/icons/TwitterIcon'
 import TwitterIcon from '@/components/icons/GithbuIcon'
 import SunIcon from '@/components/icons/SunIcon'
+import DropdownNav from '@/components/DropdownNav'
 import MoonIcon from '@/components/icons/MoonIcon'
 import PageFindSearch from '@/components/Search'
 
@@ -24,15 +25,17 @@ const SOCIALNETWORKS = [
 <header class='flex justify-between items-center h-12 font-semibold'>
 	<a class='text-lg' href='/'>Home</a>
 	<nav class='nav-menu flex justify-center items-center md:flex gap-4'>
-		{
-			SOCIALNETWORKS.map((network) => (
-				<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
-					<span>{<network.icon />} </span>
-				</HeaderLink>
-			))
-		}
 		<PageFindSearch />
-		<div class='md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2'>
+		<DropdownNav />
+		<div class='pl-3.5 border-l-2 flex justify-center items-center gap-4'>
+			{
+				SOCIALNETWORKS.map((network) => (
+					<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
+						<span>{<network.icon />} </span>
+					</HeaderLink>
+				))
+			}
+
 			<span class='theme relative'>
 				<span class='sun-logo w-fit h-fit transition-transform duration-500 opacity-0'>
 					<SunIcon />
