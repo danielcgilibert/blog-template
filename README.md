@@ -58,11 +58,11 @@ Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 - ✅ [Pagefind](https://pagefind.app/) static search library integration
 - ✅ Related posts
 - ✅ Share posts (Linkedin, twitter)
+- ✅ Draft mode (new)
 
 ## 🛣️ Roadmap
 
 - ❌ Copy code block
-- ❌ Draft mode
 - ❌ Add post author
 - ❌ Add customization with colors
 - ❌ Add Pagination
