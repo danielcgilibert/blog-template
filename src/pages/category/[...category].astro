@@ -1,27 +1,27 @@
 ---
-import { getCollection } from 'astro:content'
 import BaseLayout from '@/layouts/BaseLayout'
 import ListPosts from '@/components/ListPosts'
 import ListCategories from '@/components/ListCategories'
 import Shape from '@/components/icons/Shape'
-import { sluglify, unsluglify } from '@/utils'
+import { sluglify, unsluglify, getCategories, getPots } from '@/utils'
 
 const { category } = Astro.params
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog')
+	const categories = await getCategories()
 
-	return posts.map((post) => ({
-		params: { category: sluglify(post.data.category.toLowerCase()) },
-		props: post
+	return categories.map((category) => ({
+		params: { category: sluglify(category.toLowerCase()) },
+		props: category
 	}))
 }
 
 const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
 
-const posts = (await getCollection('blog'))
-	.filter((post) => post.data.category.toLowerCase() === unsluglifyNameCategory)
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+const posts = await getPots()
+const filterPosts = posts.filter(
+	(post) => post.data.category.toLowerCase() === unsluglifyNameCategory
+)
 ---
 
 <BaseLayout title={category}>
@@ -33,5 +33,5 @@ const posts = (await getCollection('blog'))
 	</div>
 
 	<ListCategories activeCategory={category} />
-	<ListPosts posts={posts} />
+	<ListPosts posts={filterPosts} />
 </BaseLayout>

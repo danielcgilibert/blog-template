@@ -9,11 +9,10 @@ export default defineConfig({
 	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
 	experimental: {
 		assets: true
-		// viewTransitions: false,
 	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
-		// drafts: true,
+		drafts: true,
 		shikiConfig: {
 			theme: 'github-dark-dimmed',
 			wrap: true
@@ -25,8 +24,8 @@ export default defineConfig({
 			shikiConfig: {
 				theme: 'github-dark-dimmed',
 				wrap: true
-			}
-			// drafts: true,
+			},
+			drafts: true
 		}),
 		sitemap(),
 		tailwind()

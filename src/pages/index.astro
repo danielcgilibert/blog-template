@@ -3,12 +3,10 @@ import ListCategories from '@/components/ListCategories'
 import ListPosts from '@/components/ListPosts'
 import Shape from '@/components/icons/Shape'
 import BaseLayout from '@/layouts/BaseLayout'
-import { getCollection } from 'astro:content'
+import { getPots } from '@/utils'
 
 const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = (await getCollection('blog'))
-	.slice(0, MAX_POSTS)
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+const posts = await getPots(MAX_POSTS)
 ---
 
 <BaseLayout title='Home'>

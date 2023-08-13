@@ -55,8 +55,6 @@
 }
 
 .glass {
-	/* @apply bg-black blur opacity-80 w-full h-full; */
-
 	backdrop-filter: blur(15px) saturate(150%);
 	-webkit-backdrop-filter: blur(15px) saturate(180%);
 	background-color: rgba(255, 255, 255, 0.05);
