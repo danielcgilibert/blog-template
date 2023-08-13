@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout'
 import ListPosts from '@/components/ListPosts'
 import ListCategories from '@/components/ListCategories'
 import Shape from '@/components/icons/Shape'
-import { sluglify, unsluglify, getCategories, getPots } from '@/utils'
+import { sluglify, unsluglify, getCategories, getPosts } from '@/utils'
 
 const { category } = Astro.params
 
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
 
-const posts = await getPots()
+const posts = await getPosts()
 const filterPosts = posts.filter(
 	(post) => post.data.category.toLowerCase() === unsluglifyNameCategory
 )
