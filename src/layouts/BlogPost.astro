@@ -34,7 +34,7 @@ const articleDate = pubDate.toISOString()
 						- {readTime}
 					</p>
 				</div>
-				<h1 class='text-center text-4xl md:text-6xl md:pb-2.5 font-semibold'>
+				<h1 class='title text-center text-4xl md:text-6xl md:pb-2.5 font-semibold opacity-0'>
 					{title}
 				</h1>
 			</div>
@@ -94,7 +94,7 @@ const articleDate = pubDate.toISOString()
 	import { animate } from 'motion'
 
 	animate(
-		'h1',
+		'.title',
 		{
 			opacity: [0, 1],
 			clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
