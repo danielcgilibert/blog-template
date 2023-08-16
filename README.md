@@ -159,7 +159,7 @@ draft: true <---
 - draft (no need to include it, by default it's false)
 - tags
 
-> The schema for posts is located at src/content/config.ts. You can modify any parameter, for example, by adding a maximum of 30 characters for titles: title: z.string().max(80).
+> The schema for posts is located at src/content/config.ts. You can modify any parameter, for example, by adding a maximum of 80 characters for titles: title: z.string().max(80).
 > For more information, refer to the zod documentation.
 
 ## 🧞 Commands
