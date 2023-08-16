@@ -59,10 +59,9 @@ Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 - ✅ Related posts
 - ✅ Share posts (Linkedin, twitter)
 - ✅ Draft mode (new)
+- ✅ Copy code block (new)
 
 ## 🛣️ Roadmap
-
-- ❌ Copy code block
 - ❌ Add post author
 - ❌ Add customization with colors
 - ❌ Add Pagination
