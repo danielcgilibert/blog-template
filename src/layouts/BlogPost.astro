@@ -52,16 +52,13 @@ const articleDate = pubDate.toISOString()
 						width={1000}
 						height={500}
 						quality={100}
-						format='jpg'
-						class='rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
+						format='webp'
+						class='rounded-md w-full max-h-[500px] my-8 object-cover'
 						alt={`img of ${title}`}
+						transition:name={title.replace(/\s/g, '')}
 					/>
 				)
 			}
-			<div
-				style='backdrop-filter: blur(25px) saturate(180%);'
-				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-200 bg-gray-200 dark:border-neutral-900 dark:bg-zinc-900 bg-opacity-90'>
-			</div>
 		</div>
 
 		{
@@ -79,16 +76,6 @@ const articleDate = pubDate.toISOString()
 		</div>
 	</article>
 </BaseLayout>
-
-<script is:inline>
-	const img = document.querySelector('img')
-	const placeholder = document.querySelector('.placeholder')
-
-	img?.addEventListener('load', () => {
-		img.classList.add('opacity-100')
-		placeholder.classList.add('opacity-0')
-	})
-</script>
 
 <script>
 	import { animate } from 'motion'

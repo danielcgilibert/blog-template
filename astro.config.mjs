@@ -8,7 +8,8 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 export default defineConfig({
 	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
 	experimental: {
-		assets: true
+		assets: true,
+		viewTransitions: true
 	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],

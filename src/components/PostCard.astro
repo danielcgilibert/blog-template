@@ -17,9 +17,9 @@ const {
 			width={600}
 			height={200}
 			format='webp'
-			loading='eager'
-			class='h-full min-w-full object-cover opacity-0 hover:scale-[101%] transition-all duration-200 rounded-[2px]'
+			class='h-full min-w-full object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]'
 			alt={`img of ${title}`}
+			transition:name={title.replace(/\s/g, '')}
 		/>
 
 		<div class='z-30 absolute bottom-0 w-full h-20'>
@@ -62,28 +62,3 @@ const {
 		</footer>
 	</div>
 </article>
-
-<script>
-	import { animate } from 'motion'
-
-	const images = document.querySelectorAll('img')
-
-	document.addEventListener('DOMContentLoaded', function () {
-		const showAnimations = localStorage.getItem('animations') === 'true'
-
-		if (showAnimations) {
-			animate(
-				'img',
-				{
-					opacity: [0, 1],
-					clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)']
-				},
-				{ duration: 2, easing: 'ease' }
-			)
-		} else {
-			images.forEach((img) => {
-				img.classList.remove('opacity-0')
-			})
-		}
-	})
-</script>
