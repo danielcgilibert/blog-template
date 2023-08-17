@@ -4,7 +4,7 @@ import CheckIcon from '../icons/CheckIcon.astro'
 ---
 
 <pre
-	class='relative shadow-2xl dark:bg-slate-800'><button class="copy-button absolute  z-20 top-2 right-2  rounded-md transition-all ease-in max-w-full max-h-fit"><CopyIcon /></button><button class="check-button absolute z-10 top-2 right-2  rounded-md transition-all ease-in opacity-0 text-green-300 max-w-full max-h-fit "><CheckIcon /></button><slot /></pre>
+	class='relative shadow-2xl dark:bg-slate-800'><button class="copy-button absolute  z-20 top-2 right-2  rounded-md transition-all ease-in max-w-full max-h-fit hover:text-indigo-400"><CopyIcon /></button><button class="check-button absolute z-10 top-2 right-2  rounded-md transition-all ease-in opacity-0 text-green-300 max-w-full max-h-fit "><CheckIcon /></button><slot /></pre>
 
 <script>
 	const codeBlock = document.querySelectorAll('pre')
