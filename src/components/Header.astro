@@ -1,7 +1,7 @@
 ---
 import HeaderLink from '@/components/HeaderLink'
-import GithbuIcon from '@/components/icons/TwitterIcon'
-import TwitterIcon from '@/components/icons/GithbuIcon'
+import TwitterIcon from '@/components/icons/TwitterIcon'
+import GithubIcon from '@/components/icons/GithubIcon'
 import SunIcon from '@/components/icons/SunIcon'
 import MoonIcon from '@/components/icons/MoonIcon'
 import PageFindSearch from '@/components/Search'
@@ -11,7 +11,7 @@ const SOCIALNETWORKS = [
 	{
 		name: 'Github',
 		url: 'https://github.com/danielcgilibert/blog-template',
-		icon: GithbuIcon
+		icon: GithubIcon
 	},
 	{
 		name: 'Twitter',
@@ -34,11 +34,11 @@ const SOCIALNETWORKS = [
 		<PageFindSearch />
 		<div class='md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2'>
 			<span class='theme relative'>
-				<span class='sun-logo w-fit h-fit transition-transform duration-500 opacity-0'>
+				<span class='sun-logo w-fit h-fit opacity-0 transition-transform duration-500'>
 					<SunIcon />
 				</span>
 				<span
-					class='moon-logo w-fit h-fit absolute inset-0 opacity-0 transition-transform duration-500'>
+					class='moon-logo w-fit h-fit absolute opacity-0 inset-0 transition-transform duration-500'>
 					<MoonIcon />
 				</span>
 			</span>
