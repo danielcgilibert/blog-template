@@ -33,16 +33,16 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
-		"@astrojs/rss": "2.4.3",
-		"astro": "2.10.1"
+		"@astrojs/rss": "2.4.4",
+		"astro": "2.10.12"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "0.19.7",
-		"@astrojs/sitemap": "2.0.1",
+		"@astrojs/sitemap": "2.0.2",
 		"@astrojs/tailwind": "4.0.0",
 		"@pagefind/default-ui": "^0.12.0",
 		"@tailwindcss/typography": "0.5.9",
-		"@typescript-eslint/parser": "^6.2.1",
+		"@typescript-eslint/parser": "^6.4.1",
 		"clsx": "2.0.0",
 		"eslint": "^8.46.0",
 		"eslint-plugin-astro": "^0.28.0",
@@ -52,9 +52,9 @@
 		"mdast-util-to-string": "^4.0.0",
 		"motion": "^10.16.2",
 		"pagefind": "^0.12.0",
-		"prettier": "^3.0.1",
+		"prettier": "^3.0.2",
 		"prettier-config-standard": "^5.0.0",
-		"prettier-plugin-astro": "^0.11.0",
+		"prettier-plugin-astro": "^0.11.1",
 		"reading-time": "^1.5.0",
 		"slugify": "^1.6.6",
 		"tailwind-merge": "1.14.0",
