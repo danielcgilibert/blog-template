@@ -29,7 +29,11 @@
 
 Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 <br/>
-<img src="public/demo.gif" alt="Screenshot" />
+
+
+https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-45a8-b9d2-d69833ecadb1
+
+
 
 ## ⚙️ Stack
 
