@@ -11,12 +11,13 @@ const URL = Astro.url.href
 	<span class='mb-1 font-bold text-lg'>Share</span>
 	<ul class='flex gap-3 text-black dark:text-white'>
 		<li>
-			<a href={`https://twitter.com/intent/tweet?text=${message + ' ' + URL}`}
+			<a href={`https://twitter.com/intent/tweet?text=${message + ' ' + URL}`} aria-label="Share on Twitter"
 				><TwitterColorIcon /></a
 			>
 		</li>
 		<li>
-			<a href={`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`}> <LinkedinIcon /></a>
+			<a href={`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`} aria-label="Share on LinkedIn"
+                                > <LinkedinIcon /></a>
 		</li>
 	</ul>
 </div>
