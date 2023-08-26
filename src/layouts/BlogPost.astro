@@ -53,6 +53,7 @@ const articleDate = pubDate.toISOString()
 						height={500}
 						quality={100}
 						format='jpg'
+						loading='eager'
 						class='rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
 						alt={`img of ${title}`}
 					/>
@@ -114,7 +115,7 @@ const articleDate = pubDate.toISOString()
 			if (entry.isIntersecting) {
 				index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
 				index?.classList.add(
-					'bg-indigo-500',
+					'bg-indigo-600',
 					'dark:bg-indigo-700',
 					'text-white',
 					'font-bold',
@@ -124,7 +125,7 @@ const articleDate = pubDate.toISOString()
 			} else {
 				index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
 				index?.classList.remove(
-					'bg-indigo-500',
+					'bg-indigo-600',
 					'dark:bg-indigo-700',
 					'text-white',
 					'font-bold',
