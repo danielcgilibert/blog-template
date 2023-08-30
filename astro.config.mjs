@@ -7,9 +7,6 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
-	experimental: {
-		assets: true
-	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
