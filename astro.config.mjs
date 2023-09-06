@@ -7,15 +7,11 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
-	experimental: {
-		assets: true
-		// viewTransitions: false,
-	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
-		// drafts: true,
+		drafts: true,
 		shikiConfig: {
-			theme: 'github-dark-dimmed',
+			theme: 'material-theme-palenight',
 			wrap: true
 		}
 	},
@@ -23,10 +19,10 @@ export default defineConfig({
 		mdx({
 			syntaxHighlight: 'shiki',
 			shikiConfig: {
-				theme: 'github-dark-dimmed',
+				theme: 'material-theme-palenight',
 				wrap: true
-			}
-			// drafts: true,
+			},
+			drafts: true
 		}),
 		sitemap(),
 		tailwind()

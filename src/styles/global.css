@@ -7,6 +7,10 @@
 		transition: background-color 0.5s ease;
 	}
 
+	.prose code {
+		@apply text-base;
+	}
+
 	@font-face {
 		font-family: Manrope;
 		src: url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2');
@@ -55,8 +59,6 @@
 }
 
 .glass {
-	/* @apply bg-black blur opacity-80 w-full h-full; */
-
 	backdrop-filter: blur(15px) saturate(150%);
 	-webkit-backdrop-filter: blur(15px) saturate(180%);
 	background-color: rgba(255, 255, 255, 0.05);

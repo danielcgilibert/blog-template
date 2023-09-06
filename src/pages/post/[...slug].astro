@@ -5,10 +5,11 @@ import Code from '@/components/mdx/Code'
 import ListRelatedPosts from '@/components/ListRelatedPosts'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
+import { getPosts } from '@/utils'
 const posts = await getCollection('blog')
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog')
+	const posts = await getPosts()
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
@@ -32,8 +33,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
 <BlogPost data={post.data} headings={headings} readTime={remarkPluginFrontmatter.minutesRead}>
-	<div
-		class='grid grid-cols-1 px-2 sm:px-12 sm: md:pl-2 md:grid-cols-[20%_auto] gap-16 mt-8 md:pr-12'>
+	<div class='grid grid-cols-1 md:pl-2 md:grid-cols-[20%_auto] gap-16 mt-8'>
 		<!-- aside  -->
 		<aside class='md:flex flex-col gap-8 hidden'>
 			<Share />
@@ -44,7 +44,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 
 		<!-- main -->
 		<div class='max-w-full w-full'>
-			<div class='markdown prose dark:prose-invert mb-12'>
+			<div class='prose md:prose-lg dark:prose-invert mb-12 min-w-full'>
 				<Content components={{ pre: Code }} />
 			</div>
 

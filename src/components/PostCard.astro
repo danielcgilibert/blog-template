@@ -17,7 +17,6 @@ const {
 			width={600}
 			height={200}
 			format='webp'
-			loading='eager'
 			class='h-full min-w-full object-cover opacity-0 hover:scale-[101%] transition-all duration-200 rounded-[2px]'
 			alt={`img of ${title}`}
 		/>
@@ -44,7 +43,8 @@ const {
 			</div>
 
 			<p
-				class='overflow-hidden line-clamp-3 text-gray-700 dark:text-white mb-5 font-[400] md:pr-[15%]'>
+				class='overflow-hidden line-clamp-3 text-gray-700 dark:text-white mb-5 font-[400] md:pr-[15%]'
+			>
 				{description}
 			</p>
 		</div>
@@ -53,7 +53,8 @@ const {
 			<a
 				href={`/post/${slug}/`}
 				class='flex justify-center items-center dark:text-white rounded-full hover:translate-x-1 transition-transform duration-150 ease-in-out font-semibold gap-1 group'
-				aria-label={`go to ${title}`}>
+				aria-label={`go to ${title}`}
+			>
 				Read Post <span
 					class='mt-[1px] group-hover:rotate-45 transition-transform duration-250 ease-in-out'
 					><ArrowUp width='18' height='18' /></span
@@ -69,8 +70,9 @@ const {
 	const images = document.querySelectorAll('img')
 
 	document.addEventListener('DOMContentLoaded', function () {
-		if (history.length === 1) {
-			// if first load
+		const showAnimations = localStorage.getItem('animations') === 'true'
+
+		if (showAnimations) {
 			animate(
 				'img',
 				{
@@ -81,8 +83,6 @@ const {
 			)
 		} else {
 			images.forEach((img) => {
-				// if not first load
-				// I set the image's opacity to 0 to avoid flickering on the first load.
 				img.classList.remove('opacity-0')
 			})
 		}

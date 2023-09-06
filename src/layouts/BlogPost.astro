@@ -22,7 +22,8 @@ const articleDate = pubDate.toISOString()
 	title={title}
 	description={description}
 	image={heroImage?.src}
-	articleDate={articleDate}>
+	articleDate={articleDate}
+>
 	<article class='md:py-4 max-w-xs sm:max-w-none md:max-w-none'>
 		<header class='mb-3 flex flex-col justify-center items-center gap-6'>
 			<div class='flex flex-col gap-2'>
@@ -34,12 +35,12 @@ const articleDate = pubDate.toISOString()
 						- {readTime}
 					</p>
 				</div>
-				<h1 class='text-center text-4xl md:text-6xl md:mb-2.5 font-semibold'>
+				<h1 class='title text-center text-4xl md:text-6xl md:pb-2.5 font-semibold opacity-0'>
 					{title}
 				</h1>
 			</div>
 
-			<div class='flex flex-wrap gap-2 md:gap-5'>
+			<div class='flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5'>
 				{tags.map((tag) => <Tag>{tag}</Tag>)}
 			</div>
 		</header>
@@ -53,6 +54,7 @@ const articleDate = pubDate.toISOString()
 						height={500}
 						quality={100}
 						format='jpg'
+						loading='eager'
 						class='rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
 						alt={`img of ${title}`}
 					/>
@@ -60,7 +62,8 @@ const articleDate = pubDate.toISOString()
 			}
 			<div
 				style='backdrop-filter: blur(25px) saturate(180%);'
-				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-200 bg-gray-200 dark:border-neutral-900 dark:bg-zinc-900 bg-opacity-90'>
+				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-200 bg-gray-200 dark:border-neutral-900 dark:bg-zinc-900 bg-opacity-90'
+			>
 			</div>
 		</div>
 
@@ -91,6 +94,19 @@ const articleDate = pubDate.toISOString()
 </script>
 
 <script>
+	import { animate } from 'motion'
+
+	animate(
+		'.title',
+		{
+			opacity: [0, 1],
+			clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
+		},
+		{ duration: 1, easing: 'ease-in-out' }
+	)
+</script>
+
+<script>
 	function handleIntersection(
 		entries: IntersectionObserverEntry[],
 		observer: IntersectionObserver
@@ -101,7 +117,7 @@ const articleDate = pubDate.toISOString()
 			if (entry.isIntersecting) {
 				index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
 				index?.classList.add(
-					'bg-indigo-500',
+					'bg-indigo-600',
 					'dark:bg-indigo-700',
 					'text-white',
 					'font-bold',
@@ -111,7 +127,7 @@ const articleDate = pubDate.toISOString()
 			} else {
 				index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
 				index?.classList.remove(
-					'bg-indigo-500',
+					'bg-indigo-600',
 					'dark:bg-indigo-700',
 					'text-white',
 					'font-bold',

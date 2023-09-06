@@ -1,9 +1,7 @@
 ---
-import { getCollection } from 'astro:content'
 import { getCategories } from '@/utils'
 import Category from '@/components/Category'
-const posts = await getCollection('blog')
-const categories = getCategories(posts)
+const categories = await getCategories()
 
 const { activeCategory } = Astro.props
 ---
