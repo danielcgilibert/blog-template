@@ -1,5 +1,4 @@
 ---
-import HeaderLink from '@/components/HeaderLink'
 import MenuIcon from '@/components/icons/MenuIcon'
 ---
 
@@ -7,20 +6,15 @@ import MenuIcon from '@/components/icons/MenuIcon'
 	<button
 		id='dropdownDefaultButton'
 		data-dropdown-toggle='dropdown'
-		class='text-black border-b-2 flex justify-center items-center border-white transition-colors duration-150 border-opacity-0 focus:border-opacity-100 focus:border-b-2 focus:outline-none focus:border-black font-medium md:w-32 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-		type='button'>
+		class='text-black border-b-2 border-opacity-0 border-black font-medium md:w-28 py-1.5 text-center'
+	>
 		<span class='md:hidden'>
 			<MenuIcon />
 		</span>
 
-		<span class='hidden md:flex md:justify-center md:items-center'>
+		<span class='hidden md:flex md:justify-center md:items-center md:gap-2'>
 			Pages
-			<svg
-				class='w-2.5 h-2.5 ml-2.5'
-				aria-hidden='true'
-				xmlns='http://www.w3.org/2000/svg'
-				fill='none'
-				viewBox='0 0 10 6'>
+			<svg class='w-2.5 h-2.5' aria-hidden='true' fill='none' viewBox='0 0 10 6'>
 				<path
 					stroke='currentColor'
 					stroke-linecap='round'
@@ -30,62 +24,61 @@ import MenuIcon from '@/components/icons/MenuIcon'
 			</svg>
 		</span>
 	</button>
+
 	<!-- Dropdown menu -->
 	<div
 		id='dropdown'
-		class='absolute hidden top-0 z-50 md:top-[38px] right-0 w-48 h-screen md:h-auto md:max-w-full md:rounded-b-lg shadow-lg border-sky-200 dark:bg-gray-800 bg-white'>
+		class='absolute hidden top-0 z-50 md:top-[38px] right-0 w-60 h-screen md:h-auto md:max-w-full md:rounded-b-lg shadow-lg border-sky-200 dark:bg-gray-800 bg-white'
+	>
 		<span class='closeNav md:hidden'>close</span>
 		<ul
+			id='dropdownMenu'
 			class='flex flex-col justify-center items-center py-2 gap-2 text-gray-700 dark:text-gray-200'
-			aria-labelledby='dropdownDefaultButton'>
+			aria-labelledby='dropdownDefaultButton'
+		>
 			<li>
 				<a
-					href='#'
+					href='/tags'
 					class='block px-4 py-2 hover:underline dark:hover:bg-gray-600 dark:hover:text-white font-semibold hover:text-indigo-500'
-					>Dashboard</a
-				>
-			</li>
-			<li>
-				<a
-					href='#'
-					class='block px-4 py-2 hover:underline dark:hover:bg-gray-600 dark:hover:text-white font-semibold hover:text-indigo-500'
-					>Settings</a
-				>
-			</li>
-			<li>
-				<a
-					href='#'
-					class='block px-4 py-2 hover:underline dark:hover:bg-gray-600 dark:hover:text-white font-semibold hover:text-indigo-500'
-					>Earnings</a
+					>Tags</a
 				>
 			</li>
 		</ul>
 	</div>
+
+	<div
+		class='div-blur hidden md:hidden absolute z-40 inset-0 backdrop-blur-sm w-screen h-screen bg-black bg-opacity-50'
+	>
+	</div>
+
+	<script>
+		const dropdown = document.querySelector('#dropdown')
+		const divBlur = document.querySelector('.div-blur')
+		const dropdownBtn = document.querySelector('#dropdownDefaultButton')
+		const dropdownMenu = document.querySelector('#dropdownMenu')
+		const closeBtn = document.querySelector('.closeNav')
+
+		dropdownBtn.addEventListener('click', (e) => {
+			e.stopPropagation()
+			if (!dropdownBtn.contains(event.target)) {
+				dropdown?.classList.add('hidden')
+				return
+			}
+			divBlur?.classList.toggle('hidden')
+			dropdown?.classList.toggle('hidden')
+			dropdownBtn?.classList.toggle('border-opacity-0')
+		})
+
+		document.addEventListener('click', (e) => {
+			if (
+				(dropdownMenu.contains(e.target) || dropdown.contains(e.target)) &&
+				!closeBtn.contains(e.target)
+			) {
+				return
+			}
+			divBlur?.classList.add('hidden')
+			dropdown?.classList.add('hidden')
+			dropdownBtn?.classList.add('border-opacity-0')
+		})
+	</script>
 </div>
-
-<div
-	class='div-blur hidden md:hidden absolute z-40 inset-0 backdrop-blur-sm w-screen h-screen bg-black bg-opacity-50'>
-</div>
-
-<script>
-	const dropdown = document.querySelector('#dropdown')
-	const divBlur = document.querySelector('.div-blur')
-	// window.addEventListener(
-	// 	'click',
-	// 	() => {
-	// 		dropdown?.classList.add('hidden')
-	// 		console.log('entra')
-	// 	},
-	// 	true
-	// )
-
-	document.querySelector('#dropdownDefaultButton')?.addEventListener('click', () => {
-		dropdown?.classList.toggle('hidden')
-		divBlur?.classList.toggle('hidden')
-	})
-
-	document.querySelector('.closeNav')?.addEventListener('click', () => {
-		dropdown?.classList.toggle('hidden')
-		divBlur?.classList.toggle('hidden')
-	})
-</script>
