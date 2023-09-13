@@ -2,83 +2,67 @@
 import MenuIcon from '@/components/icons/MenuIcon'
 ---
 
-<div class='md:relative'>
-	<button
-		id='dropdownDefaultButton'
-		data-dropdown-toggle='dropdown'
-		class='text-black border-b-2 border-opacity-0 border-black font-medium md:w-28 py-1.5 text-center'
+<details id='resources-menu' class='group relative'>
+	<summary class='accordion link flex cursor-pointer items-center gap-2'>Pages</summary>
+	<ul
+		class:list={[
+			// flex
+			'flex flex-col',
+
+			// positioning
+
+			'absolute top-full left-0 translate-y-2',
+
+			// panel styling
+
+			'rounded bg-astro-gray-100 p-1 text-astro-gray-700 min-w-[150px] shadow-md',
+
+			// transitioning
+
+			'invisible group-open:visible',
+			'origin-top scale-95 group-open:scale-100',
+			'opacity-0 group-open:opacity-100',
+			'transition-all duration-300'
+		]}
 	>
-		<span class='md:hidden'>
-			<MenuIcon />
-		</span>
+		<li>
+			<a
+				href='/themes'
+				rel='prefetch'
+				class='flex items-center gap-2 rounded p-3 leading-none transition hover:bg-black/10'
+			>
+				Themes
+			</a>
+		</li>
+		<li>
+			<a
+				href='/integrations'
+				rel='prefetch'
+				class='flex items-center gap-2 rounded p-3 leading-none transition hover:bg-black/10'
+			>
+				Integrations
+			</a>
+		</li>
+		<li>
+			<a
+				href='https://docs.astro.build/en/tutorial/0-introduction/'
+				class='flex items-center gap-2 rounded p-3 leading-none transition hover:bg-black/10'
+			>
+				Tutorials
+			</a>
+		</li>
+	</ul>
+</details>
 
-		<span class='hidden md:flex md:justify-center md:items-center md:gap-2'>
-			Pages
-			<svg class='w-2.5 h-2.5' aria-hidden='true' fill='none' viewBox='0 0 10 6'>
-				<path
-					stroke='currentColor'
-					stroke-linecap='round'
-					stroke-linejoin='round'
-					stroke-width='2'
-					d='m1 1 4 4 4-4'></path>
-			</svg>
-		</span>
-	</button>
+<script>
+	const menu = document.querySelector<HTMLDetailsElement>('#resources-menu')!
 
-	<!-- Dropdown menu -->
-	<div
-		id='dropdown'
-		class='absolute hidden top-0 z-50 md:top-[38px] right-0 w-60 h-screen md:h-auto md:max-w-full md:rounded-b-lg shadow-lg border-sky-200 dark:bg-gray-800 bg-white'
-	>
-		<span class='closeNav md:hidden'>close</span>
-		<ul
-			id='dropdownMenu'
-			class='flex flex-col justify-center items-center py-2 gap-2 text-gray-700 dark:text-gray-200'
-			aria-labelledby='dropdownDefaultButton'
-		>
-			<li>
-				<a
-					href='/tags'
-					class='block px-4 py-2 hover:underline dark:hover:bg-gray-600 dark:hover:text-white font-semibold hover:text-indigo-500'
-					>Tags</a
-				>
-			</li>
-		</ul>
-	</div>
-
-	<div
-		class='div-blur hidden md:hidden absolute z-40 inset-0 backdrop-blur-sm w-screen h-screen bg-black bg-opacity-50'
-	>
-	</div>
-
-	<script>
-		const dropdown = document.querySelector('#dropdown')
-		const divBlur = document.querySelector('.div-blur')
-		const dropdownBtn = document.querySelector('#dropdownDefaultButton')
-		const dropdownMenu = document.querySelector('#dropdownMenu')
-		const closeBtn = document.querySelector('.closeNav')
-
-		dropdownBtn.addEventListener('click', (e) => {
-			e.stopPropagation()
-			if (!dropdownBtn.contains(event.target)) {
-				dropdown?.classList.add('hidden')
-				return
-			}
-			divBlur?.classList.toggle('hidden')
-			dropdown?.classList.toggle('hidden')
-			dropdownBtn?.classList.toggle('border-opacity-0')
-		})
-
-		document.addEventListener('click', (e) => {
-			if (
-				(dropdownMenu.contains(e.target) || dropdown.contains(e.target)) &&
-				!closeBtn.contains(e.target)
-			) {
-				return
-			}
-			divBlur?.classList.add('hidden')
-			dropdown?.classList.add('hidden')
-			dropdownBtn?.classList.add('border-opacity-0')
-		})
-	</script>
-</div>
+	menu.addEventListener('focusout', () => {
+		if (!menu.matches(':focus-within')) {
+			// delay the transition on focustout so the menu doesn't immediately disappear
+			setTimeout(() => {
+				menu.open = false
+			}, 200)
+		}
+	})
+</script>

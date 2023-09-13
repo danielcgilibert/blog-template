@@ -6,6 +6,8 @@ import SunIcon from '@/components/icons/SunIcon'
 import DropdownNav from '@/components/DropdownNav'
 import MoonIcon from '@/components/icons/MoonIcon'
 import PageFindSearch from '@/components/Search'
+import MobileNav from './mobileNav.astro'
+import MenuIcon from './icons/MenuIcon.astro'
 
 // ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
@@ -24,7 +26,7 @@ const SOCIALNETWORKS = [
 
 <header class='flex justify-between items-center h-12 font-semibold'>
 	<a class='text-lg' href='/'>Home</a>
-	<nav class='nav-menu flex justify-center items-center md:flex gap-4'>
+	<nav class='hidden sm:flex nav-menu justify-center items-center md:flex gap-4'>
 		<DropdownNav />
 		<PageFindSearch />
 
@@ -49,4 +51,24 @@ const SOCIALNETWORKS = [
 			</span>
 		</div>
 	</nav>
+	<button id='astro-header-drawer-button' type='button' class='link ml-6 sm:hidden'>
+		<MenuIcon>
+			<span class='sr-only'>Show Menu</span>
+		</MenuIcon>
+	</button>
+
+	<div
+		id='astro-header-drawer'
+		class='shadow-2xl rounded-l-xl sm:hidden border-2 border-slate-200 bg-white absolute top-12 right-0 z-10 transition-all duration-300 translate-x-96'
+	>
+		<MobileNav />
+	</div>
 </header>
+<script>
+	const menuButton = document.getElementById('astro-header-drawer-button')
+
+	menuButton?.addEventListener('click', () => {
+		const menu = document.getElementById('astro-header-drawer')
+		menu?.classList.toggle('translate-x-96')
+	})
+</script>
