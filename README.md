@@ -61,7 +61,6 @@ https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-4
 - ✅ Share posts (Linkedin, twitter)
 - ✅ Draft mode
 - ✅ Copy code block
-- ✅ Improve of the nav (new)
 
 ## 🛣️ Roadmap
 
