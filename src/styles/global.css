@@ -64,3 +64,7 @@
 	-webkit-backdrop-filter: blur(13px) saturate(150%);
 	z-index: -1;
 }
+
+.shadow {
+	box-shadow: -5px 3px 8px 1px rgba(0, 0, 0, 0.12);
+}

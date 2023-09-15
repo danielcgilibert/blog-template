@@ -2,9 +2,10 @@
 import HeaderLink from '@/components/HeaderLink'
 import TwitterIcon from '@/components/icons/TwitterIcon'
 import GithubIcon from '@/components/icons/GithubIcon'
-import SunIcon from '@/components/icons/SunIcon'
-import MoonIcon from '@/components/icons/MoonIcon'
-import PageFindSearch from '@/components/Search'
+import MenuIcon from './icons/MenuIcon.astro'
+import Search from '@/components/Search'
+import TagIcon from './icons/TagIcon.astro'
+import ToggleTheme from './ToggleTheme.astro'
 
 // ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
@@ -13,6 +14,7 @@ const SOCIALNETWORKS = [
 		url: 'https://github.com/danielcgilibert/blog-template',
 		icon: GithubIcon
 	},
+
 	{
 		name: 'Twitter',
 		url: 'https://github.com/danielcgilibert/blog-template',
@@ -21,27 +23,63 @@ const SOCIALNETWORKS = [
 ]
 ---
 
-<header class='flex justify-between items-center h-12 font-semibold'>
-	<a class='text-lg' href='/'>Home</a>
-	<nav class='nav-menu flex justify-center items-center md:flex gap-4'>
-		{
-			SOCIALNETWORKS.map((network) => (
-				<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
-					<span>{<network.icon />} </span>
-				</HeaderLink>
-			))
-		}
-		<PageFindSearch />
-		<div class='md:ml-3 pl-2.5 border-l-2 flex justify-center items-center gap-2'>
-			<span class='theme relative'>
-				<span class='sun-logo w-fit h-fit opacity-0 transition-transform duration-500'>
-					<SunIcon />
-				</span>
-				<span
-					class='moon-logo w-fit h-fit absolute opacity-0 inset-0 transition-transform duration-500'>
-					<MoonIcon />
-				</span>
-			</span>
+<header class='relative flex items-center h-12 font-semibold'>
+	<a class='text-lg mr-auto' href='/'>Home</a>
+
+	<div
+		id='astro-header-drawer'
+		class='shadow rounded-l-lg md:bg-transparent dark:md:bg-transparent bg-white dark:bg-[#0a0910] md:shadow-none md:rounded-none md:border-none md:h-auto md:static absolute transition-transform duration-300 ease-in translate-x-96 md:translate-x-0 top-12 right-0 pl-4 pt-6 pb-4 md:p-0 h-96 z-50'
+	>
+		<nav
+			class='flex h-full flex-col justify-between gap-12 text-left md:flex-row md:w-full md:gap-5'
+		>
+			<div
+				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white'
+			>
+				<a
+					href='https://docs.astro.build/'
+					rel='prefetch'
+					class='flex items-center gap-1 text-2xl md:text-base'
+				>
+					<span><TagIcon /></span>Tags</a
+				>
+			</div>
+
+			<div class='flex justify-end gap-3 md:p-0'>
+				{
+					SOCIALNETWORKS.map((network) => (
+						<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
+							<span>{<network.icon />} </span>
+						</HeaderLink>
+					))
+				}
+			</div>
+		</nav>
+	</div>
+
+	<div class='flex items-center gap-3 md:pl-3'>
+		<div>
+			<Search />
 		</div>
-	</nav>
+		<ToggleTheme />
+		<button id='astro-header-drawer-button' type='button' class='md:ml-6 md:hidden'>
+			<MenuIcon />
+			<span class='sr-only'>Show Menu</span>
+		</button>
+	</div>
 </header>
+<script>
+	document.addEventListener('click', (event) => {
+		const menu = document.getElementById('astro-header-drawer')
+		const menuButton = document.getElementById('astro-header-drawer-button')
+		const isClickInside =
+			menu?.contains(event.target as HTMLDivElement) ||
+			menuButton?.contains(event.target as HTMLButtonElement)
+
+		if (isClickInside) {
+			menu?.classList.toggle('translate-x-96')
+		} else {
+			menu?.classList.add('translate-x-96')
+		}
+	})
+</script>

@@ -22,7 +22,8 @@ const articleDate = pubDate.toISOString()
 	title={title}
 	description={description}
 	image={heroImage?.src}
-	articleDate={articleDate}>
+	articleDate={articleDate}
+>
 	<article class='md:py-4 max-w-xs sm:max-w-none md:max-w-none'>
 		<header class='mb-3 flex flex-col justify-center items-center gap-6'>
 			<div class='flex flex-col gap-2'>
@@ -54,14 +55,15 @@ const articleDate = pubDate.toISOString()
 						quality={100}
 						format='jpg'
 						loading='eager'
-						class='rounded-md w-full max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
+						class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
 						alt={`img of ${title}`}
 					/>
 				)
 			}
 			<div
 				style='backdrop-filter: blur(25px) saturate(180%);'
-				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-200 bg-gray-200 dark:border-neutral-900 dark:bg-zinc-900 bg-opacity-90'>
+				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-200 bg-gray-200 dark:border-neutral-900 dark:bg-zinc-900 bg-opacity-90'
+			>
 			</div>
 		</div>
 
