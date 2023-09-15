@@ -11,13 +11,13 @@ const {
 ---
 
 <article class='grid grid-rows-[300px_auto] group'>
-	<a class='relative' href={`/post/${slug}/`}
+	<a class='relative effect' href={`/post/${slug}/`}
 		><Image
 			src={heroImage}
 			width={600}
 			height={200}
 			format='webp'
-			class='h-full min-w-full object-cover opacity-0 hover:scale-[101%] transition-all duration-200 rounded-[2px]'
+			class='h-full min-w-full object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]'
 			alt={`img of ${title}`}
 		/>
 
@@ -43,7 +43,8 @@ const {
 			</div>
 
 			<p
-				class='overflow-hidden line-clamp-3 text-gray-700 dark:text-white mb-5 font-[400] md:pr-[15%]'>
+				class='overflow-hidden line-clamp-3 text-gray-700 dark:text-white mb-5 font-[400] md:pr-[15%]'
+			>
 				{description}
 			</p>
 		</div>
@@ -52,7 +53,8 @@ const {
 			<a
 				href={`/post/${slug}/`}
 				class='flex justify-center items-center dark:text-white rounded-full hover:translate-x-1 transition-transform duration-150 ease-in-out font-semibold gap-1 group'
-				aria-label={`go to ${title}`}>
+				aria-label={`go to ${title}`}
+			>
 				Read Post <span
 					class='mt-[1px] group-hover:rotate-45 transition-transform duration-250 ease-in-out'
 					><ArrowUp width='18' height='18' /></span
@@ -72,7 +74,7 @@ const {
 
 		if (showAnimations) {
 			animate(
-				'img',
+				'.effect',
 				{
 					opacity: [0, 1],
 					clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)']
