@@ -59,8 +59,9 @@ https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-4
 - ✅ [Pagefind](https://pagefind.app/) static search library integration
 - ✅ Related posts
 - ✅ Share posts (Linkedin, twitter)
-- ✅ Draft mode (new)
-- ✅ Copy code block (new)
+- ✅ Draft mode
+- ✅ Copy code block
+- ✅ Improve of the nav (new)
 
 ## 🛣️ Roadmap
 
@@ -68,7 +69,6 @@ https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-4
 - ❌ Add customization with colors
 - ❌ Add Pagination
 - ❌ Add filters for reading time, date...
-- ❌ Improve design of the navigation bar and footer
 - ❌ More sharing options
 - ❌ Internationalization (i18n)
 
