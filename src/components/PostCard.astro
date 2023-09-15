@@ -11,13 +11,13 @@ const {
 ---
 
 <article class='grid grid-rows-[300px_auto] group'>
-	<a class='relative' href={`/post/${slug}/`}
+	<a class='relative effect' href={`/post/${slug}/`}
 		><Image
 			src={heroImage}
 			width={600}
 			height={200}
 			format='webp'
-			class='h-full min-w-full object-cover opacity-0 hover:scale-[101%] transition-all duration-200 rounded-[2px]'
+			class='h-full min-w-full object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]'
 			alt={`img of ${title}`}
 		/>
 
@@ -74,7 +74,7 @@ const {
 
 		if (showAnimations) {
 			animate(
-				'img',
+				'.effect',
 				{
 					opacity: [0, 1],
 					clipPath: ['circle(0% at 0% 0%)', 'circle(100% at 50% 50%)']
