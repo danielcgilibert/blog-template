@@ -11,9 +11,10 @@
 				"fields": [
 					{
 						"type": "image",
-						"label": "Hero image",
+						"label": "Cover Image",
 						"required": true,
 						"name": "heroImage",
+						"description": "The image used for the cover of the post",
 						"namespace": ["post", "heroImage"],
 						"searchable": false
 					},
@@ -32,6 +33,7 @@
 						"label": "description",
 						"required": true,
 						"name": "description",
+						"description": "A short description of the post",
 						"namespace": ["post", "description"],
 						"searchable": true
 					},

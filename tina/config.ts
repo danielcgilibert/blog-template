@@ -26,13 +26,13 @@ export default defineConfig({
 				label: 'Blog Post',
 				path: 'src/content/blog',
 				format: 'mdx',
-
 				fields: [
 					{
 						type: 'image',
-						label: 'Hero image',
+						label: 'Cover Image',
 						required: true,
-						name: 'heroImage'
+						name: 'heroImage',
+						description: 'The image used for the cover of the post'
 					},
 
 					{
@@ -47,7 +47,8 @@ export default defineConfig({
 						type: 'string',
 						label: 'description',
 						required: true,
-						name: 'description'
+						name: 'description',
+						description: 'A short description of the post'
 					},
 					{
 						type: 'datetime',
@@ -85,6 +86,7 @@ export default defineConfig({
 						name: 'SButton',
 						isBody: true,
 						templates: [
+							// Custom Components
 							{
 								label: 'Counter',
 								name: 'Counter',
