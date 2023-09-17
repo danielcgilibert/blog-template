@@ -6,8 +6,8 @@ import ListRelatedPosts from '@/components/ListRelatedPosts'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
-const posts = await getCollection('blog')
 
+const posts = await getCollection('blog')
 export async function getStaticPaths() {
 	const posts = await getPosts()
 
@@ -19,12 +19,12 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>
 
 const post = Astro.props
-
+const MAX_POSTS = 3
 const getRelatedPosts = (post: Props) => {
 	const relatedPosts = posts.filter(
 		(p) => p.slug !== post.slug && p.data.tags.some((t) => post.data.tags.includes(t))
 	)
-	return relatedPosts.slice(0, 3)
+	return relatedPosts.slice(0, MAX_POSTS)
 }
 
 const relatedPosts = getRelatedPosts(post)
@@ -42,16 +42,17 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 			</div>
 		</aside>
 
-		<!-- main -->
-		<div class='max-w-full w-full'>
+		<!-- post -->
+		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
 				<Content components={{ pre: Code }} />
 			</div>
 
-			<div>
+			<!-- related posts -->
+			<footer>
 				<h2 class='font-bold text-lg dark:text-white mb-6'>Related Posts</h2>
 				<ListRelatedPosts posts={relatedPosts} />
-			</div>
-		</div>
+			</footer>
+		</article>
 	</div>
 </BlogPost>

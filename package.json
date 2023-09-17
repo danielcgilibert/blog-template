@@ -25,7 +25,7 @@
 		"build": "astro build",
 		"sync": "astro sync",
 		"preview": "astro preview",
-		"postbuild": "pagefind --source dist",
+		"postbuild": "pagefind --site dist",
 		"format:check": "prettier --plugin-search-dir=. --check .",
 		"format": "prettier --plugin-search-dir=. --write .",
 		"lint": "eslint .",

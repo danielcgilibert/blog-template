@@ -2,8 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout'
 import ListPosts from '@/components/ListPosts'
 import ListCategories from '@/components/ListCategories'
-import Shape from '@/components/icons/Shape'
-import { sluglify, unsluglify, getCategories, getPosts } from '@/utils'
+import TitlePage from '@/components/TitlePage'
+import { sluglify, unsluglify, getCategories, filterPostsByCategory } from '@/utils'
 
 const { category } = Astro.params
 
@@ -17,21 +17,11 @@ export async function getStaticPaths() {
 }
 
 const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
-
-const posts = await getPosts()
-const filterPosts = posts.filter(
-	(post) => post.data.category.toLowerCase() === unsluglifyNameCategory
-)
+const filterPosts = await filterPostsByCategory(unsluglifyNameCategory)
 ---
 
 <BaseLayout title={category}>
-	<div class='flex justify-start items-center gap-2'>
-		<Shape />
-		<h1 class='text-5xl font-semibold -tracking-wide first-letter:uppercase'>
-			{unsluglifyNameCategory}
-		</h1>
-	</div>
-
+	<TitlePage title={unsluglifyNameCategory} />
 	<ListCategories activeCategory={category} />
 	<ListPosts posts={filterPosts} />
 </BaseLayout>

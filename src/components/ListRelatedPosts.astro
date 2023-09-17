@@ -11,12 +11,12 @@ type Props = {
 const { posts } = Astro.props
 ---
 
-<section class={cn(`flex flex-col md:flex-row sm:justify-between gap-8  `)}>
+<section class={cn(`flex flex-col md:flex-row sm:justify-between gap-8`)}>
 	{
 		posts.length > 0 ? (
 			posts.map((post) => {
 				return (
-					<div class='flex  gap-2'>
+					<div class='flex flex-wrap gap-2'>
 						<div class='min-h-full'>
 							<Image
 								src={post.data.heroImage}

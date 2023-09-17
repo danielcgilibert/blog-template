@@ -1,7 +1,7 @@
 ---
 import ListCategories from '@/components/ListCategories'
 import ListPosts from '@/components/ListPosts'
-import Shape from '@/components/icons/Shape'
+import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getPosts } from '@/utils'
 
@@ -10,11 +10,7 @@ const posts = await getPosts(MAX_POSTS)
 ---
 
 <BaseLayout title='Home'>
-	<div class='flex justify-start items-center gap-2 title'>
-		<Shape />
-		<h1 class='text-5xl font-semibold -tracking-wide'>Blog title</h1>
-	</div>
-
+	<TitlePage title='Blog Title' />
 	<ListCategories />
 
 	<div>
