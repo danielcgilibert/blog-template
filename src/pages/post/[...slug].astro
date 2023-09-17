@@ -6,6 +6,8 @@ import ListRelatedPosts from '@/components/ListRelatedPosts'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
+import SButton from '@/components/mdx/SButton'
+import Counter from '@/components/mdx/Counter'
 
 const posts = await getCollection('blog')
 export async function getStaticPaths() {
@@ -45,7 +47,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 		<!-- post -->
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code }} />
+				<Content components={{ pre: Code, SButton, Counter }} />
 			</div>
 
 			<!-- related posts -->

@@ -41,6 +41,16 @@ https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-4
 - [**Prettier**](https://prettier.io/) - Code formatter.
 - [**Search Library**](https://pagefind.app/) - Static search library integration.
 - [**Motion**](https://motion.dev/) - Motion One is the smallest fully-featured animation library for the web.
+- [**Tina CMS**](https://tina.io/) - CMS.
+
+## 🦙 Tina CMS
+
+By default, this template comes pre-configured with Tina CMS.
+
+Now you can create your posts directly from the CMS without the need to do it manually.
+Example:
+
+The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 
 ## 💪 Features:
 
@@ -61,6 +71,7 @@ https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-4
 - ✅ Share posts (Linkedin, twitter)
 - ✅ Draft mode
 - ✅ Copy code block
+- ✅ CMS in the repository (Tina CMS)
 
 ## 🛣️ Roadmap
 

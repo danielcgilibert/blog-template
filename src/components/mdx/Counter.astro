@@ -1,0 +1,12 @@
+<span class='counter'>0</span>
+
+<script>
+	const span = document.querySelector('.counter')
+	let counter = 0
+	setInterval(() => {
+		counter++
+		span!.textContent = counter.toString()
+	}, 1000)
+
+	console.log('hola')
+</script>
