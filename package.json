@@ -20,7 +20,7 @@
 		"url": "https://github.com/danielcgilibert/blog-template/issues"
 	},
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "tinacms dev -c 'astro dev'",
 		"start": "astro dev",
 		"build": "astro build",
 		"sync": "astro sync",
@@ -34,7 +34,9 @@
 	},
 	"dependencies": {
 		"@astrojs/rss": "3.0.0",
-		"astro": "3.0.1"
+		"@tinacms/cli": "^1.5.29",
+		"astro": "3.0.1",
+		"tinacms": "^1.5.20"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "1.0.0",
