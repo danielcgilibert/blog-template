@@ -50,6 +50,10 @@ By default, this template comes pre-configured with Tina CMS.
 Now you can create your posts directly from the CMS without the need to do it manually.
 Example:
 
+https://github.com/danielcgilibert/blog-template/assets/44746462/51ae324c-d383-40be-9b16-db159d1af15d
+
+
+
 The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 
 ## 💪 Features:
