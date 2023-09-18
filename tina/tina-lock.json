@@ -80,22 +80,6 @@
 						"isBody": true,
 						"templates": [
 							{
-								"label": "Counter",
-								"name": "Counter",
-								"fields": [
-									{
-										"type": "rich-text",
-										"label": "Counter",
-										"name": "Counter",
-										"isBody": true,
-										"namespace": ["post", "SButton", "Counter", "Counter"],
-										"searchable": true,
-										"parser": { "type": "mdx" }
-									}
-								],
-								"namespace": ["post", "SButton", "Counter"]
-							},
-							{
 								"label": "SButton",
 								"name": "SButton",
 								"fields": [
@@ -1002,17 +986,6 @@
 			},
 			{
 				"kind": "InputObjectTypeDefinition",
-				"name": { "kind": "Name", "value": "PostSButtonCounterFilter" },
-				"fields": [
-					{
-						"kind": "InputValueDefinition",
-						"name": { "kind": "Name", "value": "Counter" },
-						"type": { "kind": "NamedType", "name": { "kind": "Name", "value": "RichTextFilter" } }
-					}
-				]
-			},
-			{
-				"kind": "InputObjectTypeDefinition",
 				"name": { "kind": "Name", "value": "PostSButtonSButtonFilter" },
 				"fields": [
 					{
@@ -1026,14 +999,6 @@
 				"kind": "InputObjectTypeDefinition",
 				"name": { "kind": "Name", "value": "PostSButtonFilter" },
 				"fields": [
-					{
-						"kind": "InputValueDefinition",
-						"name": { "kind": "Name", "value": "Counter" },
-						"type": {
-							"kind": "NamedType",
-							"name": { "kind": "Name", "value": "PostSButtonCounterFilter" }
-						}
-					},
 					{
 						"kind": "InputValueDefinition",
 						"name": { "kind": "Name", "value": "SButton" },

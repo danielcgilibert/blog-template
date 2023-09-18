@@ -13,7 +13,7 @@ type Props = {
 }
 
 const { data, readTime, headings } = Astro.props
-const { title, description, pubDate, updatedDate, heroImage, tags } = data
+const { title, description, pubDate, heroImage, tags } = data
 
 const articleDate = pubDate.toISOString()
 ---
@@ -24,7 +24,7 @@ const articleDate = pubDate.toISOString()
 	image={heroImage?.src}
 	articleDate={articleDate}
 >
-	<article class='md:py-4 max-w-xs sm:max-w-none md:max-w-none'>
+	<article class='min-w-full md:py-4 sm:max-w-none md:max-w-none'>
 		<header class='mb-3 flex flex-col justify-center items-center gap-6'>
 			<div class='flex flex-col gap-2'>
 				<div class='flex items-center justify-center gap-x-1'>
@@ -55,7 +55,7 @@ const articleDate = pubDate.toISOString()
 						quality={100}
 						format='jpg'
 						loading='eager'
-						class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
+						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
 						alt={`img of ${title}`}
 					/>
 				)
@@ -66,14 +66,6 @@ const articleDate = pubDate.toISOString()
 			>
 			</div>
 		</div>
-
-		{
-			updatedDate && (
-				<div class='last-updated-on'>
-					Last updated on <FormattedDate date={updatedDate} />
-				</div>
-			)
-		}
 
 		<hr />
 

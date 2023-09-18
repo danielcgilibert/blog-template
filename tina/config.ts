@@ -88,18 +88,6 @@ export default defineConfig({
 						templates: [
 							// Custom Components
 							{
-								label: 'Counter',
-								name: 'Counter',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'Counter',
-										name: 'Counter',
-										isBody: true
-									}
-								]
-							},
-							{
 								label: 'SButton',
 								name: 'SButton',
 								fields: [

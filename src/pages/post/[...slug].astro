@@ -7,7 +7,6 @@ import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
 import SButton from '@/components/mdx/SButton'
-import Counter from '@/components/mdx/Counter'
 
 const posts = await getCollection('blog')
 export async function getStaticPaths() {
@@ -35,7 +34,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
 <BlogPost data={post.data} headings={headings} readTime={remarkPluginFrontmatter.minutesRead}>
-	<div class='grid grid-cols-1 md:pl-2 md:grid-cols-[20%_auto] gap-16 mt-8'>
+	<div class='grid grid-cols-1 md:grid-cols-[20%_auto] gap-10 mt-8'>
 		<!-- aside  -->
 		<aside class='md:flex flex-col gap-8 hidden'>
 			<Share />
@@ -47,7 +46,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 		<!-- post -->
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, SButton, Counter }} />
+				<Content components={{ pre: Code, SButton }} />
 			</div>
 
 			<!-- related posts -->
