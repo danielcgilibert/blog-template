@@ -3,8 +3,9 @@
 <img src="public/project.png" alt="Screenshot" />
 
 <hr/>
+
 <h3 align="center">
-  ⭐Leave a star if you like this project!⭐️
+ ⭐ Leave a star if you like this project! ⭐️
 </h3>
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanielcgilibert%2Fblog-template)
@@ -12,18 +13,24 @@
 
 </div>
 
-## ✅ Lighthouse Score
 
-<p align="center">
-  <a href="https://pagespeed.web.dev/analysis/https-blog-template-gray-vercel-app/7ovjfewos9?form_factor=mobile">
-    <img width="510" alt="openblog Lighthouse Score" src="public/openblog-lighthouse-score.svg">
-  <a>
-</p>
+## 📌 Table Of Contents
 
-## 🔤 Readme Translations
 
-- [**English**](https://github.com/danielcgilibert/blog-template/blob/main/README.md)
-- [**Español**](https://github.com/danielcgilibert/blog-template/blob/main/README.es.md)
+1. [Demo](#💻-Demo)
+2. [CMS](#🦙-Tina-CMS)
+3. [Features](#💪-Features)
+4. [Roadmap](#🛣️-Roadmap)
+5. [Stack](#⚙️-Stack)
+6. [Running locally](#👨🏻‍💻-Running-Locally)
+7. [Configure](#📐-Configure)
+8. [Categories](#🗂️-Adding-a-category)
+9. [Posts](#📄-Adding-a-post)
+10. [Draft](#📝-Activating-draft-mode)
+11. [FrontMatter](#⚡️-Frontmatter)
+12. [CLI](#🧞-Commands)
+13. [Contributors](#👋-Contributors)
+
 
 ## 💻 Demo
 
@@ -32,22 +39,18 @@ Check out the [Demo](https://blog-template-gray.vercel.app/), hosted on Vercel
 
 https://github.com/danielcgilibert/blog-template/assets/44746462/56b8399e-cc5b-45a8-b9d2-d69833ecadb1
 
-## ⚙️ Stack
-
-- [**ASTRO** + **Typescript**](https://astro.build/) - Astro is the all-in-one web framework designed for speed.
-- [**Tailwind CSS** + **Tailwind-Merge** + **clsx**](https://tailwindcss.com/) - Tailwind CSS is a utility-first CSS framework.
-- [**Tabler Icons**](https://tabler-icons.io/i/) - A open source SVG icons.
-- [**Eslint**](https://eslint.org/) - ESLint is an open source project that helps you find and fix problems.
-- [**Prettier**](https://prettier.io/) - Code formatter.
-- [**Search Library**](https://pagefind.app/) - Static search library integration.
-- [**Motion**](https://motion.dev/) - Motion One is the smallest fully-featured animation library for the web.
-- [**Tina CMS**](https://tina.io/) - CMS.
 
 ## 🦙 Tina CMS
+
+
 
 By default, this template comes pre-configured with Tina CMS.
 
 Now you can create your posts directly from the CMS without the need to do it manually.
+
+If you decide to use Tina, it's not necessary to add any properties to the Markdown files, Tina does it automatically.
+
+
 Example:
 
 https://github.com/danielcgilibert/blog-template/assets/44746462/51ae324c-d383-40be-9b16-db159d1af15d
@@ -56,8 +59,16 @@ https://github.com/danielcgilibert/blog-template/assets/44746462/51ae324c-d383-4
 
 The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 
-## 💪 Features:
+> Tina is completely optional, and you can remove it, and it will still function in the same way.
 
+    
+## 💪 Features:
+<p align="center">
+  <a href="https://pagespeed.web.dev/analysis/https-blog-template-gray-vercel-app/7ovjfewos9?form_factor=mobile">
+    <img width="510" alt="openblog Lighthouse Score" src="public/openblog-lighthouse-score.svg">
+  <a>
+</p>
+    
 - ✅ Minimal styling
 - ✅ Mobile responsive
 - ✅ 100/100 Lighthouse performance
@@ -77,6 +88,8 @@ The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 - ✅ Copy code block
 - ✅ CMS in the repository (Tina CMS)
 
+
+
 ## 🛣️ Roadmap
 
 - ❌ Add post author
@@ -85,6 +98,18 @@ The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 - ❌ Add filters for reading time, date...
 - ❌ More sharing options
 - ❌ Internationalization (i18n)
+
+
+## ⚙️ Stack
+
+- [**ASTRO** + **Typescript**](https://astro.build/) - Astro is the all-in-one web framework designed for speed.
+- [**Tailwind CSS** + **Tailwind-Merge** + **clsx**](https://tailwindcss.com/) - Tailwind CSS is a utility-first CSS framework.
+- [**Tabler Icons**](https://tabler-icons.io/i/) - A open source SVG icons.
+- [**Eslint**](https://eslint.org/) - ESLint is an open source project that helps you find and fix problems.
+- [**Prettier**](https://prettier.io/) - Code formatter.
+- [**Search Library**](https://pagefind.app/) - Static search library integration.
+- [**Motion**](https://motion.dev/) - Motion One is the smallest fully-featured animation library for the web.
+- [**Tina CMS**](https://tina.io/) - CMS.
 
 ## 👨🏻‍💻 Running Locally
 
@@ -110,6 +135,7 @@ pnpm install
 ```bash
 pnpm dev
 ```
+
 
 ## 📐 Configure
 
@@ -161,7 +187,7 @@ draft: true <---
 
 ## ⚡️ Frontmatter
 
-### Required properties:
+## Required properties:
 
 - Title
 - Description
@@ -169,7 +195,7 @@ draft: true <---
 - heroImage (post cover)
 - category (Choose a category from src/data/categories.ts)
 
-### Optional properties:
+## Optional properties:
 
 - draft (no need to include it, by default it's false)
 - tags
