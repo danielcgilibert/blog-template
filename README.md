@@ -17,19 +17,19 @@
 ## 📌 Table Of Contents
 
 
-1. [Demo](#💻-Demo)
-2. [CMS](#🦙-Tina-CMS)
-3. [Features](#💪-Features)
-4. [Roadmap](#🛣️-Roadmap)
-5. [Stack](#⚙️-Stack)
-6. [Running locally](#👨🏻‍💻-Running-Locally)
-7. [Configure](#📐-Configure)
-8. [Categories](#🗂️-Adding-a-category)
-9. [Posts](#📄-Adding-a-post)
-10. [Draft](#📝-Activating-draft-mode)
-11. [FrontMatter](#⚡️-Frontmatter)
-12. [CLI](#🧞-Commands)
-13. [Contributors](#👋-Contributors)
+1. [Demo](#-💻-Demo)
+2. [CMS](#-🦙-Tina-CMS)
+3. [Features](#-💪-Features)
+4. [Roadmap](#-🛣️-Roadmap)
+5. [Stack](#-⚙️-Stack)
+6. [Running locally](#-👨🏻‍💻-Running-Locally)
+7. [Configure](#-📐-Configure)
+8. [Categories](#-🗂️-Adding-a-category)
+9. [Posts](#-📄-Adding-a-post)
+10. [Draft](#-📝-Activating-draft-mode)
+11. [FrontMatter](#-⚡️-Frontmatter)
+12. [CLI](#-🧞-Commands)
+13. [Contributors](#-👋-Contributors)
 
 
 ## 💻 Demo
