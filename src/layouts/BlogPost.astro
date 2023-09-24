@@ -76,73 +76,85 @@ const articleDate = pubDate.toISOString()
 </BaseLayout>
 
 <script is:inline>
-	const img = document.querySelector('img')
-	const placeholder = document.querySelector('.placeholder')
+	function AnimatedImage() {
+		const img = document.querySelector('img')
+		const placeholder = document.querySelector('.placeholder')
 
-	img?.addEventListener('load', () => {
-		img.classList.add('opacity-100')
-		placeholder.classList.add('opacity-0')
-	})
+		img?.addEventListener('load', () => {
+			img.classList.add('opacity-100')
+			placeholder.classList.add('opacity-0')
+		})
+	}
+	AnimatedImage()
+	document.addEventListener('DOMContentLoaded', AnimatedImage)
+	document.addEventListener('astro:after-swap', AnimatedImage)
 </script>
 
 <script>
 	import { animate } from 'motion'
 
-	animate(
-		'.title',
-		{
-			opacity: [0, 1],
-			clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
-		},
-		{ duration: 1, easing: 'ease-in-out' }
-	)
+	function AnimatedTitle() {
+		animate(
+			'.title',
+			{
+				opacity: [0, 1],
+				clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
+			},
+			{ duration: 1, easing: 'ease-in-out' }
+		)
+	}
+
+	AnimatedTitle()
+	document.addEventListener('DOMContentLoaded', AnimatedTitle)
+	document.addEventListener('astro:after-swap', AnimatedTitle)
 </script>
 
 <script>
-	function handleIntersection(
-		entries: IntersectionObserverEntry[],
-		observer: IntersectionObserver
-	) {
-		entries.forEach((entry) => {
-			const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
+	document.addEventListener('astro:after-swap', () => {
+		function handleIntersection(
+			entries: IntersectionObserverEntry[],
+			observer: IntersectionObserver
+		) {
+			entries.forEach((entry) => {
+				const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
 
-			if (entry.isIntersecting) {
-				index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
-				index?.classList.add(
-					'bg-indigo-600',
-					'dark:bg-indigo-700',
-					'text-white',
-					'font-bold',
-					'transition-colors',
-					'duration-200'
-				)
-			} else {
-				index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
-				index?.classList.remove(
-					'bg-indigo-600',
-					'dark:bg-indigo-700',
-					'text-white',
-					'font-bold',
-					'transition-colors',
-					'duration-200'
-				)
-			}
+				if (entry.isIntersecting) {
+					index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
+					index?.classList.add(
+						'bg-indigo-600',
+						'dark:bg-indigo-700',
+						'text-white',
+						'font-bold',
+						'transition-colors',
+						'duration-200'
+					)
+				} else {
+					index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
+					index?.classList.remove(
+						'bg-indigo-600',
+						'dark:bg-indigo-700',
+						'text-white',
+						'font-bold',
+						'transition-colors',
+						'duration-200'
+					)
+				}
+			})
+		}
+		const headings = document.querySelectorAll(
+			'div.prose h1, div.prose h2, div.prose h3, div.prose h4, div.prose h5, div.prose h6'
+		)
+
+		const options = {
+			root: null,
+			rootMargin: ' 15% 0px 0% 0px ',
+			threshold: 1
+		}
+
+		const observer = new IntersectionObserver(handleIntersection, options)
+
+		headings.forEach((heading) => {
+			observer.observe(heading)
 		})
-	}
-
-	const headings = document.querySelectorAll(
-		'div.prose h1, div.prose h2, div.prose h3, div.prose h4, div.prose h5, div.prose h6'
-	)
-
-	const options = {
-		root: null,
-		rootMargin: ' 15% 0px 0% 0px ',
-		threshold: 1
-	}
-
-	const observer = new IntersectionObserver(handleIntersection, options)
-
-	headings.forEach((heading) => {
-		observer.observe(heading)
 	})
 </script>

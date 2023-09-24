@@ -1,11 +1,13 @@
 <script is:inline>
-	if (localStorage.theme === 'light' || !('theme' in localStorage)) {
-		document.documentElement.classList.remove('dark')
-		localStorage.setItem('theme', 'light')
-	} else {
-		document.documentElement.classList.add('dark')
-		localStorage.setItem('theme', 'dark')
-	}
+	document.addEventListener('astro:after-swap', () => {
+		if (localStorage.theme === 'light' || !('theme' in localStorage)) {
+			document.documentElement.classList.remove('dark')
+			localStorage.setItem('theme', 'light')
+		} else {
+			document.documentElement.classList.add('dark')
+			localStorage.setItem('theme', 'dark')
+		}
+	})
 </script>
 
 <script>
