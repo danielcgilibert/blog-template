@@ -1,4 +1,14 @@
-<span
-	class='bg-indigo-600 font-semibold text-white dark:bg-indigo-900 dark:text-white shadow text-sm w-fit px-2 py-1 md:px-5 md:py-2 rounded-full'>
-	<slot />
-</span>
+---
+type Props = {
+	tag: string
+}
+const { tag } = Astro.props
+---
+
+<a href={`/tags/${tag}`} aria-label={tag}>
+	<span
+		class='bg-indigo-600 font-semibold text-white dark:bg-indigo-900 dark:text-white shadow text-sm w-fit px-2 py-1 md:px-5 md:py-2 rounded-full'
+	>
+		{tag ?? 'Blog Tag'}
+	</span>
+</a>
