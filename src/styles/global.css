@@ -42,22 +42,6 @@
 	}
 }
 
-.moon-logo {
-	transform: translateY(0%) rotateZ(0deg);
-}
-
-.sun-logo {
-	transform: translateY(0) rotateZ(0deg);
-}
-
-.animate-sun {
-	transform: translateY(20%) rotateZ(100deg);
-}
-
-.animate-moon {
-	transform: translateY(20%) rotateZ(50deg);
-}
-
 .glass {
 	background: rgba(57, 56, 56, 0.52);
 	backdrop-filter: blur(13px) saturate(150%);
