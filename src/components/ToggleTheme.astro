@@ -3,16 +3,57 @@ import SunIcon from '@/components/icons/SunIcon'
 import MoonIcon from '@/components/icons/MoonIcon'
 ---
 
-<div class='theme relative cursor-pointer'>
-	<span class='sun-logo
-						w-fit
-						h-fit
-						opacity-0
-						transition-transform
-						duration-500'>
-		<SunIcon />
-	</span>
-	<span class='moon-logo w-fit h-fit absolute opacity-0 inset-0 transition-transform duration-500'>
-		<MoonIcon />
-	</span>
-</div>
+<script>
+	class themeToggle extends HTMLElement {
+		constructor() {
+			super()
+			const button = this.querySelector('button') as HTMLButtonElement
+
+			if (button) {
+				button.addEventListener('click', (e) => {
+					if (e.currentTarget instanceof HTMLButtonElement) {
+						let isPressed = e.currentTarget.getAttribute('aria-pressed') === 'true'
+						let themeChangeEvent = new CustomEvent('theme-change', {
+							detail: {
+								theme: isPressed ? 'light' : 'dark'
+							}
+						})
+						// dispatch event -> ThemeProvider.astro
+						document.dispatchEvent(themeChangeEvent)
+						button.setAttribute('aria-pressed', String(!isPressed))
+					}
+				})
+			}
+		}
+	}
+
+	if ('customElements' in window) {
+		customElements.define('theme-toggle', themeToggle)
+	}
+</script>
+
+<theme-toggle class='relative h-6 w-6'>
+	<button id='toggle-theme' class='group'>
+		<span
+			class='absolute left-0 right-0 top-0 opacity-0 transition-all group-aria-pressed:opacity-100'
+		>
+			<SunIcon />
+		</span>
+
+		<span
+			class='absolute left-0 right-0 top-0 opacity-0 transition-transform group-aria-[pressed=false]:opacity-100 group-aria-[pressed=false]:translate-y-0 translate-y-2 group-aria-[pressed=false]:rotate-0 rotate-90 duration-500 ease-linear'
+		>
+			<MoonIcon />
+		</span>
+	</button>
+</theme-toggle>
+
+<script is:inline>
+	const button = document.getElementById('toggle-theme')
+
+	function setButtonPresssed() {
+		const bodyThemeIsDark = document.documentElement.classList.contains('dark')
+		button.setAttribute('aria-pressed', String(bodyThemeIsDark))
+	}
+	setButtonPresssed()
+</script>
