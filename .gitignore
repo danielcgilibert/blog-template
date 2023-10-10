@@ -7,7 +7,7 @@ dist/
 node_modules/
 
 
-
+tina-lock.json
 
 # logs
 npm-debug.log*
