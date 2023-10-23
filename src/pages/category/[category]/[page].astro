@@ -1,0 +1,71 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+import ListPosts from '@/components/ListPosts'
+import ListCategories from '@/components/ListCategories'
+import TitlePage from '@/components/TitlePage'
+import { sluglify, unsluglify, getCategories, filterPostsByCategory, getPosts } from '@/utils'
+import ArrowLeft from '@/components/icons/ArrowLeft'
+import ArrowRight from '@/components/icons/ArrowRight'
+
+export async function getStaticPaths({ paginate }: any) {
+	const categories = await getCategories()
+	const allPosts = await getPosts()
+
+	return categories.flatMap((category: string) => {
+		const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
+		const filteredPosts = allPosts.filter(
+			(post) => post.data.category.toLowerCase() === unsluglifyNameCategory
+		)
+
+		console.log(filteredPosts, 'filteredPosts')
+
+		return paginate(filteredPosts, {
+			params: {
+				category: sluglify(category.toLowerCase())
+			},
+			pageSize: 2
+		})
+	})
+}
+const params = Astro.params
+const { page } = Astro.props
+
+console.log('est', Astro.props)
+console.log(params)
+
+const unsluglifyNameCategory = unsluglify(params.category!.toLowerCase())
+const posts = page.data
+---
+
+<BaseLayout title={params.category}>
+	<TitlePage title={unsluglifyNameCategory} />
+	<ListCategories activeCategory={params.category} />
+	<ListPosts posts={posts} />
+
+	<div class='flex gap-5 md:gap-1 justify-around md:justify-end'>
+		<!-- Previous Button -->
+		{
+			page.start > 0 && (
+				<a
+					href={`${page.currentPage + -1}`}
+					class='flex items-center justify-center px-8 md:px-4 h-10 text-base font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+				>
+					<ArrowLeft />
+				</a>
+			)
+		}
+
+		<!-- Next Button -->
+
+		{
+			page.currentPage < page.lastPage && (
+				<a
+					href={`${page.currentPage + 1}`}
+					class='flex items-center justify-center px-8 md:px-4 h-10 ml-3 text-base font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+				>
+					<ArrowRight />
+				</a>
+			)
+		}
+	</div>
+</BaseLayout>
