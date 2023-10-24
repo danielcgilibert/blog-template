@@ -87,14 +87,13 @@ The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 - ✅ Draft mode
 - ✅ Copy code block
 - ✅ CMS in the repository (Tina CMS)
-
+- ✅ Pagination
 
 
 ## 🛣️ Roadmap
 
 - ❌ Add post author
 - ❌ Add customization with colors
-- ❌ Add Pagination
 - ❌ Add filters for reading time, date...
 - ❌ More sharing options
 - ❌ Internationalization (i18n)
