@@ -3,9 +3,9 @@ import BaseLayout from '@/layouts/BaseLayout'
 import ListPosts from '@/components/ListPosts'
 import ListCategories from '@/components/ListCategories'
 import TitlePage from '@/components/TitlePage'
-import { sluglify, unsluglify, getCategories, filterPostsByCategory, getPosts } from '@/utils'
-import ArrowLeft from '@/components/icons/ArrowLeft'
-import ArrowRight from '@/components/icons/ArrowRight'
+import { sluglify, unsluglify, getCategories, getPosts } from '@/utils'
+import { siteConfig } from '@/data/site.config'
+import Pagination from '@/components/Pagination'
 
 export async function getStaticPaths({ paginate }: any) {
 	const categories = await getCategories()
@@ -17,13 +17,11 @@ export async function getStaticPaths({ paginate }: any) {
 			(post) => post.data.category.toLowerCase() === unsluglifyNameCategory
 		)
 
-		console.log(filteredPosts, 'filteredPosts')
-
 		return paginate(filteredPosts, {
 			params: {
 				category: sluglify(category.toLowerCase())
 			},
-			pageSize: 2
+			pageSize: siteConfig.paginationSize
 		})
 	})
 }
@@ -38,31 +36,5 @@ const posts = page.data
 	<TitlePage title={unsluglifyNameCategory} />
 	<ListCategories activeCategory={params.category} />
 	<ListPosts posts={posts} />
-
-	<div class='flex gap-5 md:gap-1 justify-around md:justify-end'>
-		<!-- Previous Button -->
-		{
-			page.start > 0 && (
-				<a
-					href={`${page.currentPage + -1}`}
-					class='flex items-center justify-center px-8 md:px-4 h-10 text-base font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-transparent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-				>
-					<ArrowLeft />
-				</a>
-			)
-		}
-
-		<!-- Next Button -->
-
-		{
-			page.currentPage < page.lastPage && (
-				<a
-					href={`${page.currentPage + 1}`}
-					class='flex items-center justify-center px-8 md:px-4 h-10 ml-3 text-base font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-transparent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-				>
-					<ArrowRight />
-				</a>
-			)
-		}
-	</div>
+	<Pagination page={page} />
 </BaseLayout>
