@@ -17,7 +17,9 @@
 		localStorage.setItem('theme', newTheme)
 	}
 
+	// set initial theme
 	setTheme(getTheme())
+	document.addEventListener('astro:after-swap', () => setTheme(getTheme()))
 
 	document.addEventListener('theme-change', (e) => {
 		setTheme(e.detail.theme)

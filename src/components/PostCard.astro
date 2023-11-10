@@ -11,7 +11,10 @@ const {
 ---
 
 <article class='grid grid-rows-[300px_auto] md:grid-rows-[300px_220px] min-h-full group'>
-	<a class='relative effect overflow-hidden' href={`/post/${slug}/`}
+	<a
+		class='relative effect overflow-hidden'
+		href={`/post/${slug}/`}
+		transition:name={`media-image-${title}`}
 		><Image
 			src={heroImage}
 			width={600}
