@@ -7,20 +7,24 @@ import CheckIcon from '../icons/CheckIcon.astro'
 	class='relative shadow-2xl bg-black code'><button aria-label="copy-button" class="copy-button absolute  z-20 top-2 right-2  rounded-md transition-all ease-in max-w-full max-h-fit hover:text-indigo-400"><CopyIcon /></button><span class="check-span absolute z-10 top-2 right-2  rounded-md transition-all ease-in opacity-0 text-green-300 max-w-full max-h-fit "><CheckIcon /></span><slot /></pre>
 
 <script>
-	const codeBlock = document.querySelectorAll('pre')
+	const coppyBlock = () => {
+		const codeBlock = document.querySelectorAll('pre')
 
-	codeBlock.forEach((code) => {
-		const button = code.querySelector('.copy-button')
-		const check = code.querySelector('.check-span')
+		codeBlock.forEach((code) => {
+			const button = code.querySelector('.copy-button')
+			const check = code.querySelector('.check-span')
 
-		button!.addEventListener('click', () => {
-			navigator.clipboard.writeText(code.textContent?.trim() || '')
-			check?.classList.remove('opacity-0')
-			button?.classList.add('opacity-0')
-			setTimeout(() => {
-				check?.classList.add('opacity-0')
-				button?.classList.remove('opacity-0')
-			}, 2000)
+			button!.addEventListener('click', () => {
+				navigator.clipboard.writeText(code.textContent?.trim() || '')
+				check?.classList.remove('opacity-0')
+				button?.classList.add('opacity-0')
+				setTimeout(() => {
+					check?.classList.add('opacity-0')
+					button?.classList.remove('opacity-0')
+				}, 2000)
+			})
 		})
-	})
+	}
+	coppyBlock() // initial load
+	document.addEventListener('astro:after-swap', coppyBlock) // re-run after each page change
 </script>

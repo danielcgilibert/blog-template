@@ -7,12 +7,13 @@ import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
 
 type Props = {
+	id: CollectionEntry<'blog'>['id']
 	data: CollectionEntry<'blog'>['data']
 	headings: MarkdownHeading[]
 	readTime: string
 }
 
-const { data, readTime, headings } = Astro.props
+const { data, readTime, headings, id } = Astro.props
 const { title, description, pubDate, heroImage, tags } = data
 
 const articleDate = pubDate.toISOString()
@@ -35,7 +36,7 @@ const articleDate = pubDate.toISOString()
 						- {readTime}
 					</p>
 				</div>
-				<h1 class='title text-center text-4xl md:text-6xl md:pb-2.5 font-semibold opacity-0'>
+				<h1 class='text-center text-4xl md:text-6xl md:pb-2.5 font-semibold'>
 					{title}
 				</h1>
 			</div>
@@ -45,7 +46,7 @@ const articleDate = pubDate.toISOString()
 			</div>
 		</header>
 
-		<div class='relative'>
+		<>
 			{
 				heroImage && (
 					<Image
@@ -55,17 +56,12 @@ const articleDate = pubDate.toISOString()
 						quality={100}
 						format='jpg'
 						loading='eager'
-						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
+						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
 						alt={`img of ${title}`}
 					/>
 				)
 			}
-			<div
-				style='backdrop-filter: blur(25px) saturate(180%);'
-				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-200 bg-gray-200 dark:border-neutral-900 dark:bg-zinc-900 bg-opacity-90'
-			>
-			</div>
-		</div>
+		</>
 
 		<hr />
 
@@ -75,74 +71,55 @@ const articleDate = pubDate.toISOString()
 	</article>
 </BaseLayout>
 
-<script is:inline>
-	const img = document.querySelector('img')
-	const placeholder = document.querySelector('.placeholder')
-
-	img?.addEventListener('load', () => {
-		img.classList.add('opacity-100')
-		placeholder.classList.add('opacity-0')
-	})
-</script>
-
 <script>
-	import { animate } from 'motion'
+	const fnObserver = () => {
+		function handleIntersection(
+			entries: IntersectionObserverEntry[],
+			observer: IntersectionObserver
+		) {
+			entries.forEach((entry) => {
+				const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
 
-	animate(
-		'.title',
-		{
-			opacity: [0, 1],
-			clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
-		},
-		{ duration: 1, easing: 'ease-in-out' }
-	)
-</script>
+				if (entry.isIntersecting) {
+					index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
+					index?.classList.add(
+						'bg-indigo-600',
+						'dark:bg-indigo-700',
+						'text-white',
+						'font-bold',
+						'transition-colors',
+						'duration-200'
+					)
+				} else {
+					index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
+					index?.classList.remove(
+						'bg-indigo-600',
+						'dark:bg-indigo-700',
+						'text-white',
+						'font-bold',
+						'transition-colors',
+						'duration-200'
+					)
+				}
+			})
+		}
 
-<script>
-	function handleIntersection(
-		entries: IntersectionObserverEntry[],
-		observer: IntersectionObserver
-	) {
-		entries.forEach((entry) => {
-			const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
+		const headings = document.querySelectorAll(
+			'div.prose h1, div.prose h2, div.prose h3, div.prose h4, div.prose h5, div.prose h6'
+		)
 
-			if (entry.isIntersecting) {
-				index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
-				index?.classList.add(
-					'bg-indigo-600',
-					'dark:bg-indigo-700',
-					'text-white',
-					'font-bold',
-					'transition-colors',
-					'duration-200'
-				)
-			} else {
-				index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
-				index?.classList.remove(
-					'bg-indigo-600',
-					'dark:bg-indigo-700',
-					'text-white',
-					'font-bold',
-					'transition-colors',
-					'duration-200'
-				)
-			}
+		const options = {
+			root: null,
+			rootMargin: ' 15% 0px 0% 0px ',
+			threshold: 1
+		}
+
+		const observer = new IntersectionObserver(handleIntersection, options)
+
+		headings.forEach((heading) => {
+			observer.observe(heading)
 		})
 	}
-
-	const headings = document.querySelectorAll(
-		'div.prose h1, div.prose h2, div.prose h3, div.prose h4, div.prose h5, div.prose h6'
-	)
-
-	const options = {
-		root: null,
-		rootMargin: ' 15% 0px 0% 0px ',
-		threshold: 1
-	}
-
-	const observer = new IntersectionObserver(handleIntersection, options)
-
-	headings.forEach((heading) => {
-		observer.observe(heading)
-	})
+	fnObserver()
+	document.addEventListener('astro:after-swap', fnObserver)
 </script>

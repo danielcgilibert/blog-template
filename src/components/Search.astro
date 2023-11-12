@@ -86,6 +86,7 @@ import SearchIcon from '@/components/icons/SearchIcon'
 			openBtn.addEventListener('click', openModal)
 			openBtn.disabled = false
 			closeBtn.addEventListener('click', closeModal)
+			document.addEventListener('astro:after-swap', closeModal)
 
 			// Listen for `/` keyboard shortcut
 			window.addEventListener('keydown', (e) => {

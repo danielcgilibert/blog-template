@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from '@/site-config'
 import '../styles/global.css'
+import { ViewTransitions } from 'astro:transitions'
 
 export interface Props {
 	title: string
@@ -18,6 +19,9 @@ const titleSeparator = '•'
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 ---
 
+<!-- ViewTransitions  -->
+<ViewTransitions />
+
 <!-- Global Metadata -->
 <meta charset='utf-8' />
 <meta name='viewport' content='width=device-width,initial-scale=1' />
@@ -29,6 +33,8 @@ const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 
 <!-- Primary Meta Tags -->
 <title>{siteTitle}</title>
+
+<!-- SEO -->
 <meta name='title' content={siteTitle} />
 <meta name='description' content={description} />
 <meta name='author' content={siteConfig.author} />

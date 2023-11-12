@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-	body {
+	/* body {
 		transition: background-color 0.5s ease;
-	}
+	} */
 
 	.prose code {
 		@apply text-base;
