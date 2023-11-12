@@ -7,12 +7,13 @@ import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
 
 type Props = {
+	id: CollectionEntry<'blog'>['id']
 	data: CollectionEntry<'blog'>['data']
 	headings: MarkdownHeading[]
 	readTime: string
 }
 
-const { data, readTime, headings } = Astro.props
+const { data, readTime, headings, id } = Astro.props
 const { title, description, pubDate, heroImage, tags } = data
 
 const articleDate = pubDate.toISOString()
@@ -35,7 +36,7 @@ const articleDate = pubDate.toISOString()
 						- {readTime}
 					</p>
 				</div>
-				<h1 class='articleTitle text-center text-4xl md:text-6xl md:pb-2.5 font-semibold opacity-0'>
+				<h1 class='text-center text-4xl md:text-6xl md:pb-2.5 font-semibold'>
 					{title}
 				</h1>
 			</div>
@@ -45,21 +46,22 @@ const articleDate = pubDate.toISOString()
 			</div>
 		</header>
 
-		{
-			heroImage && (
-				<Image
-					src={heroImage}
-					width={1000}
-					height={500}
-					quality={100}
-					format='jpg'
-					loading='eager'
-					class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover  '
-					alt={`img of ${title}`}
-					transition:name={`media-image-${title}`}
-				/>
-			)
-		}
+		<>
+			{
+				heroImage && (
+					<Image
+						src={heroImage}
+						width={1000}
+						height={500}
+						quality={100}
+						format='jpg'
+						loading='eager'
+						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover  '
+						alt={`img of ${title}`}
+					/>
+				)
+			}
+		</>
 
 		<hr />
 
@@ -80,7 +82,7 @@ const articleDate = pubDate.toISOString()
 
 </script> -->
 
-<script>
+<!-- <script>
 	import { animate } from 'motion'
 	const animateTitle = () => {
 		animate(
@@ -100,7 +102,7 @@ const articleDate = pubDate.toISOString()
 
 		animateTitle()
 	})
-</script>
+</script> -->
 
 <script>
 	const fnObserver = () => {
