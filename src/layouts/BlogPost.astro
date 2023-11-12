@@ -56,7 +56,7 @@ const articleDate = pubDate.toISOString()
 						quality={100}
 						format='jpg'
 						loading='eager'
-						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover  '
+						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
 						alt={`img of ${title}`}
 					/>
 				)
@@ -70,39 +70,6 @@ const articleDate = pubDate.toISOString()
 		</div>
 	</article>
 </BaseLayout>
-
-<!-- <script is:inline>
-	const img = document.querySelector('img')
-	const placeholder = document.querySelector('.placeholder')
-
-		img?.addEventListener('load', () => {
-			img.classList.add('opacity-100')
-			placeholder.classList.add('opacity-0')
-		})
-
-</script> -->
-
-<!-- <script>
-	import { animate } from 'motion'
-	const animateTitle = () => {
-		animate(
-			'.articleTitle',
-			{
-				opacity: [0, 1],
-				clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
-			},
-			{ duration: 1, easing: 'ease-in-out' }
-		)
-	}
-
-	animateTitle()
-
-	document.addEventListener('astro:after-swap', () => {
-		if (document.querySelector('.articleTitle') === null) return
-
-		animateTitle()
-	})
-</script> -->
 
 <script>
 	const fnObserver = () => {
