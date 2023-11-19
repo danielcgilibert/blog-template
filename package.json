@@ -20,7 +20,7 @@
 		"url": "https://github.com/danielcgilibert/blog-template/issues"
 	},
 	"scripts": {
-		"dev": "tinacms dev -c 'astro dev'",
+		"dev": "npx tinacms dev -c \"astro dev\"",
 		"start": "astro dev",
 		"build": "astro build",
 		"sync": "astro sync",
