@@ -10,7 +10,7 @@ const { page } = Astro.props
 	{
 		page.start > 0 && (
 			<a
-				href={`${page.currentPage + -1}`}
+				href={page.url.prev}
 				class='flex items-center justify-center px-8 md:px-4 h-10 text-base font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-transparent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
 			>
 				<ArrowLeft />
@@ -23,7 +23,7 @@ const { page } = Astro.props
 	{
 		page.currentPage < page.lastPage && (
 			<a
-				href={`${page.currentPage + 1}`}
+				href={page.url.next}
 				class='flex items-center justify-center px-8 md:px-4 h-10 ml-3 text-base font-medium text-black bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-transparent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
 			>
 				<ArrowRight />
