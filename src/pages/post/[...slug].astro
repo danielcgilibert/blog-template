@@ -7,6 +7,8 @@ import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
 import { getPosts } from '@/utils'
 import SButton from '@/components/mdx/SButton'
+import Disqus from '@/components/Disqus'
+import { disqusConfig } from '@/data/disqus.config'
 
 const posts = await getCollection('blog')
 export async function getStaticPaths() {
@@ -32,6 +34,8 @@ const getRelatedPosts = (post: Props) => {
 const relatedPosts = getRelatedPosts(post)
 
 const { Content, headings, remarkPluginFrontmatter } = await post.render()
+
+const disqusEnabled = disqusConfig.enabled
 ---
 
 <BlogPost
@@ -57,9 +61,11 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 
 			<!-- related posts -->
 			<footer>
-				<h2 class='font-bold text-lg dark:text-white mb-6'>Related Posts</h2>
+				<h2 class='font-bold text-lg dark:text-white mb-6'>Artículos Relacionados</h2>
 				<ListRelatedPosts posts={relatedPosts} />
 			</footer>
 		</article>
 	</div>
+
+	{disqusEnabled && <Disqus />}
 </BlogPost>
