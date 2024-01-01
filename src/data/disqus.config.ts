@@ -5,5 +5,5 @@ interface DisqusConfig {
 
 export const disqusConfig: DisqusConfig = {
 	enabled: false,
-	shortname: 'sinonimodelucro'
+	shortname: ''
 }
