@@ -15,22 +15,19 @@
 
 ## 📌 Table Of Contents
 
-- [📌 Table Of Contents](#-table-of-contents)
-- [💻 Demo](#-demo)
-- [🦙 Tina CMS](#-tina-cms)
-- [💪 Features:](#-features)
-- [🛣️ Roadmap](#️-roadmap)
-- [⚙️ Stack](#️-stack)
-- [👨🏻‍💻 Running Locally](#-running-locally)
-- [📐 Configure](#-configure)
-- [🗂️ Adding a category](#️-adding-a-category)
-- [📄 Adding a post](#-adding-a-post)
-- [📝 Activating draft mode](#-activating-draft-mode)
-- [⚡️ Frontmatter](#️-frontmatter)
-- [Required properties:](#required-properties)
-- [Optional properties:](#optional-properties)
-- [🧞 Commands](#-commands)
-- [👋 Contributors](#-contributors)
+1. [Demo](#-Demo)
+2. [CMS](#-Tina-CMS)
+3. [Features](#-Features)
+4. [Roadmap](#-Roadmap)
+5. [Stack](#-Stack)
+6. [Running locally](#-Running-Locally)
+7. [Configure](#-Configure)
+8. [Categories](#-Adding-a-category)
+9. [Posts](#-Adding-a-post)
+10. [Draft](#-Activating-draft-mode)
+11. [FrontMatter](#-Frontmatter)
+12. [CLI](#-Commands)
+13. [Contributors](#-Contributors)
 
 ## 💻 Demo
 
