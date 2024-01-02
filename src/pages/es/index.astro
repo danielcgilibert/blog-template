@@ -6,11 +6,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getPosts } from '../../utils'
 import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 
-const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = await getPosts(MAX_POSTS)
-
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const MAX_POSTS = 5 // max number of posts to show on the home page
+const posts = await getPosts(MAX_POSTS, lang)
 ---
 
 <BaseLayout title={t('header.home')}>

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import FormattedDate from '@/components/FormattedDate'
 import ArrowUp from '@/components/icons/ArrowUp'
+import { getLangFromUrl } from 'src/i18n/utils'
 
 const {
 	id,
@@ -9,10 +10,14 @@ const {
 	readTime,
 	slug
 } = Astro.props
+
+const slugWithoutLang = slug.split('/')[1]
+
+const url = `post/${slugWithoutLang}/`
 ---
 
 <article class='grid grid-rows-[300px_auto] md:grid-rows-[300px_220px] min-h-full group'>
-	<a class='relative overflow-hidden' href={`/post/${slug}/`}>
+	<a class='relative overflow-hidden' href={url}>
 		<Image
 			src={heroImage}
 			width={600}
@@ -38,7 +43,7 @@ const {
 	<div class='flex justify-between flex-col gap-4 md:gap-0 py-6 pl-1'>
 		<div class='flex flex-col gap-3'>
 			<div class='flex flex-col gap-2'>
-				<a class='text-2xl font-semibold -tracking-wider' href={`/post/${slug}/`}>
+				<a class='text-2xl font-semibold -tracking-wider' href={url}>
 					{title}
 				</a>
 			</div>
@@ -52,7 +57,7 @@ const {
 
 		<footer class='flex justify-between items-center'>
 			<a
-				href={`/post/${slug}/`}
+				href={url}
 				class='flex justify-center items-center dark:text-white rounded-full hover:translate-x-1 transition-transform duration-150 ease-in-out font-semibold gap-1 group'
 				aria-label={`go to ${title}`}
 			>

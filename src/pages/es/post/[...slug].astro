@@ -10,14 +10,20 @@ import SButton from '@/components/mdx/SButton'
 import Disqus from '@/components/Disqus'
 import { disqusConfig } from '@/data/disqus.config'
 
-const posts = await getCollection('blog')
+const posts = await getCollection('blog', ({ id }) => {
+	return id.startsWith('es/')
+})
 export async function getStaticPaths() {
-	const posts = await getPosts()
+	const pages = await getCollection('blog', ({ id }) => {
+		return id.startsWith('es/')
+	})
 
-	return posts.map((post) => ({
-		params: { slug: post.slug.split('/')[1] },
-		props: post
-	}))
+	const paths = pages.map((page) => {
+		const [lang, ...slug] = page.slug.split('/')
+		return { params: { slug: slug.join('/') || undefined }, props: page }
+	})
+
+	return paths
 }
 type Props = CollectionEntry<'blog'>
 

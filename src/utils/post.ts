@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content'
+import { defaultLang, languages } from 'src/i18n/ui'
 
 export const getCategories = async () => {
 	const posts = await getCollection('blog')
@@ -6,15 +7,19 @@ export const getCategories = async () => {
 	return Array.from(categories)
 }
 
-export const getPosts = async (max?: number) => {
-	return (await getCollection('blog'))
+export const getPosts = async (max?: number, lang = defaultLang) => {
+	return (
+		await getCollection('blog', ({ id }) => {
+			return id.startsWith(lang)
+		})
+	)
 		.filter((post) => !post.data.draft)
 		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 		.slice(0, max)
 }
 
 export const getTags = async () => {
-	const posts = await getCollection('blog')
+	const posts = await getPosts()
 	const tags = new Set()
 	posts.forEach((post) => {
 		post.data.tags.forEach((tag) => {
