@@ -1,10 +1,10 @@
 ---
-import ListCategories from '@/components/ListCategories'
-import ListPosts from '@/components/ListPosts'
-import TitlePage from '@/components/TitlePage'
-import BaseLayout from '@/layouts/BaseLayout'
-import { getPosts } from '@/utils'
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import ListCategories from '../../components/ListCategories.astro'
+import ListPosts from '../../components/ListPosts.astro'
+import TitlePage from '../../components/TitlePage.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getPosts } from '../../utils'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 
 const MAX_POSTS = 5 // max number of posts to show on the home page
 const posts = await getPosts(MAX_POSTS)
