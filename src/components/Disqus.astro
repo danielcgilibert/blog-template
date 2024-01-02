@@ -1,0 +1,19 @@
+---
+import { disqusConfig } from '@/data/disqus.config'
+---
+
+<div class='mx-auto px-6 sm:px-6 max-w-3xl pt-8 md:pt-4 pb-12 md:pb-20'>
+	<div id='disqus_thread'></div>
+	<script define:vars={{ shortname: disqusConfig.shortname }}>
+		var d = document,
+			s = d.createElement('script')
+		s.src = 'https://' + shortname + '.disqus.com/embed.js'
+		s.setAttribute('data-timestamp', String(new Date()))
+		s.setAttribute('data-theme', localStorage.getItem('theme') ?? 'light') // Pass the string value directly
+		;(d.head || d.body).appendChild(s)
+
+		// document.addEventListener('theme-change', (e) => {
+		//   todo: reload disqus
+		// })
+	</script>
+</div>
