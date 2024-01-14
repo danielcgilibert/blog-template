@@ -17,6 +17,9 @@ const socialImageURL = new URL(ogImage ? ogImage : '/open-graph.png', Astro.url)
 const titleSeparator = '•'
 
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
+
+import { join } from 'path'
+import { AstroFont } from 'astro-font'
 ---
 
 <!-- ViewTransitions  -->
@@ -63,3 +66,52 @@ const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 
 <!-- RSS auto-discovery -->
 <link rel='alternate' type='application/rss+xml' title={siteConfig.title} href='/rss.xml' />
+
+<AstroFont
+	config={[
+		{
+			preload: false,
+			display: 'swap',
+			name: 'Manrope',
+			fallback: 'sans-serif',
+			src: [
+				{
+					weight: '200',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-ExtraLight.woff2')
+				},
+				{
+					weight: '300',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-Light.woff2')
+				},
+				{
+					weight: '400',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-Regular.woff2')
+				},
+				{
+					weight: '500',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-Medium.woff2')
+				},
+				{
+					weight: '600',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-SemiBold.woff2')
+				},
+				{
+					weight: '700',
+					preload: true,
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-Bold.woff2')
+				},
+				{
+					weight: '800',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'Manrope-ExtraBold.woff2')
+				}
+			]
+		}
+	]}
+/>
