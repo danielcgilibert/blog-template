@@ -1862,7 +1862,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@15.8.0)
-      dset: 3.1.2
+      dset: 3.1.3
       graphql: 15.8.0
       tslib: 2.6.2
     dev: true
@@ -3943,7 +3943,7 @@ packages:
       graphiql: 3.0.0-alpha.1(@codemirror/language@6.0.0)(graphql@15.8.0)(react-dom@17.0.2)(react@17.0.2)
       graphql: 15.8.0
       monaco-editor: 0.31.0
-      postcss: 8.4.31
+      postcss: 8.4.32
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-router-dom: 6.3.0(react-dom@17.0.2)(react@17.0.2)
@@ -3999,7 +3999,7 @@ packages:
       '@tinacms/metrics': 1.0.2(fs-extra@9.1.0)
       '@tinacms/schema-tools': 1.4.13(react@18.2.0)(yup@0.32.11)
       '@tinacms/search': 1.0.12(react@18.2.0)(yup@0.32.11)
-      '@vitejs/plugin-react': 3.1.0(vite@4.5.0)
+      '@vitejs/plugin-react': 3.1.0(vite@4.5.2)
       ajv: 6.12.6
       altair-express-middleware: 4.0.6
       auto-bind: 4.0.0
@@ -4040,7 +4040,7 @@ packages:
       tinacms: 1.5.22(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
       typanion: 3.13.0
       url-pattern: 1.0.3
-      vite: 4.5.0
+      vite: 4.5.2
       yarn: 1.22.19
       yup: 0.32.11
       zod: 3.22.4
@@ -5339,7 +5339,7 @@ packages:
       clsx: 1.2.1
       jotai: 1.13.1(@babel/core@7.23.6)(react@17.0.2)
       lodash: 4.17.21
-      nanoid: 3.3.6
+      nanoid: 3.3.7
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-hotkeys-hook: 4.4.1(react-dom@17.0.2)(react@17.0.2)
@@ -5380,7 +5380,7 @@ packages:
       clsx: 1.2.1
       jotai: 1.13.1(@babel/core@7.23.6)(react@18.2.0)
       lodash: 4.17.21
-      nanoid: 3.3.6
+      nanoid: 3.3.7
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-hotkeys-hook: 4.4.1(react-dom@18.2.0)(react@18.2.0)
@@ -7668,7 +7668,7 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  /@vitejs/plugin-react@3.1.0(vite@4.5.0):
+  /@vitejs/plugin-react@3.1.0(vite@4.5.2):
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -7679,7 +7679,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.23.2)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.5.0
+      vite: 4.5.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9108,11 +9108,6 @@ packages:
       react: 18.2.0
       react-is: 17.0.2
       tslib: 2.6.2
-    dev: true
-
-  /dset@3.1.2:
-    resolution: {integrity: sha512-g/M9sqy3oHe477Ar4voQxWtaPIFw1jTdKZuomOjhCcBx9nHUNn0pu6NopuFFrTh/TRZIKEj+76vLWFu9BNKk+Q==}
-    engines: {node: '>=4'}
     dev: true
 
   /dset@3.1.3:
@@ -16099,8 +16094,8 @@ packages:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  /vite@4.5.0:
-    resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}
+  /vite@4.5.2:
+    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -16128,7 +16123,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.18.20
-      postcss: 8.4.31
+      postcss: 8.4.32
       rollup: 3.29.4
     optionalDependencies:
       fsevents: 2.3.3
