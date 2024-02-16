@@ -4,7 +4,7 @@ import CheckIcon from '../icons/CheckIcon.astro'
 ---
 
 <pre
-	class='relative shadow-2xl bg-black code'><button aria-label="copy-button" class="copy-button absolute  z-20 top-2 right-2  rounded-md transition-all ease-in max-w-full max-h-fit hover:text-indigo-400"><CopyIcon /></button><span class="check-span absolute z-10 top-2 right-2  rounded-md transition-all ease-in opacity-0 text-green-300 max-w-full max-h-fit "><CheckIcon /></span><slot /></pre>
+	class='shiki shiki-themes relative bg-neutral-200/30 dark:shadow-2xl code'><button aria-label="copy-button" class="copy-button absolute  z-20 top-2 right-2  rounded-md transition-all ease-in max-w-full max-h-fit dark:text-gray-600 text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400"><CopyIcon /></button><span class="check-span absolute z-10 top-2 right-2  rounded-md transition-all ease-in opacity-0 text-green-600 dark:text-green-400 max-w-full max-h-fit "><CheckIcon /></span><slot /></pre>
 
 <script>
 	const coppyBlock = () => {
