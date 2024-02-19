@@ -19,7 +19,10 @@ export default defineConfig({
 		mdx({
 			syntaxHighlight: 'shiki',
 			shikiConfig: {
-				theme: 'material-theme-palenight',
+				experimentalThemes: {
+					light: 'vitesse-light',
+					dark: 'material-theme-palenight',
+				  },
 				wrap: true
 			},
 			drafts: true
