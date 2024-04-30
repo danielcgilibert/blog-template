@@ -56,7 +56,12 @@ import SearchIcon from '@/components/icons/SearchIcon'
 				)
 					closeModal()
 			}
-
+			const handleEscKey = (e: KeyboardEvent) => {
+				if (e.key === 'Escape' && dialog.open) {
+					closeModal()
+					window.removeEventListener('keydown', handleEscKey)
+				} else return
+			}
 			const openModal = (event?: MouseEvent) => {
 				dialog.showModal()
 
@@ -75,12 +80,14 @@ import SearchIcon from '@/components/icons/SearchIcon'
 				this.querySelector('input')?.focus()
 				event?.stopPropagation()
 				window.addEventListener('click', onWindowClick)
+				window.addEventListener('keydown', handleEscKey)
 			}
 
 			const closeModal = () => {
 				dialog.close()
 				document.body.classList.remove('overflow-hidden')
 				window.removeEventListener('click', onWindowClick)
+				window.addEventListener('keydown', handleEscKey)
 			}
 
 			openBtn.addEventListener('click', openModal)
