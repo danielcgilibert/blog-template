@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blog-template-gray.vercel.app/sitemap-index.xml
+Sitemap: https://eduhistoria.vercel.app/sitemap-index.xml
