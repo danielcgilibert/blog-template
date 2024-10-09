@@ -1,17 +1,17 @@
 ---
 import { cn, sluglify } from '@/utils'
 
-const { name = 'View All', activeCategory } = Astro.props
+const { name = 'Ver todo', activeCategory } = Astro.props
 const currentPath = Astro.url.pathname
 const unsluglifyNameCategory = sluglify(name.toLowerCase())
 
 const isActive =
 	activeCategory?.toLocaleLowerCase() === unsluglifyNameCategory ||
-	(currentPath === '/' && name === 'View All')
+	(currentPath === '/' && name === 'Ver todo')
 ---
 
 <a
-	href={name === 'View All' ? '/' : sluglify(`/category/${unsluglifyNameCategory}/1`)}
+	href={name === 'Ver todo' ? '/' : sluglify(`/category/${unsluglifyNameCategory}/1`)}
 	class={cn(
 		`text-gray-600 dark:text-gray-300  pb-2.5 first-letter:uppercase font-medium hover:text-gray-800 border-b-2 border-opacity-0 dark:border-opacity-0 border-black dark:border-white dark:hover:border-white hover:border-opacity-100 transition-colors duration-150 ease-linear  `,
 		isActive &&
