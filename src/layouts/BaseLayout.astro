@@ -31,5 +31,10 @@ const { title, description, image, articleDate } = Astro.props
 				margin-left: calc(100vw - 100%); /* prevent layout shift */
 			}
 		</style>
-	</body>
+	</body><style>
+		html {
+			scrollbar-width: thin;
+			scrollbar-color: rgb(0, 0, 0) rgb(255, 255, 255);
+		}
+	</style>
 </html>
