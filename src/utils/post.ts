@@ -1,11 +1,14 @@
 import { getCollection } from 'astro:content'
+import { CATEGORIES } from '@/data/categories'
 
 export const getCategories = async () => {
 	const posts = await getCollection('blog')
 	const categories = new Set(
 		posts.filter((post) => !post.data.draft).map((post) => post.data.category)
 	)
-	return Array.from(categories)
+	return Array.from(categories).sort((a, b) =>
+		CATEGORIES.indexOf(a) < CATEGORIES.indexOf(b) ? -1 : 1
+	)
 }
 
 export const getPosts = async (max?: number) => {
