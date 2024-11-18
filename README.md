@@ -129,7 +129,6 @@ pnpm dev
 ## 📐 Configure
 
 - Edit the configuration file **src/data/site.config.ts** for the basic blog metadata.
-- Update the **astro.config.mjs** file at the root of the project with your own domain.
 - Modify the files in the **/public** folder:
   - favicon
   - robots.txt -> update the Sitemap url to your own domain

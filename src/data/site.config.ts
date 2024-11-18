@@ -1,4 +1,5 @@
 interface SiteConfig {
+	site: string
 	author: string
 	title: string
 	description: string
@@ -9,7 +10,8 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-	author: 'DanielCG', // Site author
+	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
+	author: 'Your Name', // Site author
 	title: 'Astro Theme OpenBlog', // Site title.
 	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Description to display in the meta tags
 	lang: 'en-GB',
