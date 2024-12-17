@@ -133,7 +133,7 @@ pnpm dev
   - favicon
   - robots.txt -> update the Sitemap url to your own domain
   - open-graph -> the open-graph is the image that will be displayed when sharing the blog link. For posts, the preview image is the post cover.
-- Edit the social networks in the Header component - **src/components/Header.astro**, change the URL to your social network.
+- Edit the social networks in **src/data/links.ts**, change the URL to your social network.
 
 ## 🗂️ Adding a category
 
