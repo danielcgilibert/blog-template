@@ -29,11 +29,14 @@ const params = Astro.params
 const { page } = Astro.props
 
 const unsluglifyNameCategory = unsluglify(params.category!.toLowerCase())
+const categoryName = (await getCategories()).find(
+	(category) => category.toLowerCase() === unsluglifyNameCategory
+)
 const posts = page.data
 ---
 
-<BaseLayout title={params.category}>
-	<TitlePage title={unsluglifyNameCategory} />
+<BaseLayout title={categoryName}>
+	<TitlePage title={categoryName} />
 	<ListCategories activeCategory={params.category} />
 	<ListPosts posts={posts} />
 	<Pagination page={page} />
