@@ -25,7 +25,9 @@ export const getTags = async () => {
 		.filter((post) => !post.data.draft)
 		.forEach((post) => {
 			post.data.tags.forEach((tag) => {
-				tags.add(tag.toLowerCase())
+				if (tag != '') {
+					tags.add(tag.toLowerCase())
+				}
 			})
 		})
 
@@ -48,3 +50,4 @@ export const filterPostsByCategory = async (category: string) => {
 		.filter((post) => !post.data.draft)
 		.filter((post) => post.data.category.toLowerCase() === category)
 }
+
