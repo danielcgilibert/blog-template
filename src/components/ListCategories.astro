@@ -1,12 +1,12 @@
 ---
-import { getCategories } from '@/utils'
 import Category from '@/components/Category'
+import { getCategories } from '@/utils'
 const categories = await getCategories()
 
 const { activeCategory } = Astro.props
 ---
 
-<div class='relative flex flex-wrap min-w-full gap-5'>
+<div class='justify-center mt-12 relative flex flex-wrap min-w-full gap-10'>
 	<Category />
 	{
 		categories.map((category: string) => (

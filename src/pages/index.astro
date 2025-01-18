@@ -1,23 +1,74 @@
 ---
 import ListCategories from '@/components/ListCategories'
 import ListPosts from '@/components/ListPosts'
+
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getPosts } from '@/utils'
 import { siteConfig } from '@/site-config'
 
-const MAX_POSTS = 5 // max number of posts to show on the home page
+const MAX_POSTS = 3 // max number of posts to show on the home page
 const posts = await getPosts(MAX_POSTS)
 ---
 
 <BaseLayout title='Home'>
-	<TitlePage title={siteConfig.title} />
-	<ListCategories />
-
-	<div>
-		<h2 class='text-lg font-medium tracking-wide text-end'>Latest Posts</h2>
-		<ListPosts FirstBig={true} posts={posts} />
+	<div class='home'>
+		<div class='overlay'>
+			<div class=''>
+				<div class='intro display-table'>
+					<div class='display-table-cell'>
+						<div class='text-center'>
+							<h1>Jose Vela</h1>
+							<p class='text-center my-9' aria-label="Hi! I'm a developer">
+								I'm A <span class='typewriter thick'></span>
+							</p>
+							<div class='my-btn'>
+								<a href='#contact' class='main-btn custom-btn mr-8'>Contact Me</a>
+								<a
+									href='https://drive.google.com/file/d/174KjrqbZBOi60N-1JiScRbpo33-SfwU1/view?usp=sharing'
+									class='main-btn'
+									target='_blank'>Download CV</a
+								>
+							</div>
+						</div>
+					</div>
+					<ul class='list-unstyled text-left'>
+						<li>
+							<a
+								href='https://www.linkedin.com/in/jose-vela-333244181/'
+								aria-label='LinkedIn Profile '
+								target='_blank'><i class='fab fa-linkedin'></i></a
+							>
+						</li>
+						<li>
+							<a href='https://github.com/vela91' aria-label='GitHub Profile ' target='_blank'
+								><i class='fab fa-github'></i></a
+							>
+						</li>
+						<li>
+							<a href='https://x.com/vela_code91' aria-label='Twitter Profile ' target='_blank'
+								><i class='fab fa-twitter'></i></a
+							>
+						</li>
+						<li>
+							<a href='https://wa.me/34613353955' aria-label='WhatsApp Contact ' target='_blank'
+								><i class='fab fa-whatsapp'></i></a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
+	<!-- <TitlePage title={siteConfig.title} /> -->
+	<!-- <ListCategories /> -->
+
+	<section class='grif justify-center mx-auto'>
+		<h2 class='font-bold my-8 tracking-wide text-left'>Latest Posts</h2>
+		<!-- <div class="m-x-auto max-w-7xl flex justify-center"> -->
+		<ListPosts FirstBig={false} posts={posts} />
+		<!-- </div> -->
+	</section>
 </BaseLayout>
 
 <script>

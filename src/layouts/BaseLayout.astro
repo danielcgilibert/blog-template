@@ -1,9 +1,9 @@
 ---
 import BaseHead from '@/components/BaseHead'
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ProviderTheme from '@/components/ProviderTheme'
+import Header from '@/components/Header'
 import ProviderAnimations from '@/components/ProviderAnimations'
+import ProviderTheme from '@/components/ProviderTheme'
 import TwSizeIndicator from '@/components/TwSizeIndicator'
 import EditBlog from '@/components/editBlog'
 const { title, description, image, articleDate } = Astro.props
@@ -16,9 +16,9 @@ const { title, description, image, articleDate } = Astro.props
 		<ProviderAnimations />
 	</head>
 
-	<body class='bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white'>
+	<body class='bg-[#263445] dark:text-white'>
 		<main
-			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-6xl grid gap-12 mt-4 overflow-hidden md:overflow-visible'
+			class='px-5 mt-16 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-full grid gap-12 overflow-hidden md:overflow-visible'
 		>
 			<Header />
 			<slot />
