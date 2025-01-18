@@ -1,7 +1,7 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import PostCard from '@/components/PostCard'
 import { cn } from '@/utils'
+import type { CollectionEntry } from 'astro:content'
 
 type Props = {
 	posts: CollectionEntry<'blog'>[]
@@ -13,7 +13,7 @@ const { posts, FirstBig = false } = Astro.props
 
 <section
 	class={cn(
-		`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 mt-3`,
+		`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  justify-center max-w-7xl w-full mx-auto  gap-10 mt-3 `,
 		FirstBig && `md:[&>*:first-child]:col-span-2`
 	)}
 >

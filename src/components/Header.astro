@@ -3,13 +3,15 @@ import HeaderLink from '@/components/HeaderLink'
 import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
 import TagIcon from './icons/TagIcon.astro'
-import ToggleTheme from './ToggleTheme.astro'
+// import ToggleTheme from './ToggleTheme.astro'
 import { SOCIALNETWORKS } from '@/data/links'
 ---
 
-<header class='relative flex items-center h-12 font-semibold'>
-	<a class='text-lg mr-auto' href='/'>Home</a>
-
+<header class='relative px-16 navbar flex items-center h-16 font-semibold'>
+	<div class='mr-auto'>
+		<a class='navbar-brand' href='/'><span>j</span>vela</a>
+		<a class='text-lg mr-auto ml-3' href='/posts'>Blog</a>
+	</div>
 	<div
 		id='astro-header-drawer'
 		class='shadow rounded-l-lg md:bg-transparent dark:md:bg-transparent bg-white dark:bg-[#0a0910] md:shadow-none md:rounded-none md:border-none md:h-auto md:static absolute transition-transform duration-300 ease-in translate-x-96 md:translate-x-0 top-12 -right-5 pl-4 pt-6 pb-4 md:p-0 h-[200px] w-[200px] z-50'
@@ -41,7 +43,7 @@ import { SOCIALNETWORKS } from '@/data/links'
 		<div>
 			<Search />
 		</div>
-		<ToggleTheme />
+		<!-- <ToggleTheme /> -->
 		<button id='astro-header-drawer-button' type='button' class='md:ml-6 md:hidden'>
 			<MenuIcon />
 			<span class='sr-only'>Show Menu</span>
