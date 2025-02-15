@@ -3,12 +3,10 @@ import { CATEGORIES } from '@/data/categories'
 
 export const getCategories = async () => {
 	const posts = await getCollection('blog')
-	const categories = new Set(
+	const usedCategories = new Set(
 		posts.filter((post) => !post.data.draft).map((post) => post.data.category)
 	)
-	return Array.from(categories).sort((a, b) =>
-		CATEGORIES.indexOf(a) < CATEGORIES.indexOf(b) ? -1 : 1
-	)
+	return Object.values(CATEGORIES).filter((category) => usedCategories.has(category.title))
 }
 
 export const getPosts = async (max?: number) => {
@@ -50,4 +48,3 @@ export const filterPostsByCategory = async (category: string) => {
 		.filter((post) => !post.data.draft)
 		.filter((post) => post.data.category.toLowerCase() === category)
 }
-
