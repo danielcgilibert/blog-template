@@ -8,11 +8,7 @@ const { activeCategory } = Astro.props
 
 <div class='relative flex flex-wrap min-w-full gap-5'>
 	<Category />
-	{
-		categories.map((category: string) => (
-			<Category name={category} activeCategory={activeCategory} />
-		))
-	}
+	{categories.map((category) => <Category category={category} activeCategory={activeCategory} />)}
 
 	<div class='hidden sm:block absolute w-full bottom-0 border-b-2 -z-40 dark:border-gray-600'></div>
 </div>
