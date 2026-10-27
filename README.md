@@ -206,6 +206,22 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm run sync`         | Generates TypeScript types for all Astro modules. [Learn more](https://docs.astro.build/en/reference/cli-reference/#astro-sync). |
 | `pnpm run lint`         | Lint with ESLint                                                                                                                 |
 
+## Deploy on Wasmer
+
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=danielcgilibert%2Fblog-template)
+
+[Wasmer Edge](https://docs.wasmer.io/edge/) is a cloud platform for hosting websites and applications. The button imports the public demo; for your own posts and future updates, fork this repository, customize its content and site settings, and import your fork instead.
+
+The [Anybuild configuration](Anybuild) uses Node.js 24 and pnpm 8.15.9 to build and serve the static `dist` directory, including the Pagefind search index. To reproduce the build locally:
+
+```sh
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm rebuild esbuild sharp
+pnpm run build
+```
+
+The install skips lifecycle scripts for TinaCMS's older native database dependency, then rebuilds the packages used by the static site. This deployment serves the published blog only; TinaCMS editing requires a separate setup.
+
 ## 👋 Contributors
 
 <a href="https://github.com/danielcgilibert/blog-template/graphs/contributors">

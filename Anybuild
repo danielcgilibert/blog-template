@@ -1,0 +1,19 @@
+load("//anybuild/tools:node_static.bzl", "nodestatic_build", "nodestatic_config")
+load("//anybuild/tools:staticfile.bzl", "staticfile_serve")
+
+config = nodestatic_config(
+    schema = 1,
+    node_package_manager = "pnpm",
+    pnpm_version = "8.15.9",
+    node_version = "24",
+    node_framework = "astro",
+    node_install_requires_all_files = True,
+    commands = {
+        "install": "pnpm install --frozen-lockfile --ignore-scripts && pnpm rebuild esbuild sharp",
+    },
+    node_build_command = "pnpm run build",
+    static_dir = "dist",
+)
+
+build = nodestatic_build(config)
+staticfile_serve(config, build, provider = "node-static")
